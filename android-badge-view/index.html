@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android自定义小红点BadgeView | Skyler&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="想全局统一个小红点样式，总是改了这个忘了其他的，而且小红点格式各样，总是满足不了自己的需求，所以心血来潮自己自定义View onDraw了一个。 可前往查看GitHub源码. 效果就是这样….  一定要记得在attrs.xml 项目中添加 123456789101112131415161718192021222324252627282930313233&amp;lt;?xml version=&quot;1.0&quot;">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android自定义小红点BadgeView">
+<meta property="og:url" content="http://yoursite.com/android-badge-view/index.html">
+<meta property="og:site_name" content="Skyler&#39;s Blog">
+<meta property="og:description" content="想全局统一个小红点样式，总是改了这个忘了其他的，而且小红点格式各样，总是满足不了自己的需求，所以心血来潮自己自定义View onDraw了一个。 可前往查看GitHub源码. 效果就是这样….  一定要记得在attrs.xml 项目中添加 123456789101112131415161718192021222324252627282930313233&amp;lt;?xml version=&quot;1.0&quot;">
+<meta property="og:image" content="http://7xpdkx.com1.z0.glb.clouddn.com/gif/blog/BadgeView_preview.gif">
+<meta property="og:updated_time" content="2017-10-10T15:53:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android自定义小红点BadgeView">
+<meta name="twitter:description" content="想全局统一个小红点样式，总是改了这个忘了其他的，而且小红点格式各样，总是满足不了自己的需求，所以心血来潮自己自定义View onDraw了一个。 可前往查看GitHub源码. 效果就是这样….  一定要记得在attrs.xml 项目中添加 123456789101112131415161718192021222324252627282930313233&amp;lt;?xml version=&quot;1.0&quot;">
+<meta name="twitter:image" content="http://7xpdkx.com1.z0.glb.clouddn.com/gif/blog/BadgeView_preview.gif">
+  
+    <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.ico">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Skyler Hu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pains, No gains!</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+				<li><a href="/links">链接们</a></li>
+	        
+				<li><a href="/about">关于</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+		        
+					<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Skyler Hu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Skyler Hu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pains, No gains!</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/links">链接们</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-android-badge-view" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android自定义小红点BadgeView
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>想全局统一个小红点样式，总是改了这个忘了其他的，而且小红点格式各样，总是满足不了自己的需求，所以心血来潮自己自定义View onDraw了一个。</p>
+<p>可前往查看<a href="https://github.com/SkylerHu/BadgeView" target="_blank" rel="external">GitHub源码</a>.</p>
+<p>效果就是这样….</p>
+<p><img src="http://7xpdkx.com1.z0.glb.clouddn.com/gif/blog/BadgeView_preview.gif" alt="BadgeView_preview.gif"></p>
+<p>一定要记得在<code>attrs.xml</code> 项目中添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">declare-styleable</span> <span class="attr">name</span>=<span class="string">"BadgeView"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"iconSrc"</span> <span class="attr">format</span>=<span class="string">"reference"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"iconWidth"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"iconHeight"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></div><div class="line">        <span class="comment">&lt;!--若是icon是正方形的,可直接设置这个参数--&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"iconSize"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"text"</span> <span class="attr">format</span>=<span class="string">"string"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"textSize"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"textColor"</span> <span class="attr">format</span>=<span class="string">"color"</span>/&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"badgeNum"</span> <span class="attr">format</span>=<span class="string">"integer"</span>/&gt;</span></div><div class="line">        <span class="comment">&lt;!--是否显示数字, 为false时只显示小红点; 没有数字时,小红点的大小通过badgeSize设置--&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"showNum"</span> <span class="attr">format</span>=<span class="string">"boolean"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"badgeBackgroundColor"</span> <span class="attr">format</span>=<span class="string">"color"</span>/&gt;</span></div><div class="line">        <span class="comment">&lt;!--限制设置小红点的大小不能超过数字显示模式(代码中也做了限制); 显示在文字模式大小的左下角;--&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 不显示数字时, 小红点的大小, 不包括边线--&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"badgeRedSize"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"badgeNumSize"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"badgeNumColor"</span> <span class="attr">format</span>=<span class="string">"color"</span>/&gt;</span></div><div class="line">        <span class="comment">&lt;!--若小红点有边缘线,加上边缘线--&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"badgeBorderColor"</span> <span class="attr">format</span>=<span class="string">"color"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"badgeBorderWidth"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></div><div class="line">        <span class="comment">&lt;!--badge相对于主体右上角的相对位置, 重叠的部分的大小; 可以设置负值--&gt;</span></div><div class="line">        <span class="comment">&lt;!--默认是( badgeHeight/2 ), 正好覆盖一个角--&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"badgeBottom"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"badgeLeft"</span> <span class="attr">format</span>=<span class="string">"dimension"</span>/&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 有些设计要求未读前面加"+", (至少我们设计师这么设计) 显示成 +1/+34/+99--&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"badgeNumPre"</span> <span class="attr">format</span>=<span class="string">"string"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">declare-styleable</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="主要代码如下："><a href="#主要代码如下：" class="headerlink" title="主要代码如下："></a>主要代码如下：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div><div class="line">387</div><div class="line">388</div><div class="line">389</div><div class="line">390</div><div class="line">391</div><div class="line">392</div><div class="line">393</div><div class="line">394</div><div class="line">395</div><div class="line">396</div><div class="line">397</div><div class="line">398</div><div class="line">399</div><div class="line">400</div><div class="line">401</div><div class="line">402</div><div class="line">403</div><div class="line">404</div><div class="line">405</div><div class="line">406</div><div class="line">407</div><div class="line">408</div><div class="line">409</div><div class="line">410</div><div class="line">411</div><div class="line">412</div><div class="line">413</div><div class="line">414</div><div class="line">415</div><div class="line">416</div><div class="line">417</div><div class="line">418</div><div class="line">419</div><div class="line">420</div><div class="line">421</div><div class="line">422</div><div class="line">423</div><div class="line">424</div><div class="line">425</div><div class="line">426</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BadgeView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">////可设置部分 start///////////////////////////////////////////////</span></div><div class="line">    <span class="comment">// 主体部分的设置  icon</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> iconSrc;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> iconWidth;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> iconHeight;</div><div class="line">    <span class="comment">// 没有icon 就是文字描述了; icon的优先级比text高</span></div><div class="line">    <span class="keyword">private</span> String text;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> textColor;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> textSize;</div><div class="line"></div><div class="line">    <span class="comment">// 未读数; 在显示的时候 未读数默认显示形式9/23/99+</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> badgeNum;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> badgeBackgroundColor;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> badgeNumColor;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> badgeNumSize;</div><div class="line">    <span class="comment">// 是否显示数字, 默认显示小红点</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> showNum;</div><div class="line">    <span class="comment">// 不显示数字时, 小红点的大小, 不包括边线</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> badgeRedSize;</div><div class="line">    <span class="comment">// 边线, 有些小红点外边有白边, 若是设置了宽度,则会添加边线; 边线算在Badge整个的大小当中</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> badgeBorderWidth;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> badgeBorderColor;</div><div class="line">    <span class="comment">// 有些设计要求未读前面加"+", (至少我们设计师这么设计) 显示成 +1/+34/+99</span></div><div class="line">    <span class="keyword">private</span> String badgeNumPre;</div><div class="line">    <span class="comment">// badge的左下角 相对于 text/icon 右上角的相对位置,</span></div><div class="line">    <span class="comment">// 默认是( badgeHeight/2 ), 正好覆盖一个角</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> badgeBottom;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> badgeLeft;</div><div class="line">    <span class="comment">// 是否自己设置了</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> hasBadgeBottomAttr;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> hasBadgeLeftAttr;</div><div class="line"></div><div class="line">    <span class="comment">// view设置的padding</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> viewPaddingLeft;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> viewPaddingTop;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> viewPaddingRight;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> viewPaddingBootom;</div><div class="line">    <span class="comment">////可设置部分 end///////////////////////////////////////////////</span></div><div class="line"></div><div class="line">    <span class="comment">// 小红点真实大小 比 文本 的margin(不包括白边)</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BADGE_TEXT_MARGIN_LEFT = <span class="number">10</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BADGE_TEXT_MARGIN_TOP = <span class="number">6</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BADGE_TEXT_MARGIN_RIGHT = <span class="number">10</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BADGE_TEXT_MARGIN_BOOTOM = <span class="number">6</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 可以设置padding</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> VIEW_PADDING = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="comment">////以下是辅助变量///////////////////////////////////////////////</span></div><div class="line">    <span class="comment">// 整个View的真实大小</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> viewHeight;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> viewWidth;</div><div class="line">    <span class="comment">// 内容所占的大小, 内容居中</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> viewMinHeight;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> viewMinWidth;</div><div class="line">    <span class="comment">// 小红点有向右突出部分,为保证主体部分水平居中, 需要设置两边的margin</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mainMarginHorizontal;</div><div class="line">    <span class="comment">// 小红点有向上突出部分,就算没有未读数,也需要预留出位置, 设置Top即可</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mainMarginTop;</div><div class="line">    <span class="comment">// 描述文字或者icon的宽高</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mainWidth;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mainHeight;</div><div class="line">    <span class="comment">// badge的整体宽高</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> badgeHeight;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> badgeWidth;</div><div class="line">    <span class="comment">// badgeNum/小红点 的真实宽高</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> badgeNumHeight;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> badgeNumWidth;</div><div class="line">    <span class="comment">// icon</span></div><div class="line">    <span class="keyword">private</span> Bitmap iconBitmap;</div><div class="line">    <span class="comment">// 未读数显示的文案; 未读数默认显示形式9/23/99+</span></div><div class="line">    <span class="keyword">private</span> String showUneadText;</div><div class="line"></div><div class="line">    <span class="comment">// 画笔</span></div><div class="line">    <span class="keyword">private</span> Paint contentPaint;</div><div class="line">    <span class="keyword">private</span> TextPaint textPaint;</div><div class="line">    <span class="keyword">private</span> TextPaint badgeNumPaint;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BadgeView</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, <span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BadgeView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        init(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BadgeView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</div><div class="line">        init(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.BadgeView);</div><div class="line"></div><div class="line">        iconSrc = array.getResourceId(R.styleable.BadgeView_iconSrc, <span class="number">0</span>);</div><div class="line">        <span class="keyword">float</span> iconSize = array.getDimension(R.styleable.BadgeView_iconSize, dip2px(<span class="number">30</span>));</div><div class="line">        iconWidth = array.getDimension(R.styleable.BadgeView_iconWidth, iconSize);</div><div class="line">        iconHeight = array.getDimension(R.styleable.BadgeView_iconHeight, iconSize);</div><div class="line"></div><div class="line">        text = array.getString(R.styleable.BadgeView_text);</div><div class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(text)) &#123;</div><div class="line">            text = <span class="string">"Hello World"</span>;</div><div class="line">        &#125;</div><div class="line">        textColor = array.getColor(R.styleable.BadgeView_textColor, Color.BLACK);</div><div class="line">        textSize = array.getDimension(R.styleable.BadgeView_textSize, sp2px(<span class="number">16</span>));</div><div class="line"></div><div class="line">        badgeNum = array.getInteger(R.styleable.BadgeView_badgeNum, <span class="number">0</span>);</div><div class="line">        badgeBackgroundColor = array.getColor(R.styleable.BadgeView_badgeBackgroundColor, Color.rgb(<span class="number">0xFF</span>, <span class="number">0x76</span>, <span class="number">0x90</span>));</div><div class="line">        badgeNumColor = array.getColor(R.styleable.BadgeView_badgeNumColor, Color.WHITE);</div><div class="line">        badgeNumSize = array.getDimension(R.styleable.BadgeView_badgeNumSize, sp2px(<span class="number">10</span>));</div><div class="line">        badgeNumSize = array.getDimension(R.styleable.BadgeView_badgeNumSize, sp2px(<span class="number">10</span>));</div><div class="line">        showNum = array.getBoolean(R.styleable.BadgeView_showNum, <span class="keyword">true</span>);</div><div class="line">        badgeRedSize = array.getDimension(R.styleable.BadgeView_badgeRedSize, dip2px(<span class="number">8</span>));</div><div class="line">        badgeBorderColor = array.getColor(R.styleable.BadgeView_badgeBorderColor, Color.WHITE);</div><div class="line">        badgeBorderWidth = array.getDimension(R.styleable.BadgeView_badgeBorderWidth, <span class="number">0</span>);</div><div class="line">        <span class="keyword">if</span> (badgeBorderWidth &lt; <span class="number">0</span>) &#123;</div><div class="line">            badgeBorderWidth = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        badgeNumPre = array.getString(R.styleable.BadgeView_badgeNumPre);</div><div class="line"></div><div class="line">        <span class="comment">// 初始化badgeNum的画笔</span></div><div class="line">        badgeNumPaint = <span class="keyword">new</span> TextPaint();</div><div class="line">        badgeNumPaint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line">        badgeNumPaint.setColor(badgeNumColor);</div><div class="line">        badgeNumPaint.setTextSize(badgeNumSize);</div><div class="line">        badgeNumPaint.setTextAlign(Paint.Align.CENTER);</div><div class="line">        <span class="comment">// 计算 未读数的高度</span></div><div class="line">        String minBadge = getUnreadText(<span class="number">0</span>);</div><div class="line">        Rect minBadgeRect = <span class="keyword">new</span> Rect();</div><div class="line">        badgeNumPaint.getTextBounds(minBadge, <span class="number">0</span>, minBadge.length(), minBadgeRect);</div><div class="line">        <span class="comment">// 计算badge的高度</span></div><div class="line">        badgeNumHeight = minBadgeRect.height();</div><div class="line">        badgeHeight = badgeNumHeight + BADGE_TEXT_MARGIN_TOP + BADGE_TEXT_MARGIN_BOOTOM + badgeBorderWidth * <span class="number">2</span>;</div><div class="line">        <span class="comment">// 限制设置小红点的大小不能超过数字显示模式; 显示在文字模式大小的左下角</span></div><div class="line">        <span class="keyword">if</span> (badgeRedSize &gt; badgeNumHeight + BADGE_TEXT_MARGIN_TOP + BADGE_TEXT_MARGIN_BOOTOM) &#123;</div><div class="line">            badgeRedSize = badgeNumHeight + BADGE_TEXT_MARGIN_TOP + BADGE_TEXT_MARGIN_BOOTOM;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 获取位置</span></div><div class="line">        hasBadgeBottomAttr = array.hasValue(R.styleable.BadgeView_badgeBottom);</div><div class="line">        hasBadgeLeftAttr = array.hasValue(R.styleable.BadgeView_badgeLeft);</div><div class="line">        badgeBottom = array.getDimension(R.styleable.BadgeView_badgeBottom, <span class="number">0</span>);</div><div class="line">        badgeLeft = array.getDimension(R.styleable.BadgeView_badgeLeft,  <span class="number">0</span>);</div><div class="line">        <span class="comment">//关闭清空TypedArray</span></div><div class="line">        array.recycle();</div><div class="line"></div><div class="line">        <span class="comment">// 初始化主体文字描述的画笔</span></div><div class="line">        textPaint = <span class="keyword">new</span> TextPaint();</div><div class="line">        textPaint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line">        textPaint.setColor(textColor);</div><div class="line">        textPaint.setTextSize(textSize);</div><div class="line">        textPaint.setTextAlign(Paint.Align.CENTER);</div><div class="line"></div><div class="line">        contentPaint = <span class="keyword">new</span> Paint();</div><div class="line">        contentPaint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBadgeNum</span><span class="params">(<span class="keyword">int</span> badgeNum)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.badgeNum = badgeNum;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setShowNum</span><span class="params">(<span class="keyword">boolean</span> isShow)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.showNum = isShow;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIconSrc</span><span class="params">(<span class="keyword">int</span> res)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.iconSrc = res;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBadgeLocation</span><span class="params">(<span class="keyword">float</span> bottom, <span class="keyword">float</span> left)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.badgeBottom = bottom;</div><div class="line">        <span class="keyword">this</span>.badgeLeft = left;</div><div class="line">        hasBadgeBottomAttr = <span class="keyword">true</span>;</div><div class="line">        hasBadgeLeftAttr = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 重新计算绘制这个View</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">redraw</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 需要重新计算高宽,所以用这个</span></div><div class="line">        requestLayout();</div><div class="line"><span class="comment">//        invalidate();</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (viewWidth != viewMinWidth || viewHeight != viewMinHeight) &#123;</div><div class="line">            canvas.save();</div><div class="line">            <span class="comment">// 若是设置的高宽大于所需要的高宽, 对画布进行操作</span></div><div class="line">            <span class="keyword">float</span> paddingLeft = viewPaddingLeft + (viewWidth - viewPaddingLeft - viewPaddingRight - viewMinWidth) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">float</span> paddingTop = viewPaddingTop + (viewHeight -viewPaddingTop -viewPaddingBootom - viewMinHeight) / <span class="number">2</span>;</div><div class="line">            <span class="comment">// 移动布局, 改变原点</span></div><div class="line">            canvas.translate(paddingLeft, paddingTop);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        onDrawContent(canvas);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (viewWidth != viewMinWidth || viewHeight != viewMinHeight) &#123;</div><div class="line">            canvas.restore();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 绘制整个内容</div><div class="line">     * <span class="doctag">@param</span> canvas</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">onDrawContent</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (iconSrc != <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">// 画icon</span></div><div class="line">            canvas.drawBitmap(iconBitmap, mainMarginHorizontal + (mainWidth - iconWidth) / <span class="number">2</span>, mainMarginTop + (mainHeight - iconHeight) / <span class="number">2</span>, contentPaint);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 写text, 文字是居中的</span></div><div class="line">            canvas.drawText(text, viewMinWidth / <span class="number">2</span>, viewMinHeight, textPaint);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (badgeNum &gt; <span class="number">0</span>) &#123;</div><div class="line">            canvas.save();</div><div class="line">            <span class="comment">// 移动布局, 改变原点</span></div><div class="line">            canvas.translate(viewMinWidth - badgeWidth, <span class="number">0</span>);</div><div class="line"></div><div class="line">            oDrawBadge(canvas);</div><div class="line"></div><div class="line">            canvas.restore();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">oDrawBadge</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="comment">// 若有小红点有边缘线, 画边缘线</span></div><div class="line">        <span class="keyword">if</span> (badgeBorderWidth &gt; <span class="number">0</span>) &#123;</div><div class="line">            contentPaint.setStyle(Paint.Style.STROKE);</div><div class="line">            contentPaint.setColor(badgeBorderColor);</div><div class="line">            contentPaint.setStrokeWidth(badgeBorderWidth);</div><div class="line">            <span class="keyword">if</span> (!showNum) &#123;</div><div class="line">                <span class="comment">// 不显示数字</span></div><div class="line">                canvas.drawCircle(badgeWidth / <span class="number">2</span>, badgeHeight - badgeRedSize / <span class="number">2</span> - badgeBorderWidth, badgeRedSize / <span class="number">2</span>, contentPaint);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (badgeWidth == badgeHeight) &#123;</div><div class="line">                <span class="comment">// 显示是字符串长度为1时, 为正圆</span></div><div class="line">                canvas.drawCircle(badgeWidth / <span class="number">2</span>, badgeHeight / <span class="number">2</span>, badgeWidth / <span class="number">2</span>, contentPaint);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">// 椭圆</span></div><div class="line">                Path borderPath = <span class="keyword">new</span> Path();</div><div class="line">                borderPath.addArc(<span class="keyword">new</span> RectF(<span class="number">0</span>, <span class="number">0</span>, badgeHeight, badgeHeight), <span class="number">90</span>, <span class="number">180</span>);</div><div class="line">                borderPath.lineTo(badgeWidth - badgeHeight / <span class="number">2</span>, <span class="number">0</span>);</div><div class="line">                borderPath.addArc(<span class="keyword">new</span> RectF(badgeWidth - badgeHeight, <span class="number">0</span>, badgeWidth, badgeHeight), <span class="number">270</span>, <span class="number">180</span>);</div><div class="line">                borderPath.lineTo(badgeHeight / <span class="number">2</span>, badgeHeight);</div><div class="line">                canvas.drawPath(borderPath, contentPaint);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        contentPaint.setColor(badgeBackgroundColor);</div><div class="line">        contentPaint.setStyle(Paint.Style.FILL);</div><div class="line">        <span class="keyword">if</span> (showNum) &#123;</div><div class="line">            <span class="comment">// 绘制红色背景图</span></div><div class="line">            Path path = <span class="keyword">new</span> Path();</div><div class="line">            path.addArc(<span class="keyword">new</span> RectF(badgeBorderWidth, badgeBorderWidth, badgeHeight - badgeBorderWidth, badgeHeight - badgeBorderWidth), <span class="number">90</span>, <span class="number">180</span>);</div><div class="line">            path.lineTo(badgeWidth - badgeHeight / <span class="number">2</span> + badgeBorderWidth, badgeBorderWidth);</div><div class="line">            path.addArc(<span class="keyword">new</span> RectF(badgeWidth - badgeHeight + badgeBorderWidth, badgeBorderWidth, badgeWidth - badgeBorderWidth, badgeHeight - badgeBorderWidth), <span class="number">270</span>, <span class="number">180</span>);</div><div class="line">            path.lineTo(badgeHeight / <span class="number">2</span> - badgeBorderWidth, badgeHeight - badgeBorderWidth);</div><div class="line">            canvas.drawPath(path, contentPaint);</div><div class="line">            <span class="comment">// 写上数字</span></div><div class="line">            canvas.drawText(showUneadText, badgeWidth / <span class="number">2</span>, badgeHeight - BADGE_TEXT_MARGIN_BOOTOM - badgeBorderWidth, badgeNumPaint);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 画实心圆</span></div><div class="line">            canvas.drawCircle(badgeRedSize / <span class="number">2</span> + badgeBorderWidth, badgeHeight - badgeRedSize / <span class="number">2</span> - badgeBorderWidth, badgeRedSize / <span class="number">2</span>, contentPaint);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">intParams</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 初始化主体的一些数据</span></div><div class="line">        <span class="keyword">if</span> (iconSrc != <span class="number">0</span>) &#123;</div><div class="line">            mainHeight = iconHeight;</div><div class="line">            mainWidth = iconWidth;</div><div class="line">            <span class="keyword">if</span> (iconBitmap == <span class="keyword">null</span>) &#123;</div><div class="line">                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), iconSrc);</div><div class="line">                <span class="comment">// 缩放图片</span></div><div class="line">                <span class="keyword">int</span> width = bitmap.getWidth();</div><div class="line">                <span class="keyword">int</span> height = bitmap.getHeight();</div><div class="line">                <span class="comment">// 保证icon的scaleType="fitCenter"</span></div><div class="line">                <span class="comment">// 获取图片的长边</span></div><div class="line">                <span class="keyword">float</span> length = width &gt; height ? width : height;</div><div class="line">                <span class="comment">// 获取外框的最小边</span></div><div class="line">                <span class="keyword">float</span> size = iconWidth &gt; iconHeight ? iconHeight : iconWidth;</div><div class="line">                <span class="comment">// 让图片按照长边进行缩放</span></div><div class="line">                <span class="keyword">float</span> scale = size / length;</div><div class="line">                Matrix matrix = <span class="keyword">new</span> Matrix();</div><div class="line">                matrix.postScale(scale, scale);</div><div class="line">                iconBitmap = Bitmap.createBitmap(bitmap, <span class="number">0</span>, <span class="number">0</span>, width, height, matrix, <span class="keyword">true</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// 因为icon是fitCenter, 所以有真实大小</span></div><div class="line">            iconWidth = iconBitmap.getWidth();</div><div class="line">            iconHeight = iconBitmap.getHeight();</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 字符描述文字的大小</span></div><div class="line">            Rect descRect = <span class="keyword">new</span> Rect();</div><div class="line">            textPaint.getTextBounds(text, <span class="number">0</span>, text.length(), descRect);</div><div class="line">            mainWidth = descRect.width();</div><div class="line">            mainHeight = descRect.height();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 初始化Badge的数据</span></div><div class="line">        <span class="keyword">if</span> (showNum) &#123;</div><div class="line">            showUneadText = getUnreadText(badgeNum);</div><div class="line">            Rect badgeRect = <span class="keyword">new</span> Rect();</div><div class="line">            badgeNumPaint.getTextBounds(showUneadText, <span class="number">0</span>, showUneadText.length(), badgeRect);</div><div class="line"></div><div class="line">            badgeNumWidth = badgeRect.width();</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (showUneadText.length() == <span class="number">1</span>) &#123;</div><div class="line">                <span class="comment">// 当长度为1的时候,显示正圆</span></div><div class="line">                badgeWidth = badgeHeight;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                badgeWidth = badgeNumWidth + BADGE_TEXT_MARGIN_LEFT + BADGE_TEXT_MARGIN_RIGHT + badgeBorderWidth * <span class="number">2</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            badgeWidth = badgeRedSize + badgeBorderWidth * <span class="number">2</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// badgeHeight在构造方法中初始化了, 全部使用数字模式的高度</span></div><div class="line"></div><div class="line">        <span class="comment">// Badge位置设置的范围做一个限制</span></div><div class="line">        <span class="keyword">if</span> (!hasBadgeLeftAttr || badgeLeft &gt; mainWidth) &#123;</div><div class="line">            badgeLeft = getBadgeDefaultLocation();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (!hasBadgeBottomAttr || badgeBottom &gt; mainHeight) &#123;</div><div class="line">            badgeBottom = getBadgeDefaultLocation();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 计算整体内容的大小</span></div><div class="line">        mainMarginHorizontal = badgeWidth - badgeLeft;</div><div class="line">        mainMarginTop = badgeHeight - badgeBottom;</div><div class="line">        viewMinWidth = mainWidth + mainMarginHorizontal * <span class="number">2</span>;</div><div class="line">        viewMinHeight = mainHeight + mainMarginTop;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取默认的位置</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">float</span> <span class="title">getBadgeDefaultLocation</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 文字的时候默认往上些, 盖住文字了</span></div><div class="line">        <span class="keyword">return</span> iconSrc != <span class="number">0</span> ? (showNum ? badgeHeight / <span class="number">2</span> : badgeRedSize / <span class="number">2</span> + badgeBorderWidth) : badgeRedSize / <span class="number">2</span> + badgeBorderWidth - <span class="number">3</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 构造未读数显示的文本</div><div class="line">     * 1) 未读数默认显示形式9/23/99+</div><div class="line">     * 2) 有些设计要求未读前面加"+", (至少我们设计师这么设计) 显示成 +1/+34/+99, 取配置badgeNumPre</div><div class="line">     * <span class="doctag">@param</span> unread</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getUnreadText</span><span class="params">(<span class="keyword">int</span> unread)</span> </span>&#123;</div><div class="line">        String text = String.valueOf(unread);</div><div class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(badgeNumPre)) &#123;</div><div class="line">            <span class="keyword">if</span> (unread &gt; <span class="number">99</span>) &#123;</div><div class="line">                text = <span class="string">"99+"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (unread &gt; <span class="number">99</span>) &#123;</div><div class="line">                text = badgeNumPre + <span class="string">"99"</span>;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (unread &gt;= <span class="number">0</span>) &#123;</div><div class="line">                text = badgeNumPre + unread;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> text;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">dip2px</span><span class="params">(<span class="keyword">int</span> dpValue)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue, getResources().getDisplayMetrics());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">sp2px</span><span class="params">(<span class="keyword">int</span> spValue)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, spValue, getResources().getDisplayMetrics());</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * android-自定义View解决wrap_content无效的问题</div><div class="line">     * see  https://my.oschina.net/ccqy66/blog/616662</div><div class="line">     * <span class="doctag">@param</span> widthMeasureSpec</div><div class="line">     * <span class="doctag">@param</span> heightMeasureSpec</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">        <span class="comment">// 计算高宽</span></div><div class="line">        intParams();</div><div class="line">        viewPaddingLeft = getPaddingLeft();</div><div class="line">        viewPaddingTop = getPaddingTop();</div><div class="line">        viewPaddingRight = getPaddingRight();</div><div class="line">        viewPaddingBootom = getPaddingBottom();</div><div class="line"></div><div class="line">        <span class="keyword">int</span> widthMode = MeasureSpec.getMode(widthMeasureSpec);</div><div class="line">        <span class="keyword">int</span> widthSize = MeasureSpec.getSize(widthMeasureSpec);</div><div class="line">        <span class="keyword">int</span> heightMode = MeasureSpec.getMode(heightMeasureSpec);</div><div class="line">        <span class="keyword">int</span> heightSize = MeasureSpec.getSize(heightMeasureSpec);</div><div class="line"></div><div class="line">        <span class="comment">//Measure Width</span></div><div class="line">        <span class="keyword">if</span> (widthMode == MeasureSpec.EXACTLY) &#123;</div><div class="line">            <span class="comment">// 设置的大小不能比内容还小</span></div><div class="line">            viewWidth = widthSize &lt; viewMinWidth ? viewMinWidth : widthSize;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            viewWidth = viewMinWidth;</div><div class="line">        &#125;</div><div class="line">        viewWidth += viewPaddingLeft + viewPaddingRight;</div><div class="line"></div><div class="line">        <span class="comment">//Measure Height</span></div><div class="line">        <span class="keyword">if</span> (heightMode == MeasureSpec.EXACTLY) &#123;</div><div class="line">            <span class="comment">// 设置的大小不能比内容还小</span></div><div class="line">            viewHeight = heightSize &lt; viewMinHeight ? viewMinHeight : heightSize;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            viewHeight = viewMinHeight;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (viewHeight &lt; viewMinHeight + VIEW_PADDING * <span class="number">2</span>) &#123;</div><div class="line">            viewHeight =  viewMinHeight + VIEW_PADDING * <span class="number">2</span>;</div><div class="line">        &#125;</div><div class="line">        viewHeight += viewPaddingTop + viewPaddingBootom;</div><div class="line"></div><div class="line">        <span class="comment">//MUST CALL THIS</span></div><div class="line">        setMeasuredDimension((<span class="keyword">int</span>) Math.ceil(viewWidth), (<span class="keyword">int</span>) Math.ceil(viewHeight));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/android-badge-view/" class="archive-article-date">
+  	<time datetime="2016-12-16T02:59:54.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/terminal-set-shadowsocks/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          为终端Terminal设置Shadowsocks代理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/fix-git-commit-msg-use-vim-error/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mac修正Vim无法git提交的问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-badge-view" data-title="Android自定义小红点BadgeView" data-url="http://yoursite.com/android-badge-view/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"skylerhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Skyler Hu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a2503cc9e29eba24d28584a7506f1eab";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

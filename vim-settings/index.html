@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>如何优雅的使用Vim | Skyler&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我的电脑123456➜  ~  sw_versProductName:    Mac OS XProductVersion: 10.10.5BuildVersion:   14F1021➜  ~  python -VPython 2.7.10 配置前的准备默认大家是安装了 HomeBrew, 没有的话请自行安装 若是需要安装Python的代码提示 YouCompleteMe, 要求:  YouCo">
+<meta name="keywords" content="vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何优雅的使用Vim">
+<meta property="og:url" content="http://yoursite.com/vim-settings/index.html">
+<meta property="og:site_name" content="Skyler&#39;s Blog">
+<meta property="og:description" content="我的电脑123456➜  ~  sw_versProductName:    Mac OS XProductVersion: 10.10.5BuildVersion:   14F1021➜  ~  python -VPython 2.7.10 配置前的准备默认大家是安装了 HomeBrew, 没有的话请自行安装 若是需要安装Python的代码提示 YouCompleteMe, 要求:  YouCo">
+<meta property="og:updated_time" content="2017-10-10T15:53:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何优雅的使用Vim">
+<meta name="twitter:description" content="我的电脑123456➜  ~  sw_versProductName:    Mac OS XProductVersion: 10.10.5BuildVersion:   14F1021➜  ~  python -VPython 2.7.10 配置前的准备默认大家是安装了 HomeBrew, 没有的话请自行安装 若是需要安装Python的代码提示 YouCompleteMe, 要求:  YouCo">
+  
+    <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.ico">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Skyler Hu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pains, No gains!</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+				<li><a href="/links">链接们</a></li>
+	        
+				<li><a href="/about">关于</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+		        
+					<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Skyler Hu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Skyler Hu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pains, No gains!</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/links">链接们</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-vim-settings" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何优雅的使用Vim
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="我的电脑"><a href="#我的电脑" class="headerlink" title="我的电脑"></a>我的电脑</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">➜  ~  sw_vers</div><div class="line">ProductName:    Mac OS X</div><div class="line">ProductVersion: 10.10.5</div><div class="line">BuildVersion:   14F1021</div><div class="line">➜  ~  python -V</div><div class="line">Python 2.7.10</div></pre></td></tr></table></figure>
+<h2 id="配置前的准备"><a href="#配置前的准备" class="headerlink" title="配置前的准备"></a>配置前的准备</h2><p>默认大家是安装了 <a href="http://brew.sh/" target="_blank" rel="external">HomeBrew</a>, 没有的话请自行安装</p>
+<p>若是需要安装Python的代码提示 <code>YouCompleteMe</code>, 要求:</p>
+<ul>
+<li>YouCompleteMe unavailable: requires Vim 7.3.598+</li>
+<li>还需要Python支持Python module</li>
+</ul>
+<p>执行以下命令可以查看相关支持信息(<code>+</code>支持、<code>-</code>不支持)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">➜  ~  vim --version</div><div class="line">VIM - Vi IMproved 7.4 (2013 Aug 10, compiled Apr 28 2016 11:12:36)</div><div class="line">+cryptv          +linebreak       -python          +vreplace</div><div class="line">+cscope          +lispindent      +python3         +wildignore</div></pre></td></tr></table></figure>
+<p>若是版本不对 或者 not support python module，请执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo mv /usr/bin/vim /usr/bin/vim_bk  <span class="comment"># 把系统默认的vim备份了</span></div><div class="line">brew install vim --with-python3  <span class="comment"># 安装新的vim</span></div><div class="line"><span class="comment"># 若是下面的步骤执行不下去了，尝试一下 brew install vim --with-python</span></div></pre></td></tr></table></figure>
+<ul>
+<li>最后还需安装  <code>brew instal CMake</code></li>
+</ul>
+<h2 id="安装vim-插件"><a href="#安装vim-插件" class="headerlink" title="安装vim 插件"></a>安装vim 插件</h2><p>执行以下脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ ! <span class="_">-d</span> ~/.vim ]; <span class="keyword">then</span></div><div class="line">mkdir ~/.vim</div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="built_in">cd</span> ~/.vim</div><div class="line"></div><div class="line"><span class="keyword">if</span> [ ! <span class="_">-d</span> bundle ]; <span class="keyword">then</span></div><div class="line">mkdir bundle</div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="built_in">cd</span> bundle</div><div class="line">git <span class="built_in">clone</span> https://github.com/VundleVim/Vundle.vim.git   <span class="comment"># 管理工具</span></div><div class="line">git <span class="built_in">clone</span> https://github.com/Lokaltog/vim-powerline.git <span class="comment"># </span></div><div class="line">git <span class="built_in">clone</span> https://github.com/scrooloose/nerdtree.git <span class="comment"># 目录树</span></div><div class="line">git <span class="built_in">clone</span> https://github.com/jistr/vim-nerdtree-tabs.git  <span class="comment"># </span></div><div class="line">git <span class="built_in">clone</span> https://github.com/vim-scripts/taglist.vim.git <span class="comment"># 方法类跳转</span></div><div class="line">git <span class="built_in">clone</span> https://github.com/vim-scripts/AutoTag.git</div><div class="line">git <span class="built_in">clone</span> https://github.com/scrooloose/syntastic.git  <span class="comment"># js语法检测</span></div><div class="line">git <span class="built_in">clone</span> https://github.com/tpope/vim-fugitive.git <span class="comment"># 显示Git信息</span></div><div class="line">git <span class="built_in">clone</span> https://github.com/Valloric/YouCompleteMe.git <span class="comment"># python 自动补全</span></div><div class="line">git <span class="built_in">clone</span> https://github.com/hynek/vim-python-pep8-indent <span class="comment"># pep8 python语法 需要在项目虚拟环境下 pip install pep8</span></div><div class="line">git <span class="built_in">clone</span> https://github.com/nvie/vim-flake8 <span class="comment"># 代码风格检测 需要在项目虚拟环境下 pip install flake8</span></div><div class="line">git <span class="built_in">clone</span> https://github.com/Yggdroot/indentLine  <span class="comment"># 代码格式对齐线</span></div><div class="line"><span class="comment"># git clone https://github.com/vim-ruby/vim-ruby # ruby插件</span></div><div class="line"><span class="built_in">cd</span> YouCompleteMe</div><div class="line">git submodule update --init --recursive</div><div class="line">./install.py  --clang-completer</div><div class="line"></div><div class="line"><span class="built_in">cd</span> ..</div><div class="line">mkdir -p ~/.vim/<span class="built_in">autoload</span> ~/.vim/bundle &amp;&amp; curl -LSso ~/.vim/<span class="built_in">autoload</span>/pathogen.vim https://tpo.pe/pathogen.vim</div><div class="line"><span class="built_in">cd</span> ~</div><div class="line">brew install ctags</div></pre></td></tr></table></figure>
+<p>以上所有vim插件都在GitHub上<br>若是要更新哪个插件，直接到插件目录下去git pull 就行了；<br>值得注意的是 最好查看下插件的README，看它的用发是否发生了改变，需要自行更新 .vimrc中的配置</p>
+<h2 id="vimrc-配置文件"><a href="#vimrc-配置文件" class="headerlink" title=".vimrc 配置文件"></a>.vimrc 配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~</div><div class="line">vim .vimrc  <span class="comment"># 编辑 .vimrc 文件 内容如下</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div></pre></td><td class="code"><pre><div class="line">syntax on</div><div class="line">set encoding=utf-8</div><div class="line">&quot; 自动缩进</div><div class="line">set autoindent</div><div class="line">set cindent</div><div class="line">set autoread &quot; 设置当文件被改动时自动载入</div><div class="line">set wildmenu &quot; 增强模式中的命令行自动完成操作</div><div class="line">set showcmd         &quot; 输入的命令显示出来，看的清楚些  </div><div class="line">set whichwrap+=&lt;,&gt;,h,l  &quot; 允许backspace和光标键跨越行边界</div><div class="line">set ruler           &quot; 显示标尺  </div><div class="line">set tabstop=4</div><div class="line">set shiftwidth=4</div><div class="line">set softtabstop=4</div><div class="line">set expandtab</div><div class="line">set nu</div><div class="line">set hlsearch</div><div class="line">set incsearch</div><div class="line">set colorcolumn=120</div><div class="line">set cul &quot;高亮光标所在行</div><div class="line">autocmd InsertEnter * se cul    &quot; 用浅色高亮当前行  </div><div class="line">set scrolloff=3     &quot; 光标移动到buffer的顶部和底部时保持3行距离  </div><div class="line">&quot;set statusline=%&lt;\ %n:%F\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)</div><div class="line">set statusline=%F%m%r%h%w\ [FORMAT=%&#123;&amp;ff&#125;]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %&#123;strftime(\&quot;%d/%m/%y\ -\ %H:%M\&quot;)&#125;   &quot;状态行显示的内容  </div><div class="line">set laststatus=2</div><div class="line">set ignorecase</div><div class="line">set backspace=indent,eol,start &quot; backspace over everything in insert mode</div><div class="line">set nocompatible              &quot; be iMproved, required</div><div class="line">filetype off                  &quot; required</div><div class="line"></div><div class="line">set foldnestmax=10      &quot;deepest fold is 10 levels</div><div class="line">set foldlevel=1         &quot;this is just what i use</div><div class="line">set foldmethod=marker</div><div class="line"></div><div class="line">set paste</div><div class="line"></div><div class="line">map &lt;F2&gt; :mksession! ~/.vim_session &lt;cr&gt; &quot; Quick write session with F2</div><div class="line">map &lt;F3&gt; :source ~/.vim_session &lt;cr&gt;     &quot; And load session with F3</div><div class="line"></div><div class="line">execute pathogen#infect()</div><div class="line"></div><div class="line">function! ResCur()</div><div class="line">        if line(&quot;&apos;\&quot;&quot;) &lt;= line(&quot;$&quot;)</div><div class="line">                normal! g`&quot;</div><div class="line">                return 1</div><div class="line">        endif</div><div class="line">endfunction</div><div class="line"></div><div class="line">augroup resCur</div><div class="line">        autocmd!</div><div class="line">        autocmd BufWinEnter * call ResCur()</div><div class="line">augroup END</div><div class="line"></div><div class="line">filetype plugin indent on    &quot; required</div><div class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</div><div class="line">&quot;&quot;&quot;&quot;&quot;新文件标题</div><div class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</div><div class="line">&quot;新建.c,.h,.sh,.java文件，自动插入文件头 </div><div class="line">autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py exec &quot;:call SetTitle()&quot; </div><div class="line">&quot;&quot;定义函数SetTitle，自动插入文件头 </div><div class="line">func SetTitle() </div><div class="line">	&quot;如果文件类型为.sh文件 </div><div class="line">	if &amp;filetype == &apos;sh&apos; </div><div class="line">		call setline(1,&quot;\#!/bin/bash&quot;) </div><div class="line">		call append(line(&quot;.&quot;), &quot;&quot;) </div><div class="line">    elseif &amp;filetype == &apos;python&apos;</div><div class="line">        call setline(1,&quot;#!/usr/bin/env python&quot;)</div><div class="line">        call append(line(&quot;.&quot;),&quot;# coding=utf-8&quot;)</div><div class="line">	    call append(line(&quot;.&quot;)+1, &quot;&quot;) </div><div class="line">	endif</div><div class="line">endfunc </div><div class="line">autocmd BufNewFile * normal G</div><div class="line"></div><div class="line">au BufNewFile,BufRead *.yml set filetype=xml</div><div class="line">autocmd FileType python setlocal completeopt-=preview</div><div class="line"></div><div class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</div><div class="line">&quot;&quot;&quot;&quot; 插件管理</div><div class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</div><div class="line">&quot; set the runtime path to include Vundle and initialize</div><div class="line">set rtp+=~/.vim/Vundle.vim</div><div class="line">call vundle#begin()</div><div class="line">&quot; alternatively, pass a path where Vundle should install plugins</div><div class="line">&quot;call vundle#begin(&apos;~/some/path/here&apos;)</div><div class="line"></div><div class="line">&quot; let Vundle manage Vundle, required</div><div class="line">Plugin &apos;gmarik/Vundle.vim&apos;</div><div class="line">&quot; All of your Plugins must be added before the following line</div><div class="line">call vundle#end()            &quot; required</div><div class="line"></div><div class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</div><div class="line">&quot;Yggdroot/indentLine</div><div class="line">let g:indentLine_char = &apos;┊&apos;</div><div class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</div><div class="line">&quot;powerline&#123;</div><div class="line">set guifont=PowerlineSymbols\ for\ Powerline</div><div class="line">set nocompatible</div><div class="line">set t_Co=256</div><div class="line">let g:Powerline_stl_path_style = &quot;full&quot;</div><div class="line">&quot;&#125;</div><div class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</div><div class="line">&quot;打开文件类型检测, 加了这句才可以用智能补全</div><div class="line">set completeopt=preview,menu </div><div class="line">set completeopt=longest,menu</div><div class="line">&quot;python补全</div><div class="line">let g:pydiction_location = &apos;~/.vim/after/complete-dict&apos;</div><div class="line">let g:pydiction_menu_height = 20</div><div class="line">let g:miniBufExplMapWindowNavVim = 1</div><div class="line">let g:miniBufExplMapWindowNavArrows = 1</div><div class="line">let g:miniBufExplMapCTabSwitchBufs = 1</div><div class="line">let g:miniBufExplModSelTarget = 1</div><div class="line">&quot; ycm 此处要设置成python版本2.7，不要设置成python3了</div><div class="line">let g:ycm_path_to_python_interpreter=&quot;python&quot;</div><div class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</div><div class="line">&quot;syntax check</div><div class="line">set statusline+=%#warningmsg#</div><div class="line">set statusline+=%&#123;SyntasticStatuslineFlag()&#125;</div><div class="line">set statusline+=%*</div><div class="line">let g:syntastic_always_populate_loc_list = 1</div><div class="line">let g:syntastic_check_on_open = 1</div><div class="line">let g:syntastic_check_on_wq = 0</div><div class="line">let g:syntastic_auto_loc_list = 1</div><div class="line">let g:syntastic_python_checkers=[&apos;flake8&apos;]</div><div class="line">let g:syntastic_python_flake8_args=&apos;--ignore W391,E501 --max-line-length 119&apos;</div><div class="line">let g:syntastic_loc_list_height=3</div><div class="line">let g:syntastic_enable_highlighting=0</div><div class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</div><div class="line">&quot;ctags</div><div class="line">set tags=./tags,tags;</div><div class="line">&quot; Tag list (ctags) </div><div class="line">let Tlist_Ctags_Cmd = &apos;/usr/local/bin/ctags&apos; </div><div class="line">let Tlist_Show_One_File = 1 &quot;不同时显示多个文件的tag，只显示当前文件的 </div><div class="line">let Tlist_File_Fold_Auto_Close = 1</div><div class="line">let Tlist_Exit_OnlyWindow = 1 &quot;如果taglist窗口是最后一个窗口，则退出vim </div><div class="line">let Tlist_Use_Right_Window = 1 &quot;在右侧窗口中显示taglist窗口</div><div class="line">nmap tl :Tlist&lt;cr&gt;</div><div class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</div><div class="line">&quot;so that when you preview the new file takes up 80% and the file explorer the other 20%.</div><div class="line">let g:netrw_winsize=25</div><div class="line">let g:netrw_altv = 2</div><div class="line">let g:netrw_browse_split = 3</div><div class="line">let g:netrw_keepdir = 0</div><div class="line">let NERDTreeWinSize=30</div><div class="line">&quot;let g:nerdtree_tabs_open_on_console_startup=1</div><div class="line">&quot;列出当前目录文件  </div><div class="line">map &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</div><div class="line">imap &lt;F3&gt; &lt;ESC&gt; :NERDTreeToggle&lt;CR&gt;</div><div class="line">&quot;当打开vim且没有文件时自动打开NERDTree</div><div class="line">autocmd vimenter * if !argc() | NERDTree | endif</div><div class="line">&quot; 只剩 NERDTree时自动关闭</div><div class="line">autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTreeType&quot;) &amp;&amp; b:NERDTreeType == &quot;primary&quot;) | q | endif</div><div class="line">&quot; 忽略的文件不加载</div><div class="line">set wildignore+=**/fe-dist/**</div><div class="line">set wildignore+=**/node_modules/**</div><div class="line">set wildignore+=**/log/**</div><div class="line">set wildignore+=**/static/**</div><div class="line">set wildignore+=*.swp,*.zip,*.pyc,.git/</div><div class="line">set path=.,,**</div><div class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</div><div class="line">&quot;Yggdroot/indentLine</div><div class="line">let g:indentLine_char = &apos;┊&apos;</div><div class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</div></pre></td></tr></table></figure>
+<h2 id="用-vundle-管理-vim-插件"><a href="#用-vundle-管理-vim-插件" class="headerlink" title="用 vundle 管理 vim 插件"></a>用 vundle 管理 vim 插件</h2><p>其实上面脚本一键执行也挺方便的，此处只是稍微介绍一下 vundle 的用法。</p>
+<p>可在 <code>.vimrc</code>  文件中添加配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Bundle &apos;cespare/vim-golang&apos;</div><div class="line">Bundle &apos;taglist.vim&apos;</div><div class="line">Bundle &apos;dhruvasagar/vim-table-mode&apos;</div><div class="line">Bundle &apos;godlygeek/tabular&apos;</div><div class="line">Bundle &apos;derekwyatt/vim-scala&apos;</div><div class="line">Bundle &apos;kien/ctrlp.vim&apos;</div><div class="line">Bundle &apos;Valloric/YouCompleteMe&apos;</div><div class="line">Bundle &apos;Yggdroot/indentLine&apos;</div></pre></td></tr></table></figure>
+<p>随便开个窗口，从控制台打开vim，然后执行-&gt; :BundleInstall ，vundle会自动下载声明的插件并安装到 ./vim/bundle 目录里面</p>
+<p><strong> 到此，安装结束，可以畅游vim了。 </strong></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/vim-settings/" class="archive-article-date">
+  	<time datetime="2016-09-30T07:33:13.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/fix-git-commit-msg-use-vim-error/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Mac修正Vim无法git提交的问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/ubuntu-set-language/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ubuntu 解决语言设置错误的问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="vim-settings" data-title="如何优雅的使用Vim" data-url="http://yoursite.com/vim-settings/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"skylerhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Skyler Hu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a2503cc9e29eba24d28584a7506f1eab";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

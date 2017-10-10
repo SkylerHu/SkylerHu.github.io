@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Skyler&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="No pains, No gains!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Skyler&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:site_name" content="Skyler&#39;s Blog">
+<meta property="og:description" content="No pains, No gains!">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Skyler&#39;s Blog">
+<meta name="twitter:description" content="No pains, No gains!">
+  
+    <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.ico">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Skyler Hu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pains, No gains!</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+				<li><a href="/links">链接们</a></li>
+	        
+				<li><a href="/about">关于</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+		        
+					<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Skyler Hu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Skyler Hu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pains, No gains!</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/links">链接们</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        
+  
+    <article id="post-android-load-view-from-xml" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/android-load-view-from-xml/">Android动态加载View的几种方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Android</li>
+<li>加载View</li>
+</ul>
+<p>有以下加载方式</p>
+<ol>
+<li><p>View view = LayoutInflater.from(context).inflate(要装载的界面的id, 根节点);//context为this,根节点一般为null<br>view.findViewByID();//与inflate配套使用的。<br>setContentView();//配套使用findViewByID(动态界面中的控件的id);</p>
+</li>
+<li><p>LayoutInflater inflater = ((Activity)context).getLayoutInflater();</p>
+</li>
+</ol>
+<ol>
+<li><p>另一种方法获得<br>LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVER);<br>view = inflater.inflater (resource, root);</p>
+</li>
+<li><p>view = View.inflate(context, R.layout.header, null);</p>
+</li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/android-load-view-from-xml/" class="archive-article-date">
+  	<time datetime="2014-04-05T10:57:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2014-04-05</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Sencha-ImageField" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Sencha-ImageField/">Sencha自定义ImageField用于表单中显示图片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>苦于sencha源码中</p>
+<table>
+<thead>
+<tr>
+<th>xtype</th>
+<th>Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>textfield</td>
+<td>Ext.field.Text</td>
+</tr>
+<tr>
+<td>numberfield</td>
+<td>Ext.field.Number</td>
+</tr>
+<tr>
+<td>textareafield</td>
+<td>Ext.field.TextArea</td>
+</tr>
+<tr>
+<td>hiddenfield</td>
+<td>Ext.field.Hidden</td>
+</tr>
+<tr>
+<td>radiofield</td>
+<td>Ext.field.Radio</td>
+</tr>
+<tr>
+<td>filefield</td>
+<td>Ext.field.File</td>
+</tr>
+<tr>
+<td>checkboxfield</td>
+<td>Ext.field.Checkbox</td>
+</tr>
+<tr>
+<td>selectfield</td>
+<td>Ext.field.Select</td>
+</tr>
+<tr>
+<td>togglefield</td>
+<td>Ext.field.Toggle</td>
+</tr>
+<tr>
+<td>fieldset</td>
+<td>Ext.form.FieldSet</td>
+</tr>
+</tbody>
+</table>
+<p>并没有ImageField，显示图片起来非常麻烦，于是查看源码自定义了一个.</p>
+<p>secnha-touch-defineBySelf,js该文件在secha原库和程序入口之间加载即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/sencha-touch-all-2.3.0.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/sencha-touch-defineBySelf.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"app.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>secnha-touch-defineBySelf,js内容如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**  </span></div><div class="line"> * @Class Ext.Img.ImageField </div><div class="line"> * @createTime 2014-04-03 </div><div class="line"> * 用于表单中的ImageField，通过setValue()来设置图片路径显示图片，通过getValue()来获得图片的路径 </div><div class="line"> *  form.getValues()时也会在values中存入图片的相应路径字段 </div><div class="line"> *      用法： </div><div class="line"> *          具有一般的Panel的所有属性，并且还多一个一个value属性可以设置图片的路径 </div><div class="line"> */  </div><div class="line">Ext.define(<span class="string">'Ext.field.ImageField'</span>, &#123;  </div><div class="line">    <span class="attr">extend</span> : <span class="string">'Ext.Panel'</span>,  </div><div class="line">    <span class="attr">xtype</span> : [<span class="string">'imagefield'</span>, <span class="string">'imgfield'</span>],  </div><div class="line">      </div><div class="line">    <span class="attr">isField</span>: <span class="literal">true</span>,  </div><div class="line">    <span class="attr">isFormField</span>: <span class="literal">true</span>,  </div><div class="line">      </div><div class="line">    <span class="attr">config</span> : &#123;  </div><div class="line">        <span class="attr">name</span> : <span class="literal">null</span>,  </div><div class="line">        <span class="attr">value</span> : <span class="literal">null</span>,  </div><div class="line">        <span class="attr">items</span>: [  </div><div class="line">        &#123;  </div><div class="line">            <span class="attr">xtype</span> : <span class="string">'img'</span>,  </div><div class="line">            <span class="attr">id</span> : <span class="string">'self-img_photo'</span>,  </div><div class="line">            <span class="attr">width</span> : <span class="string">'100%'</span>,  </div><div class="line">            <span class="attr">height</span> : <span class="string">'100%'</span>,  </div><div class="line">            <span class="attr">margin</span> : <span class="string">'0 0 0 0'</span>,  </div><div class="line">            <span class="attr">style</span> : <span class="string">'&#123;background-repeat:no-repeat; background-size:100% auto; background-position:center;&#125;'</span>,  </div><div class="line">        &#125;,  </div><div class="line">        ],  </div><div class="line">    &#125;,  </div><div class="line">      </div><div class="line">    <span class="attr">setValue</span> : <span class="function"><span class="keyword">function</span>(<span class="params">path</span>) </span>&#123;  </div><div class="line">        Ext.getCmp(<span class="string">'self-img_photo'</span>).setSrc(path);  </div><div class="line">    &#125;,  </div><div class="line">      </div><div class="line">    <span class="attr">getValue</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">        <span class="keyword">return</span> Ext.getCmp(<span class="string">'self-img_photo'</span>).getSrc();  </div><div class="line">    &#125;,  </div><div class="line">      </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/Sencha-ImageField/" class="archive-article-date">
+  	<time datetime="2014-04-03T15:26:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2014-04-03</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sencha/">Sencha</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-sencha-pinch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/sencha-pinch/">Hybrid开发 Sencha pinch事件的监听实现图片的缩放功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>为实现跨平台开发</p>
+<p>使用Sencha写了一个程序，监听img的pinch事件;</p>
+<p>封装了一个ImageView，实现了图片的缩放功能</p>
+<p><strong>注意：ImgPinch是我项目的名字</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * 可以图片缩放的ImageView </div><div class="line"> */  </div><div class="line">Ext.define(<span class="string">'ImgPinch.view.ImageView'</span>, &#123;  </div><div class="line">    <span class="attr">extend</span> : <span class="string">'Ext.Panel'</span>,  </div><div class="line">    <span class="attr">xtype</span> : <span class="string">'imageView'</span>,  </div><div class="line">    <span class="attr">config</span> : &#123;  </div><div class="line">        <span class="attr">style</span>:<span class="string">"background:black"</span>,  </div><div class="line">        <span class="attr">src</span> : <span class="literal">null</span>,  </div><div class="line">        <span class="attr">items</span> : [  </div><div class="line">        &#123;  </div><div class="line">            <span class="attr">xtype</span> : <span class="string">"img"</span>,  </div><div class="line">            <span class="attr">id</span> : <span class="string">"_show_image"</span>,  </div><div class="line">            <span class="attr">width</span> : <span class="string">"100%"</span>,  </div><div class="line">            <span class="attr">height</span> : <span class="string">"100%"</span>,  </div><div class="line">            <span class="attr">margin</span> : <span class="string">"0 0 0 0"</span>,  </div><div class="line">            <span class="attr">cls</span> : <span class="string">"showImageCls"</span>,  </div><div class="line">              </div><div class="line">        &#125;,  </div><div class="line">        ],  </div><div class="line">    &#125;,  </div><div class="line">      </div><div class="line">    <span class="attr">initialize</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">        <span class="keyword">var</span> me = <span class="keyword">this</span>;  </div><div class="line">        me.callParent();  </div><div class="line">  </div><div class="line">        <span class="comment">//设置图片的路径  </span></div><div class="line">        <span class="keyword">var</span> view = imageView = Ext.getCmp(<span class="string">"_show_image"</span>);  </div><div class="line">        imageView.setSrc(me.getSrc());  </div><div class="line">          </div><div class="line">        <span class="comment">//记录双指触屏的位置touch0(x0, y0), touch1(x1, y1), 中心点(centerX0, centerY0)==============  </span></div><div class="line">        <span class="keyword">var</span> x0, y0, x1, y1, touch0, touch1, centerX0, centerY0;  </div><div class="line">        x0 = y0 = x1 = y1 = centerX0 = centerY0 = <span class="number">-1</span>;  </div><div class="line">          </div><div class="line">        <span class="comment">//新获取的双指触屏的位置touch00(x00, y00), touch11(x11, y11), 中心点(centerX1, centerY1)===================  </span></div><div class="line">        <span class="keyword">var</span> x00, y00, x11, y11, touch00, touch11, centerX1, centerY1;  </div><div class="line">          </div><div class="line">        <span class="comment">//ImageView可视宽高===================================================  </span></div><div class="line">        <span class="keyword">var</span> viewVisionWidth, viewVisionHeight;   </div><div class="line">        viewVisionWidth = me.element.dom.clientWidth;  </div><div class="line">        viewVisionHeight = me.element.dom.clientHeight;  </div><div class="line">          </div><div class="line">        <span class="comment">//ImageView的宽高===================================================  </span></div><div class="line">        <span class="keyword">var</span> viewWidth, viewHeight;  </div><div class="line">        viewWidth = imageView.element.dom.clientWidth;  </div><div class="line">        viewHeight = imageView.element.dom.clientHeight;  </div><div class="line">        <span class="comment">//ImageView的上边距和左边距===================================================  </span></div><div class="line">        <span class="keyword">var</span> top, left, topMin, leftMin, topMax, leftMax;  </div><div class="line">        topMin = viewVisionHeight - viewHeight;  </div><div class="line">        leftMin = viewVisionWidth - viewWidth;  </div><div class="line">        topMax = leftMax = <span class="number">0</span>;  </div><div class="line">          </div><div class="line">        view.element.on(<span class="string">'pinchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event, node, options, eOpts</span>) </span>&#123;  </div><div class="line">            touch0 = event.touches[<span class="number">0</span>];  </div><div class="line">            x0 = touch0.pageX;  </div><div class="line">            y0 = touch0.pageY;  </div><div class="line">            touch1 = event.touches[<span class="number">1</span>];  </div><div class="line">            x1 = touch1.pageX;  </div><div class="line">            y1 = touch1.pageY;  </div><div class="line">              </div><div class="line">            <span class="comment">//两个触摸点的中间点初始化  </span></div><div class="line">            centerX0 = (x0 + x1) / <span class="number">2</span>;  </div><div class="line">            centerY0 = (y0 + y1) / <span class="number">2</span>;  </div><div class="line">        &#125;, view);  </div><div class="line">          </div><div class="line">        view.element.on(<span class="string">'pinch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event, node, options, eOpts</span>) </span>&#123;  </div><div class="line">            touch00 = event.touches[<span class="number">0</span>];  </div><div class="line">            x00 = touch00.pageX;  </div><div class="line">            y00 = touch00.pageY;  </div><div class="line">            touch11 = event.touches[<span class="number">1</span>];  </div><div class="line">            x11 = touch11.pageX;  </div><div class="line">            y11 = touch11.pageY;  </div><div class="line">              </div><div class="line">            <span class="keyword">if</span>(x0 == <span class="number">-1</span> || y0 == <span class="number">-1</span>) &#123;  </div><div class="line">                <span class="keyword">return</span>;  </div><div class="line">            &#125;  </div><div class="line">            <span class="comment">//两个触摸点的差值  </span></div><div class="line">            <span class="keyword">var</span> minusX = <span class="built_in">Math</span>.abs(x11-x00) - <span class="built_in">Math</span>.abs(x1-x0);  </div><div class="line">            <span class="keyword">var</span> minusY = <span class="built_in">Math</span>.abs(y11-y00) - <span class="built_in">Math</span>.abs(y1-y0);  </div><div class="line">            <span class="comment">//两个触摸点的中间点初始化  </span></div><div class="line">            centerX1 = (x00 + x11) / <span class="number">2</span>;  </div><div class="line">            centerY1 = (y00 + y11) / <span class="number">2</span>;  </div><div class="line">              </div><div class="line">            <span class="keyword">var</span> oldWidth = view.getWidth();  </div><div class="line">            <span class="keyword">var</span> oldHeight = view.getHeight();  </div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"pinch 进行缩放oldWidth is "</span> + oldWidth + <span class="string">", oldHeight is "</span> + oldHeight + <span class="string">""</span>);  </div><div class="line">            <span class="keyword">var</span> addWidth = <span class="built_in">parseInt</span>(oldWidth.split(<span class="string">"%"</span>)[<span class="number">0</span>])+minusX;  </div><div class="line">            <span class="keyword">var</span> addHeight = <span class="built_in">parseInt</span>(oldHeight.split(<span class="string">"%"</span>)[<span class="number">0</span>])+minusY;  </div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"pinch 进行缩放addWidth is "</span> + addWidth + <span class="string">"%, addHeight is "</span> + addHeight + <span class="string">"%"</span>);  </div><div class="line">            <span class="comment">//缩放比值  </span></div><div class="line">            <span class="keyword">var</span> zoomScaling = addWidth;  </div><div class="line">            <span class="keyword">var</span> minusZoom = minusX;  </div><div class="line">            <span class="keyword">if</span>(<span class="built_in">Math</span>.abs(minusX) &lt; <span class="built_in">Math</span>.abs(minusY) &amp;&amp; addHeight &gt;= <span class="number">100</span> &amp;&amp; addHeight &lt; <span class="number">800</span>) &#123;  </div><div class="line">                <span class="comment">//放大取大值，缩小取值，绝对值大取绝对值大的  </span></div><div class="line">                zoomScaling = addHeight;  </div><div class="line">                minusZoom = minusY;  </div><div class="line">            &#125;  </div><div class="line">            <span class="comment">//控制缩放范围在0%~500%之间  </span></div><div class="line">            <span class="keyword">if</span>(zoomScaling &gt;= <span class="number">100</span> &amp;&amp; zoomScaling &lt; <span class="number">800</span>) &#123;  </div><div class="line">                view.setWidth(zoomScaling + <span class="string">"%"</span>);  </div><div class="line">                view.setHeight(zoomScaling + <span class="string">"%"</span>);  </div><div class="line">                <span class="comment">//保证图片一致处于中央位置  </span></div><div class="line">                <span class="keyword">var</span> marginArr = view.getMargin().split(<span class="string">" "</span>);  </div><div class="line">                top = - viewVisionHeight * minusZoom / <span class="number">200</span> + <span class="built_in">parseInt</span>(marginArr[<span class="number">0</span>]);  </div><div class="line">                left = - viewVisionWidth * minusZoom / <span class="number">200</span> + <span class="built_in">parseInt</span>(marginArr[<span class="number">3</span>]);  </div><div class="line">                  </div><div class="line">                <span class="comment">//两指中心点有改变，修正值  </span></div><div class="line">                <span class="keyword">if</span>(centerX0 != <span class="number">-1</span> &amp;&amp; centerY0 != <span class="number">-1</span>) &#123;  </div><div class="line">                    top += centerY1 - centerY0;  </div><div class="line">                    left += centerX1 - centerX0;  </div><div class="line">                    <span class="comment">//重置数据  </span></div><div class="line">                    centerX0 = centerX1;  </div><div class="line">                    centerY0 = centerY1;  </div><div class="line">                &#125;  </div><div class="line">                <span class="keyword">if</span>(top &lt; topMin) &#123;  </div><div class="line">                    top = topMin;  </div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (top &gt; topMax) &#123;  </div><div class="line">                    top = topMax;  </div><div class="line">                &#125;  </div><div class="line">                <span class="keyword">if</span>(left &lt; leftMin) &#123;  </div><div class="line">                    left = leftMin;  </div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (left &gt; topMax) &#123;  </div><div class="line">                    left = leftMax;  </div><div class="line">                &#125;  </div><div class="line">                view.setMargin(top + <span class="string">" 0 0 "</span> + left);  </div><div class="line">                <span class="comment">//重置一些数据  </span></div><div class="line">                viewWidth = imageView.element.dom.clientWidth;  </div><div class="line">                viewHeight = imageView.element.dom.clientHeight;  </div><div class="line">                <span class="built_in">console</span>.log(<span class="string">"wh ImageView：("</span> + viewWidth + <span class="string">", "</span> + viewHeight + <span class="string">")"</span>);  </div><div class="line">                topMin = viewVisionHeight - viewHeight;  </div><div class="line">                leftMin = viewVisionWidth - viewWidth;  </div><div class="line">                x0 = x00;  </div><div class="line">                y0 = y00;  </div><div class="line">                x1 = x11;  </div><div class="line">                y1 = y11;  </div><div class="line">            &#125;  </div><div class="line">              </div><div class="line">        &#125;, view);  </div><div class="line">          </div><div class="line">        view.element.on(<span class="string">'pinchend'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event, node, options, eOpts</span>) </span>&#123;  </div><div class="line">            x0 = y0 = x1 = y1 = <span class="number">-1</span>;  </div><div class="line">        &#125;, view);  </div><div class="line">          </div><div class="line">        <span class="comment">//移动ImageView记录touchstart时的位置(x2, y2)========================  </span></div><div class="line">        <span class="keyword">var</span> x2, y2;  </div><div class="line">        x2 = y2 = <span class="number">-1</span>;  </div><div class="line">        view.element.on(<span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event, node, options, eOpts</span>) </span>&#123;  </div><div class="line">            viewVisionWidth = me.element.dom.clientWidth;  </div><div class="line">            viewVisionHeight = me.element.dom.clientHeight;  </div><div class="line">            x2 = event.pageX;  </div><div class="line">            y2 = event.pageY;  </div><div class="line">        &#125;, view);  </div><div class="line">        view.element.on(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event, node, options, eOpts</span>) </span>&#123;  </div><div class="line">            <span class="keyword">var</span> touches = event.touches;  </div><div class="line">            <span class="keyword">switch</span>(touches.length) &#123;  </div><div class="line">            <span class="keyword">case</span> <span class="number">1</span>:  </div><div class="line">                <span class="keyword">if</span>(viewWidth &gt; viewVisionWidth) &#123;  </div><div class="line">                    <span class="built_in">console</span>.log(<span class="string">"touch Move==&gt;位置:("</span> + event.pageX + <span class="string">", "</span> + event.pageY + <span class="string">")"</span>);  </div><div class="line">                    <span class="keyword">var</span> marginArr = view.getMargin().split(<span class="string">" "</span>);  </div><div class="line">                    <span class="built_in">console</span>.log(<span class="string">"touch Move==&gt;Margin初始值:"</span> + marginArr.toString());  </div><div class="line">                    top = event.pageY - y2 + <span class="built_in">parseInt</span>(marginArr[<span class="number">0</span>]);  </div><div class="line">                    left = event.pageX - x2 + <span class="built_in">parseInt</span>(marginArr[<span class="number">3</span>]);  </div><div class="line">                    <span class="keyword">if</span>(top &lt; topMin) &#123;  </div><div class="line">                        top = topMin;  </div><div class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (top &gt; topMax) &#123;  </div><div class="line">                        top = topMax;  </div><div class="line">                    &#125;  </div><div class="line">                    <span class="keyword">if</span>(left &lt; leftMin) &#123;  </div><div class="line">                        left = leftMin;  </div><div class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (left &gt; topMax) &#123;  </div><div class="line">                        left = leftMax;  </div><div class="line">                    &#125;  </div><div class="line">                    <span class="built_in">console</span>.log(<span class="string">"touch Move==&gt;Margin变换值:("</span> + top + <span class="string">" 0 0 "</span> + left + <span class="string">")"</span>);  </div><div class="line">                    view.setMargin(top + <span class="string">" 0 0 "</span> + left);  </div><div class="line">                &#125;  </div><div class="line">                x2 = event.pageX;  </div><div class="line">                y2 = event.pageY;  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="number">2</span>:  </div><div class="line">                  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            <span class="keyword">default</span>:  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            &#125;;  </div><div class="line">        &#125;, view);  </div><div class="line">        view.element.on(<span class="string">'touchend'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event, node, options, eOpts</span>) </span>&#123;  </div><div class="line">            x2 = y2 = <span class="number">-1</span>;  </div><div class="line">        &#125;, view);  </div><div class="line">    &#125;,  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> view = Ext.create(<span class="string">"Ext.Panel"</span>, &#123;  </div><div class="line">            <span class="attr">layout</span> : <span class="string">"vbox"</span>,  </div><div class="line">            <span class="attr">items</span> : [  </div><div class="line">            &#123;  </div><div class="line">                <span class="attr">xtype</span> : <span class="string">"button"</span>,  </div><div class="line">                <span class="attr">height</span> : <span class="number">60</span>,  </div><div class="line">                <span class="attr">text</span> : <span class="string">"点击直接网页浏览"</span>,  </div><div class="line">                <span class="attr">handler</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">                    <span class="comment">//可打开手机中任意图片(也可为本程序中相对路径的图片)  </span></div><div class="line"><span class="comment">//                  uri = "file:///storage/sdcard0/DCIM/Camera/IMG_20140329_135428.jpg";  </span></div><div class="line"><span class="comment">//                  window.open(uri,"image/jpeg");  </span></div><div class="line">                    <span class="built_in">window</span>.open(<span class="string">"images/test2.jpg"</span>,<span class="string">"image/jpeg"</span>);  </div><div class="line">                    <span class="comment">//下面的方法只能打开本程序中的图片  </span></div><div class="line"><span class="comment">//                  window.location = "file:images/test1.jpg";  </span></div><div class="line">                &#125;  </div><div class="line">            &#125;,  </div><div class="line">            &#123;  </div><div class="line">                <span class="attr">xtype</span> : <span class="string">"imageView"</span>,  </div><div class="line">                <span class="attr">flex</span> : <span class="number">1</span>,  </div><div class="line">                <span class="attr">src</span> : <span class="string">"images/test1.jpg"</span>,  </div><div class="line">            &#125;,  </div><div class="line">            ],  </div><div class="line">        &#125;);  </div><div class="line">        Ext.Viewport.setActiveItem(view);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/sencha-pinch/" class="archive-article-date">
+  	<time datetime="2014-04-02T15:10:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2014-04-02</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-sencha-list-mulit-selected" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/sencha-list-mulit-selected/">sencha list实现多选</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>hybrid</li>
+<li>sencha</li>
+<li>listview</li>
+<li>checkbox</li>
+</ul>
+<p>dataview和listview中有配置字段“mode”，对于该字段的说明：</p>
+<p>Modes of selection. Valid values are ‘SINGLE’, ‘SIMPLE’, and ‘MULTI’. Defaults to: ‘SINGLE’. Available since: 2.0.0</p>
+<p>MULTI就是多选<br>此外还提供了各种‘%select%’相关的方法，在API中搜索即可看到。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/sencha-list-mulit-selected/" class="archive-article-date">
+  	<time datetime="2014-04-01T12:26:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2014-04-01</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sencha/">Sencha</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-windows-mosquitto-crash" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/windows-mosquitto-crash/">windows mosquitto.exe闪退</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>mosquitto</li>
+<li>mqtt</li>
+<li>推送</li>
+</ul>
+<p>解决方法：</p>
+<p>计算机–&gt;管理–&gt;服务——&gt;</p>
+<p>找到Mosquitto Broker，若为启动状态，点击“停止”，然后右键属性设置为手动启动。</p>
+<p>若还是不行，则1883端口被占用了。</p>
+<p>命令行查询：netstat -ano | findstr 1883</p>
+<p>杀掉进程的命令：taskkill /pid 4 /f<br>其中 /f 表示强制关闭该进程，4是查询结果显示的pid号</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/windows-mosquitto-crash/" class="archive-article-date">
+  	<time datetime="2014-03-13T08:31:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2014-03-13</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MQTT/">MQTT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mosquitto/">mosquitto</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
+  
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Skyler Hu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a2503cc9e29eba24d28584a7506f1eab";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
