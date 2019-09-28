@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>hexo/Jekyll + github搭建自己的博客 | Skyler&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="首先，必须有一个GitHub账号，相信大家都有，没有的话自己去创建吧。 一、GitHub Pages的使用1. 创建一个分支，使用你的GitHub nameHead over to GitHub and create a new repository named username.github.io, where username is your username (or organization">
@@ -13,12 +13,13 @@
 <meta property="og:url" content="http://yoursite.com/hexo-Jekyll-github/index.html">
 <meta property="og:site_name" content="Skyler&#39;s Blog">
 <meta property="og:description" content="首先，必须有一个GitHub账号，相信大家都有，没有的话自己去创建吧。 一、GitHub Pages的使用1. 创建一个分支，使用你的GitHub nameHead over to GitHub and create a new repository named username.github.io, where username is your username (or organization">
-<meta property="og:image" content="http://7xpdkx.com1.z0.glb.clouddn.com/2016/06/27/81479b8884.png">
-<meta property="og:updated_time" content="2017-10-10T15:53:39.000Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://blog-img.skylerhu.com/2016/06/27/81479b8884.png">
+<meta property="og:updated_time" content="2019-09-28T01:53:34.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo&#x2F;Jekyll + github搭建自己的博客">
 <meta name="twitter:description" content="首先，必须有一个GitHub账号，相信大家都有，没有的话自己去创建吧。 一、GitHub Pages的使用1. 创建一个分支，使用你的GitHub nameHead over to GitHub and create a new repository named username.github.io, where username is your username (or organization">
-<meta name="twitter:image" content="http://7xpdkx.com1.z0.glb.clouddn.com/2016/06/27/81479b8884.png">
+<meta name="twitter:image" content="http://blog-img.skylerhu.com/2016/06/27/81479b8884.png">
   
     <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
   
@@ -27,7 +28,7 @@
   
   <script src="/style.js"></script>
 </head>
-
+</html>
 <body>
   <div id="container">
     <div class="left-col">
@@ -36,7 +37,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+			<img src="http://blog-img.skylerhu.com/img/icon/wolf_300.png" class="js-avatar">
 			
 		</a>
 
@@ -100,7 +101,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+					<img src="http://blog-img.skylerhu.com/img/icon/wolf_300.png" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -161,47 +162,47 @@
 <p>我的GitHub name是 SkylerHu，以我的名字为例。</p>
 <h4 id="2-初始化项目"><a href="#2-初始化项目" class="headerlink" title="2. 初始化项目"></a>2. 初始化项目</h4><p><strong>若是借助Jekyll和hexo的话，只需clone下来即可。</strong></p>
 <blockquote>
-<p>已下步骤是基于terminal的git命令，若是使用界面工具，自己去<a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>看</p>
+<p>已下步骤是基于terminal的git命令，若是使用界面工具，自己去<a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>看</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~$ git <span class="built_in">clone</span> https://github.com/SkylerHu/SkylerHu.github.io</div><div class="line">~$ <span class="built_in">cd</span> SkylerHu.github.io</div><div class="line">~$ <span class="built_in">echo</span> <span class="string">"Hello World"</span> &gt; index.html</div><div class="line">~$ git add --all</div><div class="line">~$ git commit -m <span class="string">"Initial commit"</span></div><div class="line">~$ git push -u origin master</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~$ git <span class="built_in">clone</span> https://github.com/SkylerHu/SkylerHu.github.io</span><br><span class="line">~$ <span class="built_in">cd</span> SkylerHu.github.io</span><br><span class="line">~$ <span class="built_in">echo</span> <span class="string">"Hello World"</span> &gt; index.html</span><br><span class="line">~$ git add --all</span><br><span class="line">~$ git commit -m <span class="string">"Initial commit"</span></span><br><span class="line">~$ git push -u origin master</span><br></pre></td></tr></table></figure>
 <p>也可以在index.html中添加HTML内容，然后在push</p>
-<p>一切OK之后，可以访问 <a href="http://SkylerHu.github.io" target="_blank" rel="external">http://SkylerHu.github.io</a>.  可以查看index.html的内容。这个网址就是你的博客网址。</p>
-<h3 id="二、使用Jekyll"><a href="#二、使用Jekyll" class="headerlink" title="二、使用Jekyll"></a>二、使用Jekyll</h3><p>上面新建的项目中，Settings中可以看到GitHubPages相关配置，官方推荐使用<a href="http://jekyll.bootcss.com/" target="_blank" rel="external">Jekyll</a><br><img src="http://7xpdkx.com1.z0.glb.clouddn.com/2016/06/27/81479b8884.png" alt="GitHub Pages Settings"></p>
+<p>一切OK之后，可以访问 <a href="http://SkylerHu.github.io" target="_blank" rel="noopener">http://SkylerHu.github.io</a>.  可以查看index.html的内容。这个网址就是你的博客网址。</p>
+<h3 id="二、使用Jekyll"><a href="#二、使用Jekyll" class="headerlink" title="二、使用Jekyll"></a>二、使用Jekyll</h3><p>上面新建的项目中，Settings中可以看到GitHubPages相关配置，官方推荐使用<a href="http://jekyll.bootcss.com/" target="_blank" rel="noopener">Jekyll</a><br><img src="http://blog-img.skylerhu.com/2016/06/27/81479b8884.png" alt="GitHub Pages Settings"></p>
 <h4 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h4><p>安装需要Ruby环境，没有的话自行安装。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~$ gem install jekyll</div><div class="line">~$ jekyll new my-awesome-site</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ gem install jekyll</span><br><span class="line">~$ jekyll new my-awesome-site</span><br></pre></td></tr></table></figure>
 <p>把项目生成的所有文件，全部copy到<code>SkylerHu.github.io</code>目录下.</p>
 <h4 id="2-目录结构"><a href="#2-目录结构" class="headerlink" title="2. 目录结构"></a>2. 目录结构</h4><ul>
-<li><a href="http://jekyll.bootcss.com/docs/structure/" target="_blank" rel="external">目录结构</a></li>
+<li><a href="http://jekyll.bootcss.com/docs/structure/" target="_blank" rel="noopener">目录结构</a></li>
 </ul>
-<h4 id="3-本地启动预览"><a href="#3-本地启动预览" class="headerlink" title="3. 本地启动预览"></a>3. 本地启动预览</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~$ <span class="built_in">cd</span> SkylerHu.github.io</div><div class="line">~/SkylerHu.github.io$ jekyll serve</div></pre></td></tr></table></figure>
-<p>直接访问<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>  就可以看到你的网站了。</p>
+<h4 id="3-本地启动预览"><a href="#3-本地启动预览" class="headerlink" title="3. 本地启动预览"></a>3. 本地启动预览</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ <span class="built_in">cd</span> SkylerHu.github.io</span><br><span class="line">~/SkylerHu.github.io$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p>直接访问<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>  就可以看到你的网站了。</p>
 <h4 id="4-写文章"><a href="#4-写文章" class="headerlink" title="4. 写文章"></a>4. 写文章</h4><p>在目录<code>/SkylerHu.github.io/_posts/</code>下新建xxxx.md；<br>格式需要按照模板提供的去写； </p>
-<h4 id="5-部署"><a href="#5-部署" class="headerlink" title="5. 部署"></a>5. 部署</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~/SkylerHu.github.io$ git add --all</div><div class="line">~/SkylerHu.github.io$ git push</div></pre></td></tr></table></figure>
-<h4 id="6-使用自己的域名"><a href="#6-使用自己的域名" class="headerlink" title="6. 使用自己的域名"></a>6. 使用自己的域名</h4><h5 id="1-添加CNAME文件push到GitHub"><a href="#1-添加CNAME文件push到GitHub" class="headerlink" title="1) 添加CNAME文件push到GitHub"></a>1) 添加CNAME文件push到GitHub</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/SkylerHu.github.io$ <span class="built_in">echo</span> <span class="string">"pages.skylerhu.com"</span> &gt; CNAME</div></pre></td></tr></table></figure>
+<h4 id="5-部署"><a href="#5-部署" class="headerlink" title="5. 部署"></a>5. 部署</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/SkylerHu.github.io$ git add --all</span><br><span class="line">~/SkylerHu.github.io$ git push</span><br></pre></td></tr></table></figure>
+<h4 id="6-使用自己的域名"><a href="#6-使用自己的域名" class="headerlink" title="6. 使用自己的域名"></a>6. 使用自己的域名</h4><h5 id="1-添加CNAME文件push到GitHub"><a href="#1-添加CNAME文件push到GitHub" class="headerlink" title="1) 添加CNAME文件push到GitHub"></a>1) 添加CNAME文件push到GitHub</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/SkylerHu.github.io$ <span class="built_in">echo</span> <span class="string">"pages.skylerhu.com"</span> &gt; CNAME</span><br></pre></td></tr></table></figure>
 <h5 id="2-域名解析"><a href="#2-域名解析" class="headerlink" title="2) 域名解析"></a>2) 域名解析</h5><p>使pages.skylerhu.com解析到 SkylerHu.github.io<br>注意选择 解析类型是<code>CNAME</code></p>
 <h4 id="7-主题"><a href="#7-主题" class="headerlink" title="7. 主题"></a>7. 主题</h4><p>推荐网站：</p>
 <ul>
-<li><a href="http://jekyllthemes.org/" target="_blank" rel="external">http://jekyllthemes.org/</a></li>
-<li><a href="https://jekyllthemes.io/" target="_blank" rel="external">https://jekyllthemes.io/</a></li>
+<li><a href="http://jekyllthemes.org/" target="_blank" rel="noopener">http://jekyllthemes.org/</a></li>
+<li><a href="https://jekyllthemes.io/" target="_blank" rel="noopener">https://jekyllthemes.io/</a></li>
 </ul>
 <p>可以根据自己的喜好去选择主题，都大同小异。</p>
-<h3 id="三、使用hexo"><a href="#三、使用hexo" class="headerlink" title="三、使用hexo"></a>三、使用hexo</h3><p>之所有使用<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo</a>,因为好多网友都说这个比较好，所有研究了一下使用方法。</p>
-<p>需要安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a></p>
-<h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~$ sudo npm install -g hexo</div></pre></td></tr></table></figure>
-<h4 id="2-初始化"><a href="#2-初始化" class="headerlink" title="2. 初始化"></a>2. 初始化</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">~$ <span class="built_in">cd</span> blog</div><div class="line"><span class="comment"># 初始化</span></div><div class="line">~/blog$ hexo init</div><div class="line"><span class="comment"># 生成静态页面，把markdown转化成html，hexo g 也行</span></div><div class="line">~/blog$ hexo generate</div><div class="line"><span class="comment"># 启动本地服务，hexo s 也行</span></div><div class="line">~/blog$ hexo server</div></pre></td></tr></table></figure>
-<p>其他<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">hexo命令</a></p>
+<h3 id="三、使用hexo"><a href="#三、使用hexo" class="headerlink" title="三、使用hexo"></a>三、使用hexo</h3><p>之所有使用<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>,因为好多网友都说这个比较好，所有研究了一下使用方法。</p>
+<p>需要安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></p>
+<h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~$ sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+<h4 id="2-初始化"><a href="#2-初始化" class="headerlink" title="2. 初始化"></a>2. 初始化</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">~$ <span class="built_in">cd</span> blog</span><br><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">~/blog$ hexo init</span><br><span class="line"><span class="comment"># 生成静态页面，把markdown转化成html，hexo g 也行</span></span><br><span class="line">~/blog$ hexo generate</span><br><span class="line"><span class="comment"># 启动本地服务，hexo s 也行</span></span><br><span class="line">~/blog$ hexo server</span><br></pre></td></tr></table></figure>
+<p>其他<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="noopener">hexo命令</a></p>
 <p>若是之后nodejs升级了，需要执行一下 <code>npm --registry=https://registry.npm.taobao.org install</code><br>或者直接执行 <code>npm install</code>, 有参数的意思是使用淘宝源</p>
-<h4 id="3-配置GitHub"><a href="#3-配置GitHub" class="headerlink" title="3. 配置GitHub"></a>3. 配置GitHub</h4><p>编辑blog目录下_config.yml文件，详见<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">hexo配置</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/blog$ vim _config.yml</div></pre></td></tr></table></figure>
-<p>找到<code>deploy</code>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">     type: git</div><div class="line">     repo:https://github.com/SkylerHu/SkylerHu.github.io.git</div><div class="line">     branch:master</div><div class="line">     message: commit的message，默认 Site updated: &#123;&#123; now(&apos;YYYY-MM-DD HH:mm:ss&apos;) &#125;&#125;</div></pre></td></tr></table></figure></p>
-<p>保存后执行命令安装插件<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/blog$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<h4 id="4-配置RSS"><a href="#4-配置RSS" class="headerlink" title="4. 配置RSS"></a>4. 配置RSS</h4><p>编辑_config.yml配置feed<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">feed:</div><div class="line">  type: atom</div><div class="line">  path: atom.xml</div><div class="line">  limit: 20</div><div class="line">  hub:</div></pre></td></tr></table></figure></p>
-<p>安装插件<a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="external">hexo-generator-feed</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/blog$ npm install hexo-generator-feed --save</div></pre></td></tr></table></figure>
-<h4 id="5-部署GitHub-Pages"><a href="#5-部署GitHub-Pages" class="headerlink" title="5. 部署GitHub Pages"></a>5. 部署GitHub Pages</h4><p>部署之前可以修改_confi.yml中deploy.message作为git commit的message<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 每次修改之后都需要clean和generate</span></div><div class="line">~/blog$ hexo clean</div><div class="line">~/blog$ hexo generate</div><div class="line"><span class="comment"># hexo d 也可以</span></div><div class="line">~/blog$ hexo deploy</div></pre></td></tr></table></figure></p>
+<h4 id="3-配置GitHub"><a href="#3-配置GitHub" class="headerlink" title="3. 配置GitHub"></a>3. 配置GitHub</h4><p>编辑blog目录下_config.yml文件，详见<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">hexo配置</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ vim _config.yml</span><br></pre></td></tr></table></figure>
+<p>找到<code>deploy</code>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">     type: git</span><br><span class="line">     repo:https://github.com/SkylerHu/SkylerHu.github.io.git</span><br><span class="line">     branch:master</span><br><span class="line">     message: commit的message，默认 Site updated: &#123;&#123; now(&apos;YYYY-MM-DD HH:mm:ss&apos;) &#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>保存后执行命令安装插件<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-配置RSS"><a href="#4-配置RSS" class="headerlink" title="4. 配置RSS"></a>4. 配置RSS</h4><p>编辑_config.yml配置feed<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">feed:</span><br><span class="line">  type: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  limit: 20</span><br><span class="line">  hub:</span><br></pre></td></tr></table></figure></p>
+<p>安装插件<a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="noopener">hexo-generator-feed</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+<h4 id="5-部署GitHub-Pages"><a href="#5-部署GitHub-Pages" class="headerlink" title="5. 部署GitHub Pages"></a>5. 部署GitHub Pages</h4><p>部署之前可以修改_confi.yml中deploy.message作为git commit的message<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 每次修改之后都需要clean和generate</span></span><br><span class="line">~/blog$ hexo clean</span><br><span class="line">~/blog$ hexo generate</span><br><span class="line"><span class="comment"># hexo d 也可以</span></span><br><span class="line">~/blog$ hexo deploy</span><br></pre></td></tr></table></figure></p>
 <p>会生成一个<code>.deploy_git</code> 文件夹同步到GitHub项目中。</p>
-<h4 id="5-主题"><a href="#5-主题" class="headerlink" title="5. 主题"></a>5. 主题</h4><p>推荐网站<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a><br>我自己使用的是 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">hexo-theme-yilia</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</div></pre></td></tr></table></figure>
+<h4 id="5-主题"><a href="#5-主题" class="headerlink" title="5. 主题"></a>5. 主题</h4><p>推荐网站<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>我自己使用的是 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">hexo-theme-yilia</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
 <p>修改hexo根目录下的 _config.yml ： theme: yilia</p>
 <h4 id="6-使用自己的域名-1"><a href="#6-使用自己的域名-1" class="headerlink" title="6. 使用自己的域名"></a>6. 使用自己的域名</h4><p>同Jekyll一样，也需要修改域名解析，同样也要在GitHub项目下添加CNAME文件。</p>
 <blockquote>
@@ -211,8 +212,8 @@
 <li>需要添加到<code>source</code>文件夹下<code>echo &quot;pages.skylerhu.com&quot; &gt; source/CNAME</code></li>
 </ul>
 </blockquote>
-<h4 id="7-其他配置"><a href="#7-其他配置" class="headerlink" title="7. 其他配置"></a>7. 其他配置</h4><p>可以在blog/_config.yml配置<a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="external">语言和时区</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">language: zh-Hans</div><div class="line">timezone: Asia/Shanghai</div></pre></td></tr></table></figure></p>
-<p>我的网站还添加了<code>多说评论</code>和<code>百度统计</code>，具体使用详见<a href="http://ijiaober.github.io/categories/hexo/" target="_blank" rel="external">推荐网站</a>。</p>
+<h4 id="7-其他配置"><a href="#7-其他配置" class="headerlink" title="7. 其他配置"></a>7. 其他配置</h4><p>可以在blog/_config.yml配置<a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="noopener">语言和时区</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">language: zh-Hans</span><br><span class="line">timezone: Asia/Shanghai</span><br></pre></td></tr></table></figure></p>
+<p>我的网站还添加了<code>多说评论</code>和<code>百度统计</code>，具体使用详见<a href="http://ijiaober.github.io/categories/hexo/" target="_blank" rel="noopener">推荐网站</a>。</p>
 <h3 id="四、比较"><a href="#四、比较" class="headerlink" title="四、比较"></a>四、比较</h3><table>
 <thead>
 <tr>
@@ -243,7 +244,7 @@
 <p>两个之间都可以互相迁移，看个人操作习惯和爱好吧。</p>
 </blockquote>
 <h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>升级了Node.js后，发现在项目目录中执行hexo相关命令会报出错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[Error: Module version mismatch. Expected 47, got 46.]</div><div class="line">&#123; [Error: Cannot find module &apos;./build/default/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; &#125;</div><div class="line">&#123; [Error: Cannot find module &apos;./build/Debug/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[Error: Module version mismatch. Expected 47, got 46.]</span><br><span class="line">&#123; [Error: Cannot find module &apos;./build/default/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; &#125;</span><br><span class="line">&#123; [Error: Cannot find module &apos;./build/Debug/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; &#125;</span><br></pre></td></tr></table></figure>
 <p>解决方案如下：</p>
 <ul>
 <li>执行npm uninstall hexo卸载hexo；</li>
@@ -345,7 +346,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Skyler Hu
+    		&copy; 2019 Skyler Hu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -428,7 +429,7 @@ var _hmt = _hmt || [];
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPN-Liunx/" style="font-size: 10px;">VPN, Liunx</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
     			</div>
     	</section>
     

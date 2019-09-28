@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>使用Docker搭建VPN | Skyler&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="若要申请VPS可使用这个DigtalOcean，会赠送你$10用于购买VPS。  通过SSH隧道翻墙本地执行1ssh -D -N 7777 root@host 需要使用代理的地方，都设置proxy到 127.0.0.1:7777 浏览器可通过SwitchyOmega添加情景方式 代理协议使用SOCKS5，代理服务器地址127.0.0.1，代理端口7777 使用Docker要说安装，最简洁明了方便">
+<meta name="keywords" content="VPN, Liunx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Docker搭建VPN">
+<meta property="og:url" content="http://yoursite.com/vpn-docker-or-ssh/index.html">
+<meta property="og:site_name" content="Skyler&#39;s Blog">
+<meta property="og:description" content="若要申请VPS可使用这个DigtalOcean，会赠送你$10用于购买VPS。  通过SSH隧道翻墙本地执行1ssh -D -N 7777 root@host 需要使用代理的地方，都设置proxy到 127.0.0.1:7777 浏览器可通过SwitchyOmega添加情景方式 代理协议使用SOCKS5，代理服务器地址127.0.0.1，代理端口7777 使用Docker要说安装，最简洁明了方便">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-28T01:44:26.276Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Docker搭建VPN">
+<meta name="twitter:description" content="若要申请VPS可使用这个DigtalOcean，会赠送你$10用于购买VPS。  通过SSH隧道翻墙本地执行1ssh -D -N 7777 root@host 需要使用代理的地方，都设置proxy到 127.0.0.1:7777 浏览器可通过SwitchyOmega添加情景方式 代理协议使用SOCKS5，代理服务器地址127.0.0.1，代理端口7777 使用Docker要说安装，最简洁明了方便">
+  
+    <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.ico">
+  
+  <script src="/style.js"></script>
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://blog-img.skylerhu.com/img/icon/wolf_300.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Skyler Hu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pains, No gains!</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+				<li><a href="/links">链接们</a></li>
+	        
+				<li><a href="/about">关于</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+		        
+					<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Skyler Hu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://blog-img.skylerhu.com/img/icon/wolf_300.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Skyler Hu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pains, No gains!</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/links">链接们</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-vpn-docker-or-ssh" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用Docker搭建VPN
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>若要申请VPS可使用这个<a href="http://www.digitalocean.com/?refcode=a80753a9aac2" target="_blank" rel="noopener">DigtalOcean</a>，会赠送你$10用于购买VPS。</p>
+</blockquote>
+<h4 id="通过SSH隧道翻墙"><a href="#通过SSH隧道翻墙" class="headerlink" title="通过SSH隧道翻墙"></a>通过SSH隧道翻墙</h4><p>本地执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -D -N 7777 root@host</span><br></pre></td></tr></table></figure></p>
+<p>需要使用代理的地方，都设置proxy到 127.0.0.1:7777</p>
+<p>浏览器可通过<code>SwitchyOmega</code>添加情景方式</p>
+<pre><code>代理协议使用SOCKS5，代理服务器地址127.0.0.1，代理端口7777
+</code></pre><h3 id="使用Docker"><a href="#使用Docker" class="headerlink" title="使用Docker"></a>使用Docker</h3><p>要说安装，最简洁明了方便当然是试用<code>Docker</code>啦</p>
+<p>安装Docker, 可根据自己系统参考<a href="https://docs.docker.com/engine/installation/" target="_blank" rel="noopener">官网</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install docker.io  # Ubuntu 16.04为例的</span><br></pre></td></tr></table></figure></p>
+<h4 id="l2tp"><a href="#l2tp" class="headerlink" title="l2tp"></a>l2tp</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull fcojean/l2tp-ipsec-vpn-server</span><br></pre></td></tr></table></figure>
+<p>VERY IMPORTANT ! First, run this command on the Docker host to load the IPsec NETKEY kernel module:<br><code>sudo modprobe af_key</code></p>
+<p>vim <code>/etc/docker/vpn.env</code>，添加内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">VPN_IPSEC_PSK=0819</span><br><span class="line">VPN_USER_CREDENTIAL_LIST=[&#123;&quot;login&quot;:&quot;skyler&quot;,&quot;password&quot;:&quot;skyler&quot;&#125;,&#123;&quot;login&quot;:&quot;guest&quot;,&quot;password&quot;:&quot;guest&quot;&#125;]</span><br><span class="line">VPN_NETWORK_INTERFACE=eth0</span><br></pre></td></tr></table></figure></p>
+<p>启动服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">    --name l2tp-ipsec-vpn-server \</span><br><span class="line">    --env-file /etc/docker/vpn.env \</span><br><span class="line">    -p 500:500/udp \</span><br><span class="line">    -p 4500:4500/udp \</span><br><span class="line">    -v /lib/modules:/lib/modules:ro \</span><br><span class="line">    -d --privileged \</span><br><span class="line">    fcojean/l2tp-ipsec-vpn-server</span><br></pre></td></tr></table></figure></p>
+<p>check检测运行状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it l2tp-ipsec-vpn-server ipsec status</span><br></pre></td></tr></table></figure></p>
+<h4 id="Shadowsocks"><a href="#Shadowsocks" class="headerlink" title="Shadowsocks"></a>Shadowsocks</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mritd/shadowsocks</span><br></pre></td></tr></table></figure>
+<p>启动，可修改<code>18888</code>端口及<code>-m</code>(加密方式)、<code>-k</code>(用户名)的参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dt --name shadowsocks -p 18888:18888 mritd/shadowsocks -s &quot;-s 0.0.0.0 -p 18888 -m rc4-md5 -k skyler --fast-open&quot;</span><br></pre></td></tr></table></figure></p>
+<p>ss不使用Docker也很简单，查看Shadowsocks<a href="http://shadowsocks.org/en/download/servers.html" target="_blank" rel="noopener">官网</a></p>
+<h3 id="附Terminal使用代理"><a href="#附Terminal使用代理" class="headerlink" title="附Terminal使用代理"></a>附Terminal使用代理</h3><p>vim <code>~/.zshrc</code>或者<code>~/.bashrc</code>添加<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> # proxy</span><br><span class="line">alias setproxy=&quot;export ALL_PROXY=socks5://127.0.0.1:7777&quot;</span><br><span class="line">alias unsetproxy=&quot;unset ALL_PROXY&quot;</span><br><span class="line">alias ip=&quot;curl -i http://ip.cn&quot;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br><span class="line">setproxy  # 设置代理</span><br><span class="line">unsetproxy  # 取消代理</span><br><span class="line">ip  # 可用此命令验证</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/vpn-docker-or-ssh/" class="archive-article-date">
+  	<time datetime="2017-10-12T02:57:49.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-10-12</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN-Liunx/">VPN, Liunx</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/Mac-iTerm-note/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mac使用Iterm2的正确姿势</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="vpn-docker-or-ssh" data-title="使用Docker搭建VPN" data-url="http://yoursite.com/vpn-docker-or-ssh/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"skylerhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2019 Skyler Hu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a2503cc9e29eba24d28584a7506f1eab";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPN-Liunx/" style="font-size: 10px;">VPN, Liunx</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

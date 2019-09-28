@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Bitmap too large to be uploaded into a texture,Hardware accelerated | Skyler&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Android的硬件加速及可能导致的问题  问题在Android 4.0的某些设备上，在View刷新时会出现花屏和屏幕上的某些View错位的现象。 经过调查后发现adb logcat中出现很多OpenGLRenderer: 0x501的错位： 12309-18 14:34:39.090: DEBUG/OpenGLRenderer(3104): GL error from OpenGLRender">
@@ -13,6 +13,7 @@
 <meta property="og:url" content="http://yoursite.com/Android-Bitmap-too-large-error/index.html">
 <meta property="og:site_name" content="Skyler&#39;s Blog">
 <meta property="og:description" content="Android的硬件加速及可能导致的问题  问题在Android 4.0的某些设备上，在View刷新时会出现花屏和屏幕上的某些View错位的现象。 经过调查后发现adb logcat中出现很多OpenGLRenderer: 0x501的错位： 12309-18 14:34:39.090: DEBUG/OpenGLRenderer(3104): GL error from OpenGLRender">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-10T15:53:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bitmap too large to be uploaded into a texture,Hardware accelerated">
@@ -25,7 +26,7 @@
   
   <script src="/style.js"></script>
 </head>
-
+</html>
 <body>
   <div id="container">
     <div class="left-col">
@@ -34,7 +35,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+			<img src="http://blog-img.skylerhu.com/img/icon/wolf_300.png" class="js-avatar">
 			
 		</a>
 
@@ -98,7 +99,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+					<img src="http://blog-img.skylerhu.com/img/icon/wolf_300.png" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -158,7 +159,7 @@
 <p>Android的硬件加速及可能导致的问题</p>
 </blockquote>
 <h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>在Android 4.0的某些设备上，在View刷新时会出现花屏和屏幕上的某些View错位的现象。 经过调查后发现<code>adb logcat</code>中出现很多<code>OpenGLRenderer: 0x501</code>的错位：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">09-18 14:34:39.090: DEBUG/OpenGLRenderer(3104): GL error from OpenGLRenderer: 0x501</div><div class="line">09-18 14:34:39.386: DEBUG/OpenGLRenderer(3104): GL error from OpenGLRenderer: 0x501</div><div class="line">09-18 14:34:39.656: DEBUG/OpenGLRenderer(3104): GL error from OpenGLRenderer: 0x501</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">09-18 14:34:39.090: DEBUG/OpenGLRenderer(3104): GL error from OpenGLRenderer: 0x501</span><br><span class="line">09-18 14:34:39.386: DEBUG/OpenGLRenderer(3104): GL error from OpenGLRenderer: 0x501</span><br><span class="line">09-18 14:34:39.656: DEBUG/OpenGLRenderer(3104): GL error from OpenGLRenderer: 0x501</span><br></pre></td></tr></table></figure>
 <p>从这个日志，初步怀疑是硬件加速导致的问题。 经过分析发现使用了比较复杂的自定义View，可能会导致硬件加速渲染出错。</p>
 <h3 id="硬件加速的优点与缺点"><a href="#硬件加速的优点与缺点" class="headerlink" title="硬件加速的优点与缺点"></a>硬件加速的优点与缺点</h3><p>硬件加速能使用GPU来加速2D图像的渲染速度，但是硬件加速并不能完全支持所有的渲染操作， 针对自定义的View，硬件加速可能导致渲染出现错误。 如果有自定义的View，需要在硬件加速的设备上进行测试，如果出现渲染的问题，需要关闭硬件加速。</p>
 <h3 id="开启和关闭硬件加速"><a href="#开启和关闭硬件加速" class="headerlink" title="开启和关闭硬件加速"></a>开启和关闭硬件加速</h3><p>对硬件加速的开关可以在不同的级别进行控制：</p>
@@ -169,16 +170,16 @@
 <li>View</li>
 </ul>
 <h4 id="1-Application级别"><a href="#1-Application级别" class="headerlink" title="1. Application级别"></a>1. Application级别</h4><p>在Applciation级别控制硬件加速的开关</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;application android:hardwareAccelerated=&quot;true&quot; ...&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;application android:hardwareAccelerated=&quot;true&quot; ...&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="2-Activity级别"><a href="#2-Activity级别" class="headerlink" title="2. Activity级别"></a>2. Activity级别</h4><p>可以对单个的Activity控制是否启用硬件加速：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;application android:hardwareAccelerated=&quot;true&quot;&gt;</div><div class="line">    &lt;activity ... /&gt;</div><div class="line">    &lt;activity android:hardwareAccelerated=&quot;false&quot; /&gt;</div><div class="line">&lt;/application&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;application android:hardwareAccelerated=&quot;true&quot;&gt;</span><br><span class="line">    &lt;activity ... /&gt;</span><br><span class="line">    &lt;activity android:hardwareAccelerated=&quot;false&quot; /&gt;</span><br><span class="line">&lt;/application&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="3-Window级别"><a href="#3-Window级别" class="headerlink" title="3. Window级别"></a>3. Window级别</h4><p>在指定的View上关闭硬件加速：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);</span><br></pre></td></tr></table></figure>
 <p>或者使用<code>android:layerType=&quot;software&quot;</code>来关闭硬件加速：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    android:layout_width=&quot;fill_parent&quot;</div><div class="line">    android:layout_height=&quot;fill_parent&quot;</div><div class="line">    android:orientation=&quot;vertical&quot;</div><div class="line">    android:paddingLeft=&quot;2dp&quot;</div><div class="line">    android:layerType=&quot;software&quot;</div><div class="line">    android:paddingRight=&quot;2dp&quot; /&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:layout_width=&quot;fill_parent&quot;</span><br><span class="line">    android:layout_height=&quot;fill_parent&quot;</span><br><span class="line">    android:orientation=&quot;vertical&quot;</span><br><span class="line">    android:paddingLeft=&quot;2dp&quot;</span><br><span class="line">    android:layerType=&quot;software&quot;</span><br><span class="line">    android:paddingRight=&quot;2dp&quot; /&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="如何判断一个View是否启用了硬件加速"><a href="#如何判断一个View是否启用了硬件加速" class="headerlink" title="如何判断一个View是否启用了硬件加速"></a>如何判断一个View是否启用了硬件加速</h3><p><code>View.isHardwareAccelerated()</code> returns true if the View is attached to a hardware accelerated window.</p>
 <p><code>Canvas.isHardwareAccelerated()</code> returns true if the Canvas is hardware accelerated</p>
-<p><strong>参考：</strong><a href="http://developer.android.com/guide/topics/graphics/hardware-accel.html" target="_blank" rel="external">http://developer.android.com/guide/topics/graphics/hardware-accel.html</a></p>
+<p><strong>参考：</strong><a href="http://developer.android.com/guide/topics/graphics/hardware-accel.html" target="_blank" rel="noopener">http://developer.android.com/guide/topics/graphics/hardware-accel.html</a></p>
 
       
     </div>
@@ -274,7 +275,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Skyler Hu
+    		&copy; 2019 Skyler Hu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -357,7 +358,7 @@ var _hmt = _hmt || [];
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPN-Liunx/" style="font-size: 10px;">VPN, Liunx</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
     			</div>
     	</section>
     

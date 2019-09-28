@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Linux命令awk | Skyler&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、简介awk是一种编程语言，用于在linux/unix下对文本和数据进行处理。数据可以来自标准输入、一个或多个文件，或其它命令的输出。它支持用户自定义函数和动态正则表达式等先进功能，是linux/unix下的一个强大编程工具。它在命令行中使用，但更多是作为脚本来使用。 awk的处理文本和数据的方式：它逐行扫描文件，从第一行到最后一行，寻找匹配的特定模式的行，并在这些行上进行你想要的操作。如果没有">
@@ -13,6 +13,7 @@
 <meta property="og:url" content="http://yoursite.com/linux-shell-awk/index.html">
 <meta property="og:site_name" content="Skyler&#39;s Blog">
 <meta property="og:description" content="一、简介awk是一种编程语言，用于在linux/unix下对文本和数据进行处理。数据可以来自标准输入、一个或多个文件，或其它命令的输出。它支持用户自定义函数和动态正则表达式等先进功能，是linux/unix下的一个强大编程工具。它在命令行中使用，但更多是作为脚本来使用。 awk的处理文本和数据的方式：它逐行扫描文件，从第一行到最后一行，寻找匹配的特定模式的行，并在这些行上进行你想要的操作。如果没有">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-10T15:53:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令awk">
@@ -25,7 +26,7 @@
   
   <script src="/style.js"></script>
 </head>
-
+</html>
 <body>
   <div id="container">
     <div class="left-col">
@@ -34,7 +35,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+			<img src="http://blog-img.skylerhu.com/img/icon/wolf_300.png" class="js-avatar">
 			
 		</a>
 
@@ -98,7 +99,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+					<img src="http://blog-img.skylerhu.com/img/icon/wolf_300.png" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -230,19 +231,19 @@
 </tr>
 </tbody>
 </table>
-<h3 id="五、常用函数"><a href="#五、常用函数" class="headerlink" title="五、常用函数"></a>五、常用函数</h3><h6 id="1-求和"><a href="#1-求和" class="headerlink" title="1. 求和"></a>1. 求和</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat data | awk &apos;&#123;sum+=$1&#125; END &#123;print &quot;Sum = &quot;, sum&#125;&apos;</div></pre></td></tr></table></figure>
-<h6 id="2-求平均"><a href="#2-求平均" class="headerlink" title="2. 求平均"></a>2. 求平均</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat data | awk &apos;&#123;sum+=$1&#125; END &#123;print &quot;Average = &quot;, sum/NR&#125;&apos;</div></pre></td></tr></table></figure>
-<h6 id="3-求最大值"><a href="#3-求最大值" class="headerlink" title="3. 求最大值"></a>3. 求最大值</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat data | awk &apos;BEGIN &#123;max = 0&#125; &#123;if ($1&gt;max) max=$1 fi&#125; END &#123;print &quot;Max=&quot;, max&#125;&apos;</div></pre></td></tr></table></figure>
-<h6 id="4-求最小值（min的初始值设置一个超大数即可）"><a href="#4-求最小值（min的初始值设置一个超大数即可）" class="headerlink" title="4. 求最小值（min的初始值设置一个超大数即可）"></a>4. 求最小值（min的初始值设置一个超大数即可）</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat data | awk &apos;BEGIN &#123;min = 1999999&#125; &#123;if ($1&lt;min) min=$1 fi&#125; END &#123;print &quot;Min=&quot;, min&#125;&apos;</div></pre></td></tr></table></figure>
-<h6 id="5-去重"><a href="#5-去重" class="headerlink" title="5. 去重"></a>5. 去重</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">awk -F&apos;:&apos; &apos;!a[$1]++&apos;</div></pre></td></tr></table></figure>
-<h6 id="6-输入统计结果"><a href="#6-输入统计结果" class="headerlink" title="6. 输入统计结果"></a>6. 输入统计结果</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat data | awk &apos;info[$0]=++a[$12] &#123;&#125; END &#123;print &quot;TotalCount = &quot;, NR; for(i in info)&#123;print i, info[i]&#125; &#125;&apos;</div></pre></td></tr></table></figure>
+<h3 id="五、常用函数"><a href="#五、常用函数" class="headerlink" title="五、常用函数"></a>五、常用函数</h3><h6 id="1-求和"><a href="#1-求和" class="headerlink" title="1. 求和"></a>1. 求和</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat data | awk '&#123;sum+=$1&#125; END &#123;print "Sum = ", sum&#125;'</span><br></pre></td></tr></table></figure>
+<h6 id="2-求平均"><a href="#2-求平均" class="headerlink" title="2. 求平均"></a>2. 求平均</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat data | awk '&#123;sum+=$1&#125; END &#123;print "Average = ", sum/NR&#125;'</span><br></pre></td></tr></table></figure>
+<h6 id="3-求最大值"><a href="#3-求最大值" class="headerlink" title="3. 求最大值"></a>3. 求最大值</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat data | awk 'BEGIN &#123;max = 0&#125; &#123;if ($1&gt;max) max=$1 fi&#125; END &#123;print "Max=", max&#125;'</span><br></pre></td></tr></table></figure>
+<h6 id="4-求最小值（min的初始值设置一个超大数即可）"><a href="#4-求最小值（min的初始值设置一个超大数即可）" class="headerlink" title="4. 求最小值（min的初始值设置一个超大数即可）"></a>4. 求最小值（min的初始值设置一个超大数即可）</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat data | awk 'BEGIN &#123;min = 1999999&#125; &#123;if ($1&lt;min) min=$1 fi&#125; END &#123;print "Min=", min&#125;'</span><br></pre></td></tr></table></figure>
+<h6 id="5-去重"><a href="#5-去重" class="headerlink" title="5. 去重"></a>5. 去重</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F':' '!a[$1]++'</span><br></pre></td></tr></table></figure>
+<h6 id="6-输入统计结果"><a href="#6-输入统计结果" class="headerlink" title="6. 输入统计结果"></a>6. 输入统计结果</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat data | awk 'info[$0]=++a[$12] &#123;&#125; END &#123;print "TotalCount = ", NR; for(i in info)&#123;print i, info[i]&#125; &#125;'</span><br></pre></td></tr></table></figure>
 <p>还可以结合 <code>grep</code>/<code>uniq</code>(去重)/<code>sort</code>(排序)等命令一起使用</p>
-<h5 id="六、Demo"><a href="#六、Demo" class="headerlink" title="六、Demo"></a>六、Demo</h5><p>当前目录下有三个log文件如下<br>log1.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">2016-11-29 17:10:41,967 GET /api/web/conversation skyler</div><div class="line">2016-11-29 17:10:41,967 GET /api/web/conversation hu</div><div class="line">2016-11-29 17:10:41,967 GET /api/web/conversation hu</div><div class="line">2016-11-29 17:12:12,434 GET /api/web/tag -</div></pre></td></tr></table></figure></p>
-<p>log2.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2016-11-29 17:08:19,794 GET /api/web/account/user huleping</div><div class="line">2016-11-29 17:10:41,967 GET /api/web/conversation skyler</div><div class="line">2016-11-29 17:08:19,794 GET /api/web/account/user skyler</div></pre></td></tr></table></figure></p>
-<p>log3.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2016-11-29 17:12:23,462 GET /api/web/conversation skyler</div><div class="line">2016-11-29 17:12:30,459 GET /api/web/activity huleping</div><div class="line">2016-11-29 17:12:30,474 GET /api/web/conversation huleping</div></pre></td></tr></table></figure></p>
-<p>查找出匹配结果相同的结果，然后根据用户id去重统计个数，并输出总数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">➜ for i in $(seq 1 3); do grep &quot;/api/web/conversation&quot; log$&#123;i&#125;.txt; done | awk &apos;!a[$5]++ END &#123;print &quot;TotalCount = &quot;, NR; for(i in a)&#123;print i, a[i] | &quot;sort -r -n -k2&quot;;&#125; &#125;&apos;</div><div class="line">2016-11-29 17:10:41,967 GET /api/web/conversation skyler</div><div class="line">2016-11-29 17:10:41,967 GET /api/web/conversation hu</div><div class="line">2016-11-29 17:12:30,474 GET /api/web/conversation huleping</div><div class="line">TotalCount =  6</div><div class="line">skyler 3</div><div class="line">hu 2</div><div class="line">huleping 1</div></pre></td></tr></table></figure></p>
+<h5 id="六、Demo"><a href="#六、Demo" class="headerlink" title="六、Demo"></a>六、Demo</h5><p>当前目录下有三个log文件如下<br>log1.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2016-11-29 17:10:41,967 GET /api/web/conversation skyler</span><br><span class="line">2016-11-29 17:10:41,967 GET /api/web/conversation hu</span><br><span class="line">2016-11-29 17:10:41,967 GET /api/web/conversation hu</span><br><span class="line">2016-11-29 17:12:12,434 GET /api/web/tag -</span><br></pre></td></tr></table></figure></p>
+<p>log2.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2016-11-29 17:08:19,794 GET /api/web/account/user huleping</span><br><span class="line">2016-11-29 17:10:41,967 GET /api/web/conversation skyler</span><br><span class="line">2016-11-29 17:08:19,794 GET /api/web/account/user skyler</span><br></pre></td></tr></table></figure></p>
+<p>log3.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2016-11-29 17:12:23,462 GET /api/web/conversation skyler</span><br><span class="line">2016-11-29 17:12:30,459 GET /api/web/activity huleping</span><br><span class="line">2016-11-29 17:12:30,474 GET /api/web/conversation huleping</span><br></pre></td></tr></table></figure></p>
+<p>查找出匹配结果相同的结果，然后根据用户id去重统计个数，并输出总数<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜ for i in $(seq 1 3); do grep "/api/web/conversation" log$&#123;i&#125;.txt; done | awk '!a[$5]++ END &#123;print "TotalCount = ", NR; for(i in a)&#123;print i, a[i] | "sort -r -n -k2";&#125; &#125;'</span><br><span class="line">2016-11-29 17:10:41,967 GET /api/web/conversation skyler</span><br><span class="line">2016-11-29 17:10:41,967 GET /api/web/conversation hu</span><br><span class="line">2016-11-29 17:12:30,474 GET /api/web/conversation huleping</span><br><span class="line">TotalCount =  6</span><br><span class="line">skyler 3</span><br><span class="line">hu 2</span><br><span class="line">huleping 1</span><br></pre></td></tr></table></figure></p>
 <hr>
-<p><em><code>seq</code> 用于产生从某个数到另外一个数之间的所有整数</em><br><em><a href="http://man.linuxde.net/sort" target="_blank" rel="external">sort用法说明</a></em><br><em>n是按照数字大小排序，-r是以相反顺序，-k是指定需要爱排序的栏位，-t指定栏位分隔符为冒号</em></p>
+<p><em><code>seq</code> 用于产生从某个数到另外一个数之间的所有整数</em><br><em><a href="http://man.linuxde.net/sort" target="_blank" rel="noopener">sort用法说明</a></em><br><em>n是按照数字大小排序，-r是以相反顺序，-k是指定需要爱排序的栏位，-t指定栏位分隔符为冒号</em></p>
 
       
     </div>
@@ -266,6 +267,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/job-Crontab/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Crontab定时任务表达式
+        
+      </div>
+    </a>
   
   
     <a href="/as-show-project-libs-info/" id="article-nav-older" class="article-nav-link-wrap">
@@ -329,7 +339,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Skyler Hu
+    		&copy; 2019 Skyler Hu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -412,7 +422,7 @@ var _hmt = _hmt || [];
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPN-Liunx/" style="font-size: 10px;">VPN, Liunx</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
     			</div>
     	</section>
     

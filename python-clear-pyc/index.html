@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>清除项目所有pyc文件 | Skyler&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="清除python项目所有pyc文件用python去写一个项目，难免有时候需要处理清除pyc文件，于是写了个脚本，  可以传入一个文件夹参数，表示需要清理的文件夹默认取当前执行的文件夹路径 脚本具体如下：123456789101112131415161718192021222324252627282930313233343536373839404142#!/usr/bin/env python#">
@@ -13,6 +13,7 @@
 <meta property="og:url" content="http://yoursite.com/python-clear-pyc/index.html">
 <meta property="og:site_name" content="Skyler&#39;s Blog">
 <meta property="og:description" content="清除python项目所有pyc文件用python去写一个项目，难免有时候需要处理清除pyc文件，于是写了个脚本，  可以传入一个文件夹参数，表示需要清理的文件夹默认取当前执行的文件夹路径 脚本具体如下：123456789101112131415161718192021222324252627282930313233343536373839404142#!/usr/bin/env python#">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-10T15:53:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="清除项目所有pyc文件">
@@ -25,7 +26,7 @@
   
   <script src="/style.js"></script>
 </head>
-
+</html>
 <body>
   <div id="container">
     <div class="left-col">
@@ -34,7 +35,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+			<img src="http://blog-img.skylerhu.com/img/icon/wolf_300.png" class="js-avatar">
 			
 		</a>
 
@@ -98,7 +99,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+					<img src="http://blog-img.skylerhu.com/img/icon/wolf_300.png" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -158,7 +159,7 @@
 <p>清除python项目所有pyc文件<br>用python去写一个项目，难免有时候需要处理清除pyc文件，于是写了个脚本，</p>
 </blockquote>
 <p>可以传入一个文件夹参数，表示需要清理的文件夹<br>默认取当前执行的文件夹路径</p>
-<p>脚本具体如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># coding=utf-8</span></div><div class="line"><span class="comment"># Date:2011-03-26</span></div><div class="line"></div><div class="line">import os</div><div class="line">import fnmatch</div><div class="line">import sys</div><div class="line"></div><div class="line"></div><div class="line">def clearpyc(root, patterns=<span class="string">'*'</span>, single_level=False, yield_folders=False):</div><div class="line">    <span class="string">""</span><span class="string">"</span></div><div class="line">    root: 需要遍历的目录</div><div class="line">    patterns： 需要查找的文件，以；为分割的字符串</div><div class="line">    single_level: 是否只遍历单层目录，默认为否</div><div class="line">    yield_folders: 是否包含目录本身，默认为否</div><div class="line">    "<span class="string">""</span></div><div class="line">    patterns = patterns.split(<span class="string">';'</span>)</div><div class="line">    <span class="keyword">for</span> path, subdirs, files <span class="keyword">in</span> os.walk(root):</div><div class="line">        <span class="keyword">if</span> yield_folders:</div><div class="line">            files.extend(subdirs)</div><div class="line">            files.sort()</div><div class="line">        <span class="keyword">for</span> name <span class="keyword">in</span> files:</div><div class="line">            <span class="keyword">for</span> pattern <span class="keyword">in</span> patterns:</div><div class="line">                <span class="keyword">if</span> fnmatch.fnmatch(name, pattern.strip()):  <span class="comment"># 去除pattern两端的空格</span></div><div class="line">                    yield os.path.join(path, name)</div><div class="line">        <span class="keyword">if</span> single_level:</div><div class="line">            <span class="built_in">break</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">if</span> 2 == len(sys.argv):</div><div class="line">        directory = os.path.join(os.getcwd(), sys.argv[1])</div><div class="line">        <span class="built_in">print</span>(<span class="string">"参数检查正确"</span>)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        directory = os.getcwd()</div><div class="line">        <span class="built_in">print</span>(<span class="string">"取当前目录"</span>)</div><div class="line"></div><div class="line">    <span class="built_in">print</span>(directory)</div><div class="line"></div><div class="line">    <span class="keyword">for</span> path <span class="keyword">in</span> clearpyc(directory, <span class="string">'*.pyc'</span>):</div><div class="line">        <span class="built_in">print</span>(path)</div><div class="line">        os.remove(path)</div></pre></td></tr></table></figure></p>
+<p>脚本具体如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="comment"># Date:2011-03-26</span></span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line">import fnmatch</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def clearpyc(root, patterns=<span class="string">'*'</span>, single_level=False, yield_folders=False):</span><br><span class="line">    <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">    root: 需要遍历的目录</span></span><br><span class="line"><span class="string">    patterns： 需要查找的文件，以；为分割的字符串</span></span><br><span class="line"><span class="string">    single_level: 是否只遍历单层目录，默认为否</span></span><br><span class="line"><span class="string">    yield_folders: 是否包含目录本身，默认为否</span></span><br><span class="line"><span class="string">    "</span><span class="string">""</span></span><br><span class="line">    patterns = patterns.split(<span class="string">';'</span>)</span><br><span class="line">    <span class="keyword">for</span> path, subdirs, files <span class="keyword">in</span> os.walk(root):</span><br><span class="line">        <span class="keyword">if</span> yield_folders:</span><br><span class="line">            files.extend(subdirs)</span><br><span class="line">            files.sort()</span><br><span class="line">        <span class="keyword">for</span> name <span class="keyword">in</span> files:</span><br><span class="line">            <span class="keyword">for</span> pattern <span class="keyword">in</span> patterns:</span><br><span class="line">                <span class="keyword">if</span> fnmatch.fnmatch(name, pattern.strip()):  <span class="comment"># 去除pattern两端的空格</span></span><br><span class="line">                    yield os.path.join(path, name)</span><br><span class="line">        <span class="keyword">if</span> single_level:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">if</span> 2 == len(sys.argv):</span><br><span class="line">        directory = os.path.join(os.getcwd(), sys.argv[1])</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"参数检查正确"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        directory = os.getcwd()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"取当前目录"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(directory)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> path <span class="keyword">in</span> clearpyc(directory, <span class="string">'*.pyc'</span>):</span><br><span class="line">        <span class="built_in">print</span>(path)</span><br><span class="line">        os.remove(path)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -254,7 +255,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Skyler Hu
+    		&copy; 2019 Skyler Hu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -337,7 +338,7 @@ var _hmt = _hmt || [];
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPN-Liunx/" style="font-size: 10px;">VPN, Liunx</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
     			</div>
     	</section>
     

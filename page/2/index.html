@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Skyler&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="No pains, No gains!">
@@ -12,6 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Skyler&#39;s Blog">
 <meta property="og:description" content="No pains, No gains!">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Skyler&#39;s Blog">
 <meta name="twitter:description" content="No pains, No gains!">
@@ -23,7 +24,7 @@
   
   <script src="/style.js"></script>
 </head>
-
+</html>
 <body>
   <div id="container">
     <div class="left-col">
@@ -32,7 +33,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+			<img src="http://blog-img.skylerhu.com/img/icon/wolf_300.png" class="js-avatar">
 			
 		</a>
 
@@ -96,7 +97,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img src="http://7xpdkx.com1.z0.glb.clouddn.com/img/icon/wolf_300.png" class="js-avatar">
+					<img src="http://blog-img.skylerhu.com/img/icon/wolf_300.png" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -136,6 +137,393 @@
       <div class="body-wrap">
         
   
+    <article id="post-fix-git-commit-msg-use-vim-error" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/fix-git-commit-msg-use-vim-error/">Mac修正Vim无法git提交的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Git 可以使用Vim作为 Commit Message编辑器，上次不小心出现了以下错误：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: There was a problem with the editor 'vim'.Please supply the message using either -m or -F option.</span><br></pre></td></tr></table></figure></p>
+<p>如果在 Vim 中编辑文本时因为按键失误出现类似这样：<em>E492: Not an editor command…</em> 的错误信息时，必然无法提交。</p>
+<p>后来在 <a href="http://groups.google.com/group/vim_mac/browse_thread/thread/0d33e2f2130867b0" target="_blank" rel="noopener">Google Group: vim_mac</a> 这个帖子中找到了解决的办法，就是使用完整的 Vim 路径—— /usr/bin/vim :<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.editor /usr/bin/vim</span><br></pre></td></tr></table></figure></p>
+<p>看了一些别的博客，说有可能的原因是：<br><code>Vim 在遇到 Exx Error 时返回 Non-Zero code 是为了兼容 Posix，不过这种情况应该只会出现在使用 Ex Mode 时，Normal/Insert Mode 是不会这样的。</code></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/fix-git-commit-msg-use-vim-error/" class="archive-article-date">
+  	<time datetime="2016-11-28T07:31:05.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-28</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-vim-settings" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/vim-settings/">如何优雅的使用Vim</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="我的电脑"><a href="#我的电脑" class="headerlink" title="我的电脑"></a>我的电脑</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  ~  sw_vers</span><br><span class="line">ProductName:    Mac OS X</span><br><span class="line">ProductVersion: 10.10.5</span><br><span class="line">BuildVersion:   14F1021</span><br><span class="line">➜  ~  python -V</span><br><span class="line">Python 2.7.10</span><br></pre></td></tr></table></figure>
+<h2 id="配置前的准备"><a href="#配置前的准备" class="headerlink" title="配置前的准备"></a>配置前的准备</h2><p>默认大家是安装了 <a href="http://brew.sh/" target="_blank" rel="noopener">HomeBrew</a>, 没有的话请自行安装</p>
+<p>若是需要安装Python的代码提示 <code>YouCompleteMe</code>, 要求:</p>
+<ul>
+<li>YouCompleteMe unavailable: requires Vim 7.3.598+</li>
+<li>还需要Python支持Python module</li>
+</ul>
+<p>执行以下命令可以查看相关支持信息(<code>+</code>支持、<code>-</code>不支持)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~  vim --version</span><br><span class="line">VIM - Vi IMproved 7.4 (2013 Aug 10, compiled Apr 28 2016 11:12:36)</span><br><span class="line">+cryptv          +linebreak       -python          +vreplace</span><br><span class="line">+cscope          +lispindent      +python3         +wildignore</span><br></pre></td></tr></table></figure>
+<p>若是版本不对 或者 not support python module，请执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /usr/bin/vim /usr/bin/vim_bk  <span class="comment"># 把系统默认的vim备份了</span></span><br><span class="line">brew install vim --with-python3  <span class="comment"># 安装新的vim</span></span><br><span class="line"><span class="comment"># 若是下面的步骤执行不下去了，尝试一下 brew install vim --with-python</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>最后还需安装  <code>brew instal CMake</code></li>
+</ul>
+<h2 id="安装vim-插件"><a href="#安装vim-插件" class="headerlink" title="安装vim 插件"></a>安装vim 插件</h2><p>执行以下脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -d ~/.vim ]; <span class="keyword">then</span></span><br><span class="line">mkdir ~/.vim</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ~/.vim</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -d bundle ]; <span class="keyword">then</span></span><br><span class="line">mkdir bundle</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> bundle</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/VundleVim/Vundle.vim.git   <span class="comment"># 管理工具</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/Lokaltog/vim-powerline.git <span class="comment"># </span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/scrooloose/nerdtree.git <span class="comment"># 目录树</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/jistr/vim-nerdtree-tabs.git  <span class="comment"># </span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/vim-scripts/taglist.vim.git <span class="comment"># 方法类跳转</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/vim-scripts/AutoTag.git</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/scrooloose/syntastic.git  <span class="comment"># js语法检测</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/tpope/vim-fugitive.git <span class="comment"># 显示Git信息</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/Valloric/YouCompleteMe.git <span class="comment"># python 自动补全</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/hynek/vim-python-pep8-indent <span class="comment"># pep8 python语法 需要在项目虚拟环境下 pip install pep8</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/nvie/vim-flake8 <span class="comment"># 代码风格检测 需要在项目虚拟环境下 pip install flake8</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/Yggdroot/indentLine  <span class="comment"># 代码格式对齐线</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com:scrooloose/nerdcommenter.git  <span class="comment"># 快捷注释</span></span><br><span class="line"><span class="comment"># git clone https://github.com/vim-ruby/vim-ruby # ruby插件</span></span><br><span class="line"><span class="built_in">cd</span> YouCompleteMe</span><br><span class="line">git submodule update --init --recursive</span><br><span class="line">./install.py  --clang-completer</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">mkdir -p ~/.vim/<span class="built_in">autoload</span> ~/.vim/bundle &amp;&amp; curl -LSso ~/.vim/<span class="built_in">autoload</span>/pathogen.vim https://tpo.pe/pathogen.vim</span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">brew install ctags</span><br></pre></td></tr></table></figure>
+<p>以上所有vim插件都在GitHub上<br>若是要更新哪个插件，直接到插件目录下去git pull 就行了；<br>值得注意的是 最好查看下插件的README，看它的用发是否发生了改变，需要自行更新 .vimrc中的配置</p>
+<h2 id="vimrc-配置文件"><a href="#vimrc-配置文件" class="headerlink" title=".vimrc 配置文件"></a>.vimrc 配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">vim .vimrc  <span class="comment"># 编辑 .vimrc 文件 内容如下</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line">syntax on</span><br><span class="line">set encoding=utf-8</span><br><span class="line">&quot; 自动缩进</span><br><span class="line">set autoindent</span><br><span class="line">set cindent</span><br><span class="line">set autoread &quot; 设置当文件被改动时自动载入</span><br><span class="line">set wildmenu &quot; 增强模式中的命令行自动完成操作</span><br><span class="line">set showcmd         &quot; 输入的命令显示出来，看的清楚些  </span><br><span class="line">set whichwrap+=&lt;,&gt;,h,l  &quot; 允许backspace和光标键跨越行边界</span><br><span class="line">set ruler           &quot; 显示标尺  </span><br><span class="line">set tabstop=4</span><br><span class="line">set shiftwidth=4</span><br><span class="line">set softtabstop=4</span><br><span class="line">&quot;为不同的文件类型设置不同的空格数替换TAB</span><br><span class="line">autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set ai</span><br><span class="line">autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set sw=4</span><br><span class="line">autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set ts=4</span><br><span class="line">autocmd FileType php,python,c,java,perl,shell,bash,vim,ruby,cpp set sts=4</span><br><span class="line">autocmd FileType javascript,html,css,xml set ai</span><br><span class="line">autocmd FileType javascript,html,css,xml set sw=2</span><br><span class="line">autocmd FileType javascript,html,css,xml set ts=2</span><br><span class="line">autocmd FileType javascript,html,css,xml set sts=2</span><br><span class="line">set expandtab</span><br><span class="line">set nu</span><br><span class="line">set hlsearch</span><br><span class="line">set incsearch</span><br><span class="line">set colorcolumn=120</span><br><span class="line">set cul &quot;高亮光标所在行</span><br><span class="line">autocmd InsertEnter * se cul    &quot; 用浅色高亮当前行  </span><br><span class="line">set scrolloff=3     &quot; 光标移动到buffer的顶部和底部时保持3行距离  </span><br><span class="line">&quot;set statusline=%&lt;\ %n:%F\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)</span><br><span class="line">set statusline=%F%m%r%h%w\ [FORMAT=%&#123;&amp;ff&#125;]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %&#123;strftime(\&quot;%d/%m/%y\ -\ %H:%M\&quot;)&#125;   &quot;状态行显示的内容  </span><br><span class="line">set laststatus=2</span><br><span class="line">set ignorecase</span><br><span class="line">set backspace=indent,eol,start &quot; backspace over everything in insert mode</span><br><span class="line">set nocompatible              &quot; be iMproved, required</span><br><span class="line">filetype off                  &quot; required</span><br><span class="line"></span><br><span class="line">set foldnestmax=10      &quot;deepest fold is 10 levels</span><br><span class="line">set foldlevel=1         &quot;this is just what i use</span><br><span class="line">set foldmethod=marker</span><br><span class="line"></span><br><span class="line">set paste</span><br><span class="line"></span><br><span class="line">map &lt;F2&gt; :mksession! ~/.vim_session &lt;cr&gt; &quot; Quick write session with F2</span><br><span class="line">map &lt;F3&gt; :source ~/.vim_session &lt;cr&gt;     &quot; And load session with F3</span><br><span class="line"></span><br><span class="line">execute pathogen#infect()</span><br><span class="line"></span><br><span class="line">function! ResCur()</span><br><span class="line">        if line(&quot;&apos;\&quot;&quot;) &lt;= line(&quot;$&quot;)</span><br><span class="line">                normal! g`&quot;</span><br><span class="line">                return 1</span><br><span class="line">        endif</span><br><span class="line">endfunction</span><br><span class="line"></span><br><span class="line">augroup resCur</span><br><span class="line">        autocmd!</span><br><span class="line">        autocmd BufWinEnter * call ResCur()</span><br><span class="line">augroup END</span><br><span class="line"></span><br><span class="line">filetype plugin indent on    &quot; required</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;新文件标题</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;新建.c,.h,.sh,.java文件，自动插入文件头 </span><br><span class="line">autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py exec &quot;:call SetTitle()&quot; </span><br><span class="line">&quot;&quot;定义函数SetTitle，自动插入文件头 </span><br><span class="line">func SetTitle() </span><br><span class="line">	&quot;如果文件类型为.sh文件 </span><br><span class="line">	if &amp;filetype == &apos;sh&apos; </span><br><span class="line">		call setline(1,&quot;\#!/bin/bash&quot;) </span><br><span class="line">		call append(line(&quot;.&quot;), &quot;&quot;) </span><br><span class="line">    elseif &amp;filetype == &apos;python&apos;</span><br><span class="line">        call setline(1,&quot;#!/usr/bin/env python&quot;)</span><br><span class="line">        call append(line(&quot;.&quot;),&quot;# coding=utf-8&quot;)</span><br><span class="line">	    call append(line(&quot;.&quot;)+1, &quot;&quot;) </span><br><span class="line">	endif</span><br><span class="line">endfunc </span><br><span class="line">autocmd BufNewFile * normal G</span><br><span class="line"></span><br><span class="line">au BufNewFile,BufRead *.yml set filetype=xml</span><br><span class="line">autocmd FileType python setlocal completeopt-=preview</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;&quot;&quot;&quot; 插件管理</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot; set the runtime path to include Vundle and initialize</span><br><span class="line">set rtp+=~/.vim/Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line">&quot; alternatively, pass a path where Vundle should install plugins</span><br><span class="line">&quot;call vundle#begin(&apos;~/some/path/here&apos;)</span><br><span class="line"></span><br><span class="line">&quot; let Vundle manage Vundle, required</span><br><span class="line">Plugin &apos;gmarik/Vundle.vim&apos;</span><br><span class="line">&quot; All of your Plugins must be added before the following line</span><br><span class="line">call vundle#end()            &quot; required</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;Yggdroot/indentLine</span><br><span class="line">let g:indentLine_char = &apos;┊&apos;</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;powerline&#123;</span><br><span class="line">set guifont=PowerlineSymbols\ for\ Powerline</span><br><span class="line">set nocompatible</span><br><span class="line">set t_Co=256</span><br><span class="line">let g:Powerline_stl_path_style = &quot;full&quot;</span><br><span class="line">&quot;&#125;</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;打开文件类型检测, 加了这句才可以用智能补全</span><br><span class="line">set completeopt=preview,menu </span><br><span class="line">set completeopt=longest,menu</span><br><span class="line">&quot;python补全</span><br><span class="line">let g:pydiction_location = &apos;~/.vim/after/complete-dict&apos;</span><br><span class="line">let g:pydiction_menu_height = 20</span><br><span class="line">let g:miniBufExplMapWindowNavVim = 1</span><br><span class="line">let g:miniBufExplMapWindowNavArrows = 1</span><br><span class="line">let g:miniBufExplMapCTabSwitchBufs = 1</span><br><span class="line">let g:miniBufExplModSelTarget = 1</span><br><span class="line">&quot; ycm 此处要设置成python版本2.7，不要设置成python3了</span><br><span class="line">let g:ycm_path_to_python_interpreter=&quot;python&quot;</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;syntax check</span><br><span class="line">set statusline+=%#warningmsg#</span><br><span class="line">set statusline+=%&#123;SyntasticStatuslineFlag()&#125;</span><br><span class="line">set statusline+=%*</span><br><span class="line">let g:syntastic_always_populate_loc_list = 1</span><br><span class="line">let g:syntastic_check_on_open = 1</span><br><span class="line">let g:syntastic_check_on_wq = 0</span><br><span class="line">let g:syntastic_auto_loc_list = 1</span><br><span class="line">let g:syntastic_python_checkers=[&apos;flake8&apos;]</span><br><span class="line">let g:syntastic_python_flake8_args=&apos;--ignore W391,E501 --max-line-length 119&apos;</span><br><span class="line">let g:syntastic_loc_list_height=3</span><br><span class="line">let g:syntastic_enable_highlighting=0</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;ctags</span><br><span class="line">set tags=./tags,tags;</span><br><span class="line">&quot; Tag list (ctags) </span><br><span class="line">let Tlist_Ctags_Cmd = &apos;/usr/local/bin/ctags&apos; </span><br><span class="line">let Tlist_Show_One_File = 1 &quot;不同时显示多个文件的tag，只显示当前文件的 </span><br><span class="line">let Tlist_File_Fold_Auto_Close = 1</span><br><span class="line">let Tlist_Exit_OnlyWindow = 1 &quot;如果taglist窗口是最后一个窗口，则退出vim </span><br><span class="line">let Tlist_Use_Right_Window = 1 &quot;在右侧窗口中显示taglist窗口</span><br><span class="line">nmap tl :Tlist&lt;cr&gt;</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;so that when you preview the new file takes up 80% and the file explorer the other 20%.</span><br><span class="line">let g:netrw_winsize=25</span><br><span class="line">let g:netrw_altv = 2</span><br><span class="line">let g:netrw_browse_split = 3</span><br><span class="line">let g:netrw_keepdir = 0</span><br><span class="line">let NERDTreeWinSize=30</span><br><span class="line">&quot;let g:nerdtree_tabs_open_on_console_startup=1</span><br><span class="line">&quot;列出当前目录文件  </span><br><span class="line">map &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</span><br><span class="line">imap &lt;F3&gt; &lt;ESC&gt; :NERDTreeToggle&lt;CR&gt;</span><br><span class="line">&quot;当打开vim且没有文件时自动打开NERDTree</span><br><span class="line">autocmd vimenter * if !argc() | NERDTree | endif</span><br><span class="line">&quot; 只剩 NERDTree时自动关闭</span><br><span class="line">autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTreeType&quot;) &amp;&amp; b:NERDTreeType == &quot;primary&quot;) | q | endif</span><br><span class="line">&quot; 忽略的文件不加载</span><br><span class="line">set wildignore+=**/fe-dist/**</span><br><span class="line">set wildignore+=**/node_modules/**</span><br><span class="line">set wildignore+=**/log/**</span><br><span class="line">set wildignore+=**/static/**</span><br><span class="line">set wildignore+=*.swp,*.zip,*.pyc,.git/</span><br><span class="line">set path=.,,**</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;Yggdroot/indentLine</span><br><span class="line">let g:indentLine_char = &apos;┊&apos;</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">&quot; 注释的时候自动加个空格, 强迫症必配</span><br><span class="line">&quot; let g:NERDSpaceDelims=1</span><br><span class="line">let mapleader=&quot;,&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="用-vundle-管理-vim-插件"><a href="#用-vundle-管理-vim-插件" class="headerlink" title="用 vundle 管理 vim 插件"></a>用 vundle 管理 vim 插件</h2><p>其实上面脚本一键执行也挺方便的，此处只是稍微介绍一下 vundle 的用法。</p>
+<p>可在 <code>.vimrc</code>  文件中添加配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Bundle &apos;cespare/vim-golang&apos;</span><br><span class="line">Bundle &apos;taglist.vim&apos;</span><br><span class="line">Bundle &apos;dhruvasagar/vim-table-mode&apos;</span><br><span class="line">Bundle &apos;godlygeek/tabular&apos;</span><br><span class="line">Bundle &apos;derekwyatt/vim-scala&apos;</span><br><span class="line">Bundle &apos;kien/ctrlp.vim&apos;</span><br><span class="line">Bundle &apos;Valloric/YouCompleteMe&apos;</span><br><span class="line">Bundle &apos;Yggdroot/indentLine&apos;</span><br></pre></td></tr></table></figure>
+<p>随便开个窗口，从控制台打开vim，然后执行-&gt; :BundleInstall ，vundle会自动下载声明的插件并安装到 ./vim/bundle 目录里面</p>
+<p><strong> 到此，安装结束，可以畅游vim了。 </strong></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/vim-settings/" class="archive-article-date">
+  	<time datetime="2016-09-30T07:33:13.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ubuntu-set-language" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/ubuntu-set-language/">ubuntu 解决语言设置错误的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用 ubuntu 命令行登录的时候，出现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">perl: warning: Setting locale failed.</span><br><span class="line">perl: warning: Please check that your locale settings:</span><br><span class="line">    LANGUAGE = (unset),</span><br><span class="line">    LC_ALL = (unset),</span><br><span class="line">    LC_MESSAGES = &quot;zh_CN.UTF-8&quot;,</span><br><span class="line">    LANG = &quot;zh_CN.UTF-8&quot;</span><br><span class="line">    are supported and installed on your system.</span><br><span class="line">perl: warning: Falling back to the standard locale (&quot;C&quot;).</span><br></pre></td></tr></table></figure>
+<p>这样的错误，虽说不影响使用，但是感觉挺烦的说。</p>
+<p>那么要如何解决呢，有必要记录下：</p>
+<p>安装 <code>localepurge</code> 管理语言文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install localepurge</span><br></pre></td></tr></table></figure>
+<p>选择我们想要的语言，例如 <code>en_US.UTF-8</code> 和 <code>zh_CN.UTF-8</code>。</p>
+<p>当然也可以使用以下命令再次进行配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg-reconfigure localepurge</span><br></pre></td></tr></table></figure>
+<p>生成自己想要的语言</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo locale-gen zh_CN.UTF-8 en_US.UTF-8</span><br></pre></td></tr></table></figure>
+<p>打印出当前的配置信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale</span><br></pre></td></tr></table></figure>
+<p>到此，搞定！！！</p>
+<p>默认情况下终端 ssh 的时候会将本地的 locale 传到服务器中，可以通过命令指定 ssh 服务器的语言：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LC_ALL=en_US.UTF-8 ssh &lt;host&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/ubuntu-set-language/" class="archive-article-date">
+  	<time datetime="2016-06-28T03:26:05.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-28</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hexo-Jekyll-github" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/hexo-Jekyll-github/">hexo/Jekyll + github搭建自己的博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，必须有一个GitHub账号，相信大家都有，没有的话自己去创建吧。</p>
+<h3 id="一、GitHub-Pages的使用"><a href="#一、GitHub-Pages的使用" class="headerlink" title="一、GitHub Pages的使用"></a>一、GitHub Pages的使用</h3><h4 id="1-创建一个分支，使用你的GitHub-name"><a href="#1-创建一个分支，使用你的GitHub-name" class="headerlink" title="1. 创建一个分支，使用你的GitHub name"></a>1. 创建一个分支，使用你的GitHub name</h4><p>Head over to GitHub and create a new repository named username.github.io, where username is your username (or organization name) on GitHub.</p>
+<p>我的GitHub name是 SkylerHu，以我的名字为例。</p>
+<h4 id="2-初始化项目"><a href="#2-初始化项目" class="headerlink" title="2. 初始化项目"></a>2. 初始化项目</h4><p><strong>若是借助Jekyll和hexo的话，只需clone下来即可。</strong></p>
+<blockquote>
+<p>已下步骤是基于terminal的git命令，若是使用界面工具，自己去<a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>看</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~$ git <span class="built_in">clone</span> https://github.com/SkylerHu/SkylerHu.github.io</span><br><span class="line">~$ <span class="built_in">cd</span> SkylerHu.github.io</span><br><span class="line">~$ <span class="built_in">echo</span> <span class="string">"Hello World"</span> &gt; index.html</span><br><span class="line">~$ git add --all</span><br><span class="line">~$ git commit -m <span class="string">"Initial commit"</span></span><br><span class="line">~$ git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>也可以在index.html中添加HTML内容，然后在push</p>
+<p>一切OK之后，可以访问 <a href="http://SkylerHu.github.io" target="_blank" rel="noopener">http://SkylerHu.github.io</a>.  可以查看index.html的内容。这个网址就是你的博客网址。</p>
+<h3 id="二、使用Jekyll"><a href="#二、使用Jekyll" class="headerlink" title="二、使用Jekyll"></a>二、使用Jekyll</h3><p>上面新建的项目中，Settings中可以看到GitHubPages相关配置，官方推荐使用<a href="http://jekyll.bootcss.com/" target="_blank" rel="noopener">Jekyll</a><br><img src="http://blog-img.skylerhu.com/2016/06/27/81479b8884.png" alt="GitHub Pages Settings"></p>
+<h4 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h4><p>安装需要Ruby环境，没有的话自行安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ gem install jekyll</span><br><span class="line">~$ jekyll new my-awesome-site</span><br></pre></td></tr></table></figure>
+<p>把项目生成的所有文件，全部copy到<code>SkylerHu.github.io</code>目录下.</p>
+<h4 id="2-目录结构"><a href="#2-目录结构" class="headerlink" title="2. 目录结构"></a>2. 目录结构</h4><ul>
+<li><a href="http://jekyll.bootcss.com/docs/structure/" target="_blank" rel="noopener">目录结构</a></li>
+</ul>
+<h4 id="3-本地启动预览"><a href="#3-本地启动预览" class="headerlink" title="3. 本地启动预览"></a>3. 本地启动预览</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ <span class="built_in">cd</span> SkylerHu.github.io</span><br><span class="line">~/SkylerHu.github.io$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p>直接访问<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>  就可以看到你的网站了。</p>
+<h4 id="4-写文章"><a href="#4-写文章" class="headerlink" title="4. 写文章"></a>4. 写文章</h4><p>在目录<code>/SkylerHu.github.io/_posts/</code>下新建xxxx.md；<br>格式需要按照模板提供的去写； </p>
+<h4 id="5-部署"><a href="#5-部署" class="headerlink" title="5. 部署"></a>5. 部署</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/SkylerHu.github.io$ git add --all</span><br><span class="line">~/SkylerHu.github.io$ git push</span><br></pre></td></tr></table></figure>
+<h4 id="6-使用自己的域名"><a href="#6-使用自己的域名" class="headerlink" title="6. 使用自己的域名"></a>6. 使用自己的域名</h4><h5 id="1-添加CNAME文件push到GitHub"><a href="#1-添加CNAME文件push到GitHub" class="headerlink" title="1) 添加CNAME文件push到GitHub"></a>1) 添加CNAME文件push到GitHub</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/SkylerHu.github.io$ <span class="built_in">echo</span> <span class="string">"pages.skylerhu.com"</span> &gt; CNAME</span><br></pre></td></tr></table></figure>
+<h5 id="2-域名解析"><a href="#2-域名解析" class="headerlink" title="2) 域名解析"></a>2) 域名解析</h5><p>使pages.skylerhu.com解析到 SkylerHu.github.io<br>注意选择 解析类型是<code>CNAME</code></p>
+<h4 id="7-主题"><a href="#7-主题" class="headerlink" title="7. 主题"></a>7. 主题</h4><p>推荐网站：</p>
+<ul>
+<li><a href="http://jekyllthemes.org/" target="_blank" rel="noopener">http://jekyllthemes.org/</a></li>
+<li><a href="https://jekyllthemes.io/" target="_blank" rel="noopener">https://jekyllthemes.io/</a></li>
+</ul>
+<p>可以根据自己的喜好去选择主题，都大同小异。</p>
+<h3 id="三、使用hexo"><a href="#三、使用hexo" class="headerlink" title="三、使用hexo"></a>三、使用hexo</h3><p>之所有使用<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>,因为好多网友都说这个比较好，所有研究了一下使用方法。</p>
+<p>需要安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></p>
+<h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~$ sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+<h4 id="2-初始化"><a href="#2-初始化" class="headerlink" title="2. 初始化"></a>2. 初始化</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">~$ <span class="built_in">cd</span> blog</span><br><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">~/blog$ hexo init</span><br><span class="line"><span class="comment"># 生成静态页面，把markdown转化成html，hexo g 也行</span></span><br><span class="line">~/blog$ hexo generate</span><br><span class="line"><span class="comment"># 启动本地服务，hexo s 也行</span></span><br><span class="line">~/blog$ hexo server</span><br></pre></td></tr></table></figure>
+<p>其他<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="noopener">hexo命令</a></p>
+<p>若是之后nodejs升级了，需要执行一下 <code>npm --registry=https://registry.npm.taobao.org install</code><br>或者直接执行 <code>npm install</code>, 有参数的意思是使用淘宝源</p>
+<h4 id="3-配置GitHub"><a href="#3-配置GitHub" class="headerlink" title="3. 配置GitHub"></a>3. 配置GitHub</h4><p>编辑blog目录下_config.yml文件，详见<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">hexo配置</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ vim _config.yml</span><br></pre></td></tr></table></figure>
+<p>找到<code>deploy</code>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">     type: git</span><br><span class="line">     repo:https://github.com/SkylerHu/SkylerHu.github.io.git</span><br><span class="line">     branch:master</span><br><span class="line">     message: commit的message，默认 Site updated: &#123;&#123; now(&apos;YYYY-MM-DD HH:mm:ss&apos;) &#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>保存后执行命令安装插件<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-配置RSS"><a href="#4-配置RSS" class="headerlink" title="4. 配置RSS"></a>4. 配置RSS</h4><p>编辑_config.yml配置feed<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">feed:</span><br><span class="line">  type: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  limit: 20</span><br><span class="line">  hub:</span><br></pre></td></tr></table></figure></p>
+<p>安装插件<a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="noopener">hexo-generator-feed</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+<h4 id="5-部署GitHub-Pages"><a href="#5-部署GitHub-Pages" class="headerlink" title="5. 部署GitHub Pages"></a>5. 部署GitHub Pages</h4><p>部署之前可以修改_confi.yml中deploy.message作为git commit的message<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 每次修改之后都需要clean和generate</span></span><br><span class="line">~/blog$ hexo clean</span><br><span class="line">~/blog$ hexo generate</span><br><span class="line"><span class="comment"># hexo d 也可以</span></span><br><span class="line">~/blog$ hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>会生成一个<code>.deploy_git</code> 文件夹同步到GitHub项目中。</p>
+<h4 id="5-主题"><a href="#5-主题" class="headerlink" title="5. 主题"></a>5. 主题</h4><p>推荐网站<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>我自己使用的是 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">hexo-theme-yilia</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
+<p>修改hexo根目录下的 _config.yml ： theme: yilia</p>
+<h4 id="6-使用自己的域名-1"><a href="#6-使用自己的域名-1" class="headerlink" title="6. 使用自己的域名"></a>6. 使用自己的域名</h4><p>同Jekyll一样，也需要修改域名解析，同样也要在GitHub项目下添加CNAME文件。</p>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>不能直接在<code>deploy_git</code>目录下直接添加CNAME文件，每次generate之后会删除</li>
+<li>需要添加到<code>source</code>文件夹下<code>echo &quot;pages.skylerhu.com&quot; &gt; source/CNAME</code></li>
+</ul>
+</blockquote>
+<h4 id="7-其他配置"><a href="#7-其他配置" class="headerlink" title="7. 其他配置"></a>7. 其他配置</h4><p>可以在blog/_config.yml配置<a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="noopener">语言和时区</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">language: zh-Hans</span><br><span class="line">timezone: Asia/Shanghai</span><br></pre></td></tr></table></figure></p>
+<p>我的网站还添加了<code>多说评论</code>和<code>百度统计</code>，具体使用详见<a href="http://ijiaober.github.io/categories/hexo/" target="_blank" rel="noopener">推荐网站</a>。</p>
+<h3 id="四、比较"><a href="#四、比较" class="headerlink" title="四、比较"></a>四、比较</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>Jekyll</th>
+<th>hexo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>语言</td>
+<td>Ruby</td>
+<td>node.js</td>
+</tr>
+<tr>
+<td>效率</td>
+<td>So fast</td>
+<td>稍慢</td>
+</tr>
+<tr>
+<td>部署</td>
+<td>需要多个命令</td>
+<td>直接使用git命令</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>两个之间都可以互相迁移，看个人操作习惯和爱好吧。</p>
+</blockquote>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>升级了Node.js后，发现在项目目录中执行hexo相关命令会报出错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[Error: Module version mismatch. Expected 47, got 46.]</span><br><span class="line">&#123; [Error: Cannot find module &apos;./build/default/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; &#125;</span><br><span class="line">&#123; [Error: Cannot find module &apos;./build/Debug/DTraceProviderBindings&apos;] code: &apos;MODULE_NOT_FOUND&apos; &#125;</span><br></pre></td></tr></table></figure>
+<p>解决方案如下：</p>
+<ul>
+<li>执行npm uninstall hexo卸载hexo；</li>
+<li>重新安装hexo，npm install -g hexo；</li>
+<li>到博客目录执行npm install，hexo clean，hexo generate</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/hexo-Jekyll-github/" class="archive-article-date">
+  	<time datetime="2016-06-27T07:41:41.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jekyll/">Jekyll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ownclound-disable-fileicon-on-mac" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/ownclound-disable-fileicon-on-mac/">owncloud在mac finder中没有显示状态icon</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>owncloud客户端在mac上使用，没有显示status icon(文件或者文件夹的同步状态图标)</p>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><h4 id="1-打开设置"><a href="#1-打开设置" class="headerlink" title="1. 打开设置"></a>1. 打开设置</h4><p><img src="http://blog-img.skylerhu.com/2016/05/10/91c7781082.png" alt="Pic 01"></p>
+<h4 id="2-把勾给选中"><a href="#2-把勾给选中" class="headerlink" title="2. 把勾给选中"></a>2. 把勾给选中</h4><p><img src="http://blog-img.skylerhu.com/2016/05/10/8003ac235a.png" alt="Pic 02"></p>
+<h4 id="3-结果"><a href="#3-结果" class="headerlink" title="3. 结果"></a>3. 结果</h4><p><img src="http://blog-img.skylerhu.com/2016/05/10/e4a26526ea.png" alt="Pic 03"></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/ownclound-disable-fileicon-on-mac/" class="archive-article-date">
+  	<time datetime="2016-06-26T10:58:51.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-26</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/owncloud/">owncloud</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Shadowsocks-SwitchySharp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -154,21 +542,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-gcc安装"><a href="#1-gcc安装" class="headerlink" title="1. gcc安装"></a>1. gcc安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:ubuntu-toolchain-r/<span class="built_in">test</span></div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install gcc-4.8</div></pre></td></tr></table></figure>
-<h4 id="2-go-环境搭建"><a href="#2-go-环境搭建" class="headerlink" title="2. go 环境搭建"></a>2. go 环境搭建</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget https://storage.googleapis.com/golang/go1.4.linux-386.tar.gz</div><div class="line">sudo tar -C /usr/src -xzf go1.4.linux-386.tar.gz</div></pre></td></tr></table></figure>
+        <blockquote>
+<p>若要申请VPS可使用这个<a href="http://www.digitalocean.com/?refcode=a80753a9aac2" target="_blank" rel="noopener">DigtalOcean</a>，会赠送你$10用于购买VPS。</p>
+</blockquote>
+<p>ShadowSocks<a href="http://shadowsocks.org/en/download/servers.html" target="_blank" rel="noopener">官网</a></p>
+<h4 id="1-gcc安装"><a href="#1-gcc安装" class="headerlink" title="1. gcc安装"></a>1. gcc安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:ubuntu-toolchain-r/<span class="built_in">test</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install gcc-4.8</span><br></pre></td></tr></table></figure>
+<h4 id="2-go-环境搭建"><a href="#2-go-环境搭建" class="headerlink" title="2. go 环境搭建"></a>2. go 环境搭建</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://storage.googleapis.com/golang/go1.4.linux-386.tar.gz</span><br><span class="line">sudo tar -C /usr/src -xzf go1.4.linux-386.tar.gz</span><br></pre></td></tr></table></figure>
 <p>在 $HOME/.bashrc 文件末添加如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> GOROOT=/usr/src/go</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin</div><div class="line"><span class="built_in">export</span> GOPATH=<span class="variable">$HOME</span>/go</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOROOT=/usr/src/go</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin</span><br><span class="line"><span class="built_in">export</span> GOPATH=<span class="variable">$HOME</span>/go</span><br></pre></td></tr></table></figure>
 <p>执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> ~/.bashrc</div><div class="line"></div><div class="line"><span class="built_in">cd</span> <span class="variable">$GOROOT</span>/src</div><div class="line">sudo ./all.bash       （若是缺少，apt-get install gccgo-go）</div></pre></td></tr></table></figure>
-<h4 id="3-安装git"><a href="#3-安装git" class="headerlink" title="3. 安装git"></a>3. 安装git</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git-core</div></pre></td></tr></table></figure>
-<h4 id="4-安装"><a href="#4-安装" class="headerlink" title="4. 安装"></a>4. 安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">go get github.com/shadowsocks/shadowsocks-go/cmd/shadowsocks-server</div><div class="line">shadowsocks-go</div></pre></td></tr></table></figure>
-<h4 id="5-配置"><a href="#5-配置" class="headerlink" title="5. 配置"></a>5. 配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/</div><div class="line">sudo mkdir shadowsocks</div><div class="line"><span class="built_in">cd</span> shadowsocks</div><div class="line">sudo touch config.json</div></pre></td></tr></table></figure>
-<h4 id="6-写入"><a href="#6-写入" class="headerlink" title="6. 写入"></a>6. 写入</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"server"</span>: <span class="string">"0.0.0.0"</span>,</div><div class="line">  <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">  <span class="string">"local_port"</span>: 1080,</div><div class="line">  <span class="string">"timeout"</span>: 300,</div><div class="line">  <span class="string">"method"</span>: <span class="string">"aes-256-cfb"</span>,</div><div class="line">  <span class="string">"fast_open"</span>: <span class="literal">false</span>,</div><div class="line">  <span class="string">"port_password"</span>: &#123;</div><div class="line">    <span class="string">"12345"</span>: <span class="string">"xxx1"</span>,</div><div class="line">    <span class="string">"12346"</span>: <span class="string">"xxx2"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="7-启动关闭"><a href="#7-启动关闭" class="headerlink" title="7. 启动关闭"></a>7. 启动关闭</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~</div><div class="line">vim .profile</div><div class="line">添加</div><div class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/root/go/bin"</span></div><div class="line"></div><div class="line"><span class="built_in">source</span> .profile</div><div class="line">shadowsocks-server -c /etc/shadowsocks/config.json <span class="_">-d</span> start</div><div class="line">shadowsocks-server -c /etc/shadowsocks/config.json <span class="_">-d</span> stop</div><div class="line"></div><div class="line">nohup shadowsocks-server -c /etc/shadowsocks/config.json</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$GOROOT</span>/src</span><br><span class="line">sudo ./all.bash       （若是缺少，apt-get install gccgo-go）</span><br></pre></td></tr></table></figure>
+<h4 id="3-安装git"><a href="#3-安装git" class="headerlink" title="3. 安装git"></a>3. 安装git</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git-core</span><br></pre></td></tr></table></figure>
+<h4 id="4-安装"><a href="#4-安装" class="headerlink" title="4. 安装"></a>4. 安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/shadowsocks/shadowsocks-go/cmd/shadowsocks-server</span><br><span class="line">shadowsocks-go</span><br></pre></td></tr></table></figure>
+<h4 id="5-配置"><a href="#5-配置" class="headerlink" title="5. 配置"></a>5. 配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/</span><br><span class="line">sudo mkdir shadowsocks</span><br><span class="line"><span class="built_in">cd</span> shadowsocks</span><br><span class="line">sudo touch config.json</span><br></pre></td></tr></table></figure>
+<h4 id="6-写入"><a href="#6-写入" class="headerlink" title="6. 写入"></a>6. 写入</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"server"</span>: <span class="string">"0.0.0.0"</span>,</span><br><span class="line">  <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">  <span class="string">"local_port"</span>: 1080,</span><br><span class="line">  <span class="string">"timeout"</span>: 300,</span><br><span class="line">  <span class="string">"method"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">  <span class="string">"fast_open"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"port_password"</span>: &#123;</span><br><span class="line">    <span class="string">"12345"</span>: <span class="string">"xxx1"</span>,</span><br><span class="line">    <span class="string">"12346"</span>: <span class="string">"xxx2"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="7-启动关闭"><a href="#7-启动关闭" class="headerlink" title="7. 启动关闭"></a>7. 启动关闭</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">vim .profile</span><br><span class="line">添加</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/root/go/bin"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> .profile</span><br><span class="line">shadowsocks-server -c /etc/shadowsocks/config.json -d start</span><br><span class="line">shadowsocks-server -c /etc/shadowsocks/config.json -d stop</span><br><span class="line"></span><br><span class="line">nohup shadowsocks-server -c /etc/shadowsocks/config.json</span><br></pre></td></tr></table></figure>
 <h4 id="8-开机启动"><a href="#8-开机启动" class="headerlink" title="8. 开机启动"></a>8. 开机启动</h4><p>编辑 /etc/rc.local,在exit 0之前</p>
 <p><code>/root/go/bin/shadowsocks-server -c /etc/shadowsocks/config.json start</code></p>
-<h4 id="9-配置SwitchySharp"><a href="#9-配置SwitchySharp" class="headerlink" title="9. 配置SwitchySharp"></a>9. 配置SwitchySharp</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(fbcdn|akamaihd|pixnet)\.net|wretch\.cc|t\.co|goo\.gl|(google(usercontent|apis)*|chrome|staticflickr|imdb|ytimg|gstatic|html5rocks|amazonaws|github|tumblr|addthis|wordpress|blogger|(blog|app)spot|friendfeed|twitter|facebook|youtube|dropbox|feedburner|googleapis|android)\.com</div></pre></td></tr></table></figure>
-<p><a href="http://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt" target="_blank" rel="external">http://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt</a> (这个连接404访问不了， 可用下面链接)<br><a href="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" target="_blank" rel="external">https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</a></p>
+<h4 id="9-配置SwitchySharp"><a href="#9-配置SwitchySharp" class="headerlink" title="9. 配置SwitchySharp"></a>9. 配置SwitchySharp</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(fbcdn|akamaihd|pixnet)\.net|wretch\.cc|t\.co|goo\.gl|(google(usercontent|apis)*|chrome|staticflickr|imdb|ytimg|gstatic|html5rocks|amazonaws|github|tumblr|addthis|wordpress|blogger|(blog|app)spot|friendfeed|twitter|facebook|youtube|dropbox|feedburner|googleapis|android)\.com</span><br></pre></td></tr></table></figure>
+<p><a href="http://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt" target="_blank" rel="noopener">http://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt</a> (这个连接404访问不了， 可用下面链接)<br><a href="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" target="_blank" rel="noopener">https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</a></p>
 
       
     </div>
@@ -218,41 +610,42 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="分享链接：http-www-digitalocean-com-refcode-a80754a9aac2"><a href="#分享链接：http-www-digitalocean-com-refcode-a80754a9aac2" class="headerlink" title="分享链接：http://www.digitalocean.com/?refcode=a80754a9aac2"></a>分享链接：<a href="http://www.digitalocean.com/?refcode=a80754a9aac2" target="_blank" rel="external">http://www.digitalocean.com/?refcode=a80754a9aac2</a></h3><p>若要申请VPS可使用这个链接，会赠送你10$费用可以购买VPS。</p>
-<hr>
+        <blockquote>
+<p>若要申请VPS可使用这个<a href="http://www.digitalocean.com/?refcode=a80753a9aac2" target="_blank" rel="noopener">DigtalOcean</a>，会赠送你$10用于购买VPS。</p>
+</blockquote>
 <p>采用PPTP搭建VPN，优点是配置简单快捷。将亲身过程记录下来供亲们参考，并将过程中遇到的问题也一一列举出来解决方式。。。</p>
 <p>直接上步骤:</p>
-<h4 id="1-第一步需要安装PPTP，以用来提供VPN服务"><a href="#1-第一步需要安装PPTP，以用来提供VPN服务" class="headerlink" title="1.第一步需要安装PPTP，以用来提供VPN服务."></a>1.第一步需要安装PPTP，以用来提供VPN服务.</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install pptpd</div></pre></td></tr></table></figure>
+<h4 id="1-第一步需要安装PPTP，以用来提供VPN服务"><a href="#1-第一步需要安装PPTP，以用来提供VPN服务" class="headerlink" title="1.第一步需要安装PPTP，以用来提供VPN服务."></a>1.第一步需要安装PPTP，以用来提供VPN服务.</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install pptpd</span><br></pre></td></tr></table></figure>
 <p>如果有问题的话比如提示找不到之类的，apt-get update 一下应该就可以了，然后再来一次就会自动完成安装。</p>
-<h4 id="2-装好了之后我们需要进行配置一下以让它可以使用"><a href="#2-装好了之后我们需要进行配置一下以让它可以使用" class="headerlink" title="2.装好了之后我们需要进行配置一下以让它可以使用."></a>2.装好了之后我们需要进行配置一下以让它可以使用.</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/pptpd.conf</div></pre></td></tr></table></figure>
+<h4 id="2-装好了之后我们需要进行配置一下以让它可以使用"><a href="#2-装好了之后我们需要进行配置一下以让它可以使用" class="headerlink" title="2.装好了之后我们需要进行配置一下以让它可以使用."></a>2.装好了之后我们需要进行配置一下以让它可以使用.</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/pptpd.conf</span><br></pre></td></tr></table></figure>
 <p>取消掉以下 2 行的注释：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">localip 192.168.0.1</div><div class="line">remoteip 192.168.0.234-238,192.168.0.245</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">localip 192.168.0.1</span><br><span class="line">remoteip 192.168.0.234-238,192.168.0.245</span><br></pre></td></tr></table></figure>
 <p>分别是通过VPN连接后主机和客户端所使用的IP，可以自行修改。注意这个IP在下面还会用的到。</p>
-<h4 id="3-然后我们需要分配账号给自己使用"><a href="#3-然后我们需要分配账号给自己使用" class="headerlink" title="3.然后我们需要分配账号给自己使用."></a>3.然后我们需要分配账号给自己使用.</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/ppp/chap-secrets</div></pre></td></tr></table></figure>
+<h4 id="3-然后我们需要分配账号给自己使用"><a href="#3-然后我们需要分配账号给自己使用" class="headerlink" title="3.然后我们需要分配账号给自己使用."></a>3.然后我们需要分配账号给自己使用.</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/ppp/chap-secrets</span><br></pre></td></tr></table></figure>
 <p>这个是用户列表文件</p>
 <p>在里面添加账户按如下格式</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">username  pptpd  <span class="string">"password"</span>  *</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username  pptpd  <span class="string">"password"</span>  *</span><br></pre></td></tr></table></figure>
 <p><code>username</code>为你的用户名<code>password</code>为你的密码，密码用引号引起,最后的<code>*</code>号表示允许在任意IP连接到服务</p>
 <h4 id="4-至此服务弄好了"><a href="#4-至此服务弄好了" class="headerlink" title="4.至此服务弄好了"></a>4.至此服务弄好了</h4><p>如果你sudo service pptpd restart一下，就应该已经能连接到该VPN了，但是连接了之后会发现还访问不了外网。然后我们需要让他能访问外网。首先，</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/ppp/pptpd-options</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/ppp/pptpd-options</span><br></pre></td></tr></table></figure>
 <p>找到ms-dns，取消掉注释，改成你喜欢的DNS比如8.8.8.8, 8.8.4.4</p>
-<h4 id="5-然后我们要开启内核IP转发"><a href="#5-然后我们要开启内核IP转发" class="headerlink" title="5.然后我们要开启内核IP转发"></a>5.然后我们要开启内核IP转发</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/sysctl.conf</div></pre></td></tr></table></figure>
+<h4 id="5-然后我们要开启内核IP转发"><a href="#5-然后我们要开启内核IP转发" class="headerlink" title="5.然后我们要开启内核IP转发"></a>5.然后我们要开启内核IP转发</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
 <p>取消掉 <code>net.ipv4.ip_forward=1</code> 这一行的注释.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sysctl -p</div></pre></td></tr></table></figure>
-<h4 id="6-然后我们需要安装iptables，用来实现请求的NAT转发"><a href="#6-然后我们需要安装iptables，用来实现请求的NAT转发" class="headerlink" title="6.然后我们需要安装iptables，用来实现请求的NAT转发"></a>6.然后我们需要安装iptables，用来实现请求的NAT转发</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install iptables</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+<h4 id="6-然后我们需要安装iptables，用来实现请求的NAT转发"><a href="#6-然后我们需要安装iptables，用来实现请求的NAT转发" class="headerlink" title="6.然后我们需要安装iptables，用来实现请求的NAT转发"></a>6.然后我们需要安装iptables，用来实现请求的NAT转发</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install iptables</span><br></pre></td></tr></table></figure>
 <p>然后开启NAT转发.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo iptables -t nat -A POSTROUTING <span class="_">-s</span> 192.168.0.0/24 -o eth0 -j MASQUERADE</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
 <p>192.168.0.0/24是你在上面设置的IP段，让这个段转发</p>
 <p>注意eth0是你连接外网的那块网卡，不一定是0也有可能是1或者看你的机器哪块网卡连的外网了。这样就以NAT的方式请求外网的东西了。不知道你的机器哪块网卡连的外网的话ifconfig一下看看哪个网卡是外网IP就知道了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">iptables -t nat -A POSTROUTING <span class="_">-s</span> 192.168.217.0/24 -o eth0 -j MASQUERADE</div><div class="line">iptables-save &gt; /etc/iptables.pptp</div></pre></td></tr></table></figure>
-<p>只需执行上面的命令，下面的命令可以备用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">iptables -F	//清空所有规则</div><div class="line">iptables -t nat -vnL POSTROUTING --line-number   //查看nat表</div><div class="line">iptables -t nat -D POSTROUTING [num]	//删除nat表中postrouting的第一条规则</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A POSTROUTING -s 192.168.217.0/24 -o eth0 -j MASQUERADE</span><br><span class="line">iptables-save &gt; /etc/iptables.pptp</span><br></pre></td></tr></table></figure>
+<p>只需执行上面的命令，下面的命令可以备用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -F	//清空所有规则</span><br><span class="line">iptables -t nat -vnL POSTROUTING --line-number   //查看nat表</span><br><span class="line">iptables -t nat -D POSTROUTING [num]	//删除nat表中postrouting的第一条规则</span><br></pre></td></tr></table></figure></p>
 <p>开启iptables转发</p>
 <p>在/etc/network/if-up.d/目录下创建iptables文件，内容如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">\<span class="comment">#\!/bin/sh</span></div><div class="line">iptables-restore &lt; /etc/iptables.pptp</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\<span class="comment">#\!/bin/sh</span></span><br><span class="line">iptables-restore &lt; /etc/iptables.pptp</span><br></pre></td></tr></table></figure>
 <p>给脚本添加执行权限：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod +x /etc/network/<span class="keyword">if</span>-up.d/iptables</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /etc/network/<span class="keyword">if</span>-up.d/iptables</span><br></pre></td></tr></table></figure>
 <p>####7.最后，我们需要重启服务，让配置生效</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo service pptpd restart</div><div class="line">/etc/init.d/pptpd restart</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service pptpd restart</span><br><span class="line">/etc/init.d/pptpd restart</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -307,8 +700,8 @@
 <p>新的gitlab服务中的User为<code>Skyler</code></p>
 <h3 id="1-第一步"><a href="#1-第一步" class="headerlink" title="1. 第一步"></a>1. 第一步</h3><p>在自己的gitlab后台建立一个新的项目，其地址为<code>git@github.com:Skyler/trainingHub.git</code></p>
 <h3 id="2-第二步"><a href="#2-第二步" class="headerlink" title="2. 第二步"></a>2. 第二步</h3><p>进入本地的<code>trainingHub</code>目录，然后执行下面两个命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote remove origin</div><div class="line">git remote add origin git@github.com:Skyler/trainingHub.git</div></pre></td></tr></table></figure>
-<h3 id="3-最后直接pull、push"><a href="#3-最后直接pull、push" class="headerlink" title="3. 最后直接pull、push"></a>3. 最后直接<code>pull</code>、<code>push</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote remove origin</div><div class="line">git remote add origin git@gitlab.pookor.com:Skyler/trainingHub.git</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote remove origin</span><br><span class="line">git remote add origin git@github.com:Skyler/trainingHub.git</span><br></pre></td></tr></table></figure>
+<h3 id="3-最后直接pull、push"><a href="#3-最后直接pull、push" class="headerlink" title="3. 最后直接pull、push"></a>3. 最后直接<code>pull</code>、<code>push</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote remove origin</span><br><span class="line">git remote add origin git@gitlab.pookor.com:Skyler/trainingHub.git</span><br></pre></td></tr></table></figure>
 <h5 id="若是有多个分支需要迁移"><a href="#若是有多个分支需要迁移" class="headerlink" title="若是有多个分支需要迁移"></a>若是有多个分支需要迁移</h5><p><strong>git remote add <code>branch_name</code> git@gitlab.pookor.com:Skyler/trainingHub.git</strong></p>
 <h5 id="push所有分支"><a href="#push所有分支" class="headerlink" title="push所有分支"></a>push所有分支</h5><p><code>git push --all origin</code></p>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>可强制覆盖远程服务器</p>
@@ -362,17 +755,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1、下载源码，解压缩后编译源码。"><a href="#1、下载源码，解压缩后编译源码。" class="headerlink" title="1、下载源码，解压缩后编译源码。"></a>1、下载源码，解压缩后编译源码。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tar -zxzf redis-2.8.3.tar.gz</div><div class="line"><span class="built_in">cd</span> redis-2.8.3</div><div class="line">make &amp;&amp; make install</div></pre></td></tr></table></figure>
+        <h3 id="1、下载源码，解压缩后编译源码。"><a href="#1、下载源码，解压缩后编译源码。" class="headerlink" title="1、下载源码，解压缩后编译源码。"></a>1、下载源码，解压缩后编译源码。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxzf redis-2.8.3.tar.gz</span><br><span class="line"><span class="built_in">cd</span> redis-2.8.3</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 <h3 id="2、编译完成后"><a href="#2、编译完成后" class="headerlink" title="2、编译完成后"></a>2、编译完成后</h3><p>有四个可执行文件redis-server、redis-benchmark、redis-cli和redis.conf。然后拷贝到一个目录下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/redis</div><div class="line">cp src/redis-server  /usr/redis</div><div class="line">cp src/redis-benchmark /usr/redis</div><div class="line">cp src/redis-cli  /usr/redis</div><div class="line">cp redis.conf  /usr/redis</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/redis</span><br><span class="line">cp src/redis-server  /usr/redis</span><br><span class="line">cp src/redis-benchmark /usr/redis</span><br><span class="line">cp src/redis-cli  /usr/redis</span><br><span class="line">cp redis.conf  /usr/redis</span><br></pre></td></tr></table></figure>
 <h3 id="3、配置Redis"><a href="#3、配置Redis" class="headerlink" title="3、配置Redis"></a>3、配置Redis</h3><pre><code>vim /usr/redis/redis.conf
-</code></pre><p>可参考<a href="http://blog.csdn.net/java2000_wl/article/details/8520593" target="_blank" rel="external">http://blog.csdn.net/java2000_wl/article/details/8520593</a></p>
+</code></pre><p>可参考<a href="http://blog.csdn.net/java2000_wl/article/details/8520593" target="_blank" rel="noopener">http://blog.csdn.net/java2000_wl/article/details/8520593</a></p>
 <p>按如下方式修改相关参数：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">端口默认：6379</div><div class="line">daemonize yes</div><div class="line">timeout 300</div><div class="line">tcp-keepalive 60</div></pre></td></tr></table></figure>
-<h3 id="4、启动Redis服务"><a href="#4、启动Redis服务" class="headerlink" title="4、启动Redis服务"></a>4、启动Redis服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/redis</div><div class="line">./redis-server redis.conf</div></pre></td></tr></table></figure>
-<h3 id="5、然后用客户端测试一下是否启动成功"><a href="#5、然后用客户端测试一下是否启动成功" class="headerlink" title="5、然后用客户端测试一下是否启动成功"></a>5、然后用客户端测试一下是否启动成功</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ./redis-cli</div><div class="line">$ redis&gt; <span class="built_in">set</span> “<span class="built_in">test</span>” “testredis”</div><div class="line">$ OK</div><div class="line">$ redis&gt; get “<span class="built_in">test</span>”</div><div class="line">$ <span class="string">" testredis "</span></div></pre></td></tr></table></figure>
-<h3 id="6-java客户端的使用"><a href="#6-java客户端的使用" class="headerlink" title="6.java客户端的使用"></a>6.java客户端的使用</h3><p>jar包下载地址：<a href="http://download.csdn.net/detail/kuailebeihun/8714073" target="_blank" rel="external">http://download.csdn.net/detail/kuailebeihun/8714073</a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.HashMap;  </div><div class="line"><span class="keyword">import</span> java.util.Map;  </div><div class="line"><span class="keyword">import</span> java.util.Set;  </div><div class="line"><span class="keyword">import</span> java.util.logging.Logger;  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> play.Play;  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;  </div><div class="line"><span class="keyword">import</span> redis.clients.jedis.JedisPool;  </div><div class="line"><span class="keyword">import</span> redis.clients.jedis.JedisPoolConfig;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * Redis工具类,用于获取RedisPool. 参考官网说明如下： You shouldn't use the same instance from different threads because you'll have strange errors. And sometimes creating lots of Jedis instances is not good enough because it means lots of sockets and connections, which leads to strange errors as well. A single Jedis instance is not threadsafe! To avoid these problems, you should use JedisPool, which is a threadsafe pool of network connections. This way you can overcome those strange errors and achieve great performance. To use it, init a pool: JedisPool pool = new JedisPool(new JedisPoolConfig(), "localhost"); You can store the pool somewhere statically, it is thread-safe. JedisPoolConfig includes a number of helpful Redis-specific connection pooling defaults. For example, Jedis with JedisPoolConfig will close a connection after 300 seconds if it has not been returned. </div><div class="line"> *  </div><div class="line"> * <span class="doctag">@author</span> bqwang </div><div class="line"> */  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JedisUtil</span> </span>&#123;  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 私有构造器. </div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">JedisUtil</span><span class="params">()</span> </span>&#123;  </div><div class="line">  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 获取连接池. </div><div class="line">     *  </div><div class="line">     * <span class="doctag">@return</span> 连接池实例 </div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> JedisPool <span class="title">getPool</span><span class="params">(String ip, <span class="keyword">int</span> port)</span> </span>&#123;  </div><div class="line">        JedisPool pool = <span class="keyword">null</span>;  </div><div class="line">        JedisPoolConfig config = <span class="keyword">new</span> JedisPoolConfig();  </div><div class="line">        config.setMaxIdle(Integer.parseInt(Play.configuration.getProperty(<span class="string">"redis.pool.maxIdle"</span>)));  </div><div class="line">        config.setMaxTotal(Integer.parseInt(Play.configuration.getProperty(<span class="string">"redis.pool.maxTotal"</span>)));  </div><div class="line">        config.setTestOnBorrow(Play.configuration.getProperty(<span class="string">"redis.pool.testOnBorrow"</span>) == <span class="string">"true"</span> ? <span class="keyword">true</span> : <span class="keyword">false</span>);  </div><div class="line">        config.setTestOnReturn(Play.configuration.getProperty(<span class="string">"redis.pool.testOnReturn"</span>) == <span class="string">"true"</span> ? <span class="keyword">true</span> : <span class="keyword">false</span>);  </div><div class="line">        <span class="keyword">try</span> &#123;  </div><div class="line">            <span class="comment">/** </span></div><div class="line">             * 如果你遇到 java.net.SocketTimeoutException: Read timed out exception的异常信息 请尝试在构造JedisPool的时候设置自己的超时值. JedisPool默认的超时时间是2秒(单位毫秒) </div><div class="line">             */  </div><div class="line">            pool = <span class="keyword">new</span> JedisPool(config, ip, port, Integer.parseInt(Play.configuration.getProperty(<span class="string">"redis.pool.timeout"</span>)));  </div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;  </div><div class="line">            System.out.println(<span class="string">"get pool:"</span> + e.getMessage() + <span class="string">"==&gt;"</span> + e.getCause().getMessage());  </div><div class="line">            e.printStackTrace();  </div><div class="line">        &#125; <span class="keyword">finally</span> &#123;  </div><div class="line">            System.out.println(<span class="string">"get pool 获取连接池....."</span>);  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">return</span> pool;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 类级的内部类，也就是静态的成员式内部类，该内部类的实例与外部类的实例 没有绑定关系，而且只有被调用到时才会装载，从而实现了延迟加载。 </div><div class="line">     */  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisUtilHolder</span> </span>&#123;  </div><div class="line">        <span class="comment">/** </span></div><div class="line">         * 静态初始化器，由JVM来保证线程安全 </div><div class="line">         */  </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> JedisUtil instance = <span class="keyword">new</span> JedisUtil();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 当getInstance方法第一次被调用的时候，它第一次读取 RedisUtilHolder.instance，导致RedisUtilHolder类得到初始化；而这个类在装载并被初始化的时候，会初始化它的静 态域，从而创建RedisUtil的实例，由于是静态的域，因此只会在虚拟机装载类的时候初始化一次，并由虚拟机来保证它的线程安全性。 这个模式的优势在于，getInstance方法并没有被同步，并且只是执行一个域的访问，因此延迟初始化并没有增加任何访问成本。 </div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> JedisUtil <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> RedisUtilHolder.instance;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 获取Redis实例. </div><div class="line">     *  </div><div class="line">     * <span class="doctag">@return</span> Redis工具类实例 </div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">public</span> Set&lt;String&gt; <span class="title">getJedisData</span><span class="params">(String key)</span> </span>&#123;  </div><div class="line">        Set&lt;String&gt; resultSet = <span class="keyword">null</span>;  </div><div class="line">        JedisPool pool = <span class="keyword">null</span>;  </div><div class="line">        Jedis jedis = <span class="keyword">null</span>;  </div><div class="line">        String ip = Play.configuration.getProperty(<span class="string">"redis.server.ip"</span>);  </div><div class="line">        <span class="keyword">int</span> port = Integer.parseInt(Play.configuration.getProperty(<span class="string">"redis.server.port"</span>));  </div><div class="line">        <span class="comment">// int retryTimes = Integer.parseInt(Play.configuration.getProperty("redis.pool.retryTimes"));  </span></div><div class="line">        <span class="comment">// int count = 0;  </span></div><div class="line">        <span class="comment">// count++;  </span></div><div class="line">        <span class="keyword">try</span> &#123;  </div><div class="line">            pool = getPool(ip, port);  </div><div class="line">            jedis = pool.getResource();  </div><div class="line">            resultSet = jedis.smembers(key);  </div><div class="line">            <span class="comment">// 清空redis中的消息  </span></div><div class="line">            jedis.del(key);  </div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;  </div><div class="line">            System.out.println(<span class="string">"get jedis:"</span> + e.getMessage() + <span class="string">"==&gt;"</span> + e.getCause().getMessage());  </div><div class="line">            e.printStackTrace();  </div><div class="line">        &#125; <span class="keyword">finally</span> &#123;  </div><div class="line">            <span class="comment">// 销毁对象  </span></div><div class="line">            System.out.println(<span class="string">"get Jedis ++++++ 销毁对象"</span>);  </div><div class="line">            <span class="keyword">if</span> (pool != <span class="keyword">null</span>) &#123;  </div><div class="line">                pool.returnBrokenResource(jedis);  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">return</span> resultSet;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">端口默认：6379</span><br><span class="line">daemonize yes</span><br><span class="line">timeout 300</span><br><span class="line">tcp-keepalive 60</span><br></pre></td></tr></table></figure>
+<h3 id="4、启动Redis服务"><a href="#4、启动Redis服务" class="headerlink" title="4、启动Redis服务"></a>4、启动Redis服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/redis</span><br><span class="line">./redis-server redis.conf</span><br></pre></td></tr></table></figure>
+<h3 id="5、然后用客户端测试一下是否启动成功"><a href="#5、然后用客户端测试一下是否启动成功" class="headerlink" title="5、然后用客户端测试一下是否启动成功"></a>5、然后用客户端测试一下是否启动成功</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ./redis-cli</span><br><span class="line">$ redis&gt; <span class="built_in">set</span> “<span class="built_in">test</span>” “testredis”</span><br><span class="line">$ OK</span><br><span class="line">$ redis&gt; get “<span class="built_in">test</span>”</span><br><span class="line">$ <span class="string">" testredis "</span></span><br></pre></td></tr></table></figure>
+<h3 id="6-java客户端的使用"><a href="#6-java客户端的使用" class="headerlink" title="6.java客户端的使用"></a>6.java客户端的使用</h3><p>jar包下载地址：<a href="http://download.csdn.net/detail/kuailebeihun/8714073" target="_blank" rel="noopener">http://download.csdn.net/detail/kuailebeihun/8714073</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;  </span><br><span class="line"><span class="keyword">import</span> java.util.Map;  </span><br><span class="line"><span class="keyword">import</span> java.util.Set;  </span><br><span class="line"><span class="keyword">import</span> java.util.logging.Logger;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> play.Play;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;  </span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.JedisPool;  </span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.JedisPoolConfig;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * Redis工具类,用于获取RedisPool. 参考官网说明如下： You shouldn't use the same instance from different threads because you'll have strange errors. And sometimes creating lots of Jedis instances is not good enough because it means lots of sockets and connections, which leads to strange errors as well. A single Jedis instance is not threadsafe! To avoid these problems, you should use JedisPool, which is a threadsafe pool of network connections. This way you can overcome those strange errors and achieve great performance. To use it, init a pool: JedisPool pool = new JedisPool(new JedisPoolConfig(), "localhost"); You can store the pool somewhere statically, it is thread-safe. JedisPoolConfig includes a number of helpful Redis-specific connection pooling defaults. For example, Jedis with JedisPoolConfig will close a connection after 300 seconds if it has not been returned. </span></span><br><span class="line"><span class="comment"> *  </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> bqwang </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JedisUtil</span> </span>&#123;  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 私有构造器. </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">JedisUtil</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 获取连接池. </span></span><br><span class="line"><span class="comment">     *  </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 连接池实例 </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> JedisPool <span class="title">getPool</span><span class="params">(String ip, <span class="keyword">int</span> port)</span> </span>&#123;  </span><br><span class="line">        JedisPool pool = <span class="keyword">null</span>;  </span><br><span class="line">        JedisPoolConfig config = <span class="keyword">new</span> JedisPoolConfig();  </span><br><span class="line">        config.setMaxIdle(Integer.parseInt(Play.configuration.getProperty(<span class="string">"redis.pool.maxIdle"</span>)));  </span><br><span class="line">        config.setMaxTotal(Integer.parseInt(Play.configuration.getProperty(<span class="string">"redis.pool.maxTotal"</span>)));  </span><br><span class="line">        config.setTestOnBorrow(Play.configuration.getProperty(<span class="string">"redis.pool.testOnBorrow"</span>) == <span class="string">"true"</span> ? <span class="keyword">true</span> : <span class="keyword">false</span>);  </span><br><span class="line">        config.setTestOnReturn(Play.configuration.getProperty(<span class="string">"redis.pool.testOnReturn"</span>) == <span class="string">"true"</span> ? <span class="keyword">true</span> : <span class="keyword">false</span>);  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * 如果你遇到 java.net.SocketTimeoutException: Read timed out exception的异常信息 请尝试在构造JedisPool的时候设置自己的超时值. JedisPool默认的超时时间是2秒(单位毫秒) </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            pool = <span class="keyword">new</span> JedisPool(config, ip, port, Integer.parseInt(Play.configuration.getProperty(<span class="string">"redis.pool.timeout"</span>)));  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;  </span><br><span class="line">            System.out.println(<span class="string">"get pool:"</span> + e.getMessage() + <span class="string">"==&gt;"</span> + e.getCause().getMessage());  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;  </span><br><span class="line">            System.out.println(<span class="string">"get pool 获取连接池....."</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> pool;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 类级的内部类，也就是静态的成员式内部类，该内部类的实例与外部类的实例 没有绑定关系，而且只有被调用到时才会装载，从而实现了延迟加载。 </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisUtilHolder</span> </span>&#123;  </span><br><span class="line">        <span class="comment">/** </span></span><br><span class="line"><span class="comment">         * 静态初始化器，由JVM来保证线程安全 </span></span><br><span class="line"><span class="comment">         */</span>  </span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> JedisUtil instance = <span class="keyword">new</span> JedisUtil();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 当getInstance方法第一次被调用的时候，它第一次读取 RedisUtilHolder.instance，导致RedisUtilHolder类得到初始化；而这个类在装载并被初始化的时候，会初始化它的静 态域，从而创建RedisUtil的实例，由于是静态的域，因此只会在虚拟机装载类的时候初始化一次，并由虚拟机来保证它的线程安全性。 这个模式的优势在于，getInstance方法并没有被同步，并且只是执行一个域的访问，因此延迟初始化并没有增加任何访问成本。 </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> JedisUtil <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">return</span> RedisUtilHolder.instance;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 获取Redis实例. </span></span><br><span class="line"><span class="comment">     *  </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Redis工具类实例 </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Set&lt;String&gt; <span class="title">getJedisData</span><span class="params">(String key)</span> </span>&#123;  </span><br><span class="line">        Set&lt;String&gt; resultSet = <span class="keyword">null</span>;  </span><br><span class="line">        JedisPool pool = <span class="keyword">null</span>;  </span><br><span class="line">        Jedis jedis = <span class="keyword">null</span>;  </span><br><span class="line">        String ip = Play.configuration.getProperty(<span class="string">"redis.server.ip"</span>);  </span><br><span class="line">        <span class="keyword">int</span> port = Integer.parseInt(Play.configuration.getProperty(<span class="string">"redis.server.port"</span>));  </span><br><span class="line">        <span class="comment">// int retryTimes = Integer.parseInt(Play.configuration.getProperty("redis.pool.retryTimes"));  </span></span><br><span class="line">        <span class="comment">// int count = 0;  </span></span><br><span class="line">        <span class="comment">// count++;  </span></span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            pool = getPool(ip, port);  </span><br><span class="line">            jedis = pool.getResource();  </span><br><span class="line">            resultSet = jedis.smembers(key);  </span><br><span class="line">            <span class="comment">// 清空redis中的消息  </span></span><br><span class="line">            jedis.del(key);  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;  </span><br><span class="line">            System.out.println(<span class="string">"get jedis:"</span> + e.getMessage() + <span class="string">"==&gt;"</span> + e.getCause().getMessage());  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;  </span><br><span class="line">            <span class="comment">// 销毁对象  </span></span><br><span class="line">            System.out.println(<span class="string">"get Jedis ++++++ 销毁对象"</span>);  </span><br><span class="line">            <span class="keyword">if</span> (pool != <span class="keyword">null</span>) &#123;  </span><br><span class="line">                pool.returnBrokenResource(jedis);  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> resultSet;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -426,18 +819,18 @@
 <p>设置环境变量：<br>vim /etc/profile</p>
 <p>在底部加入：</p>
 <p><strong>$set java environment</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=/usr/java/jdk1.7.0_71</div><div class="line">CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</div><div class="line">PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></div><div class="line"><span class="built_in">export</span> JAVA_HOME CLASSPATH PATH</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/java/jdk1.7.0_71</span><br><span class="line">CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br><span class="line">PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME CLASSPATH PATH</span><br></pre></td></tr></table></figure>
 <pre><code>vim /etc/profile.d/java.sh
 </code></pre><p>加入：</p>
 <p><strong>$set java environment</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=/usr/java/jdk1.7.0_71</div><div class="line">CLASSPATH=.:$JAVA_HOME/lib/tools.jar</div><div class="line">PATH=$JAVA_HOME/bin:$PATH</div><div class="line">export JAVA_HOME CLASSPATH PATH</div></pre></td></tr></table></figure>
-<h3 id="2-安装包准备"><a href="#2-安装包准备" class="headerlink" title="2. 安装包准备"></a>2. 安装包准备</h3><p>下载地址：<a href="http://download.csdn.net/detail/kuailebeihun/8318449" target="_blank" rel="external">http://download.csdn.net/detail/kuailebeihun/8318449</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tar -zxvf </div><div class="line">tar -zxvf nginx-1.7.8.tar.gz</div><div class="line">tar -zxvf openssl-1.0.0o.tar.gz </div><div class="line">tar -zxvf zlib-1.2.8.tar.gz</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/java/jdk1.7.0_71</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib/tools.jar</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export JAVA_HOME CLASSPATH PATH</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装包准备"><a href="#2-安装包准备" class="headerlink" title="2. 安装包准备"></a>2. 安装包准备</h3><p>下载地址：<a href="http://download.csdn.net/detail/kuailebeihun/8318449" target="_blank" rel="noopener">http://download.csdn.net/detail/kuailebeihun/8318449</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf </span><br><span class="line">tar -zxvf nginx-1.7.8.tar.gz</span><br><span class="line">tar -zxvf openssl-1.0.0o.tar.gz </span><br><span class="line">tar -zxvf zlib-1.2.8.tar.gz</span><br></pre></td></tr></table></figure>
 <p>先下载好zlib和openssl<br>编译nginx时，联合编译zlib和openssl</p>
-<h3 id="3-编译安装zlib"><a href="#3-编译安装zlib" class="headerlink" title="3. 编译安装zlib"></a>3. 编译安装zlib</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> zlib-1.2.8/</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
-<h3 id="4-编译安装openssl"><a href="#4-编译安装openssl" class="headerlink" title="4. 编译安装openssl"></a>4. 编译安装openssl</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> openssl-1.0.0o/</div><div class="line">./config</div><div class="line">make &amp;&amp; make install</div></pre></td></tr></table></figure>
-<h3 id="5-编译安装pcre"><a href="#5-编译安装pcre" class="headerlink" title="5. 编译安装pcre"></a>5. 编译安装pcre</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> pcre-8.12/</div><div class="line">./configure</div><div class="line">make &amp;&amp; make install</div></pre></td></tr></table></figure>
-<h3 id="6-联合编译安装nginx"><a href="#6-联合编译安装nginx" class="headerlink" title="6. 联合编译安装nginx"></a>6. 联合编译安装nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> nginx-1.7.8</div><div class="line">$ ./configure --user=nobody --group=nobody --prefix=/usr/<span class="built_in">local</span>/webserver/nginx --with-http_stub_status_module --with-http_ssl_module --with-pcre=/data/moa/pcre-8.12 --with-openssl=/data/moa/openssl-1.0.0o</div><div class="line">$ make</div><div class="line">$ make install</div></pre></td></tr></table></figure>
+<h3 id="3-编译安装zlib"><a href="#3-编译安装zlib" class="headerlink" title="3. 编译安装zlib"></a>3. 编译安装zlib</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> zlib-1.2.8/</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h3 id="4-编译安装openssl"><a href="#4-编译安装openssl" class="headerlink" title="4. 编译安装openssl"></a>4. 编译安装openssl</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> openssl-1.0.0o/</span><br><span class="line">./config</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h3 id="5-编译安装pcre"><a href="#5-编译安装pcre" class="headerlink" title="5. 编译安装pcre"></a>5. 编译安装pcre</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> pcre-8.12/</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h3 id="6-联合编译安装nginx"><a href="#6-联合编译安装nginx" class="headerlink" title="6. 联合编译安装nginx"></a>6. 联合编译安装nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> nginx-1.7.8</span><br><span class="line">$ ./configure --user=nobody --group=nobody --prefix=/usr/<span class="built_in">local</span>/webserver/nginx --with-http_stub_status_module --with-http_ssl_module --with-pcre=/data/moa/pcre-8.12 --with-openssl=/data/moa/openssl-1.0.0o</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
 <p>vi objs/Makefile</p>
 <pre><code>查找configure --disable-shared,在1158行,删除./configure --disable-shared, 保存
     :st nu可显示行号
@@ -447,13 +840,13 @@ make &amp;&amp; make install
 </code></pre><h3 id="7-nginx配置"><a href="#7-nginx配置" class="headerlink" title="7. nginx配置"></a>7. nginx配置</h3><pre><code>cd /usr/local/webserver/nginx/
 </code></pre><p>配置</p>
 <pre><code>vim conf/nginx.conf
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">gzip  on;</div><div class="line">	upstream  wplay &#123;</div><div class="line">	server 192.168.11.6:80;</div><div class="line">&#125;</div><div class="line">location / &#123;</div><div class="line">	proxy_pass http://wplay;</div><div class="line">	proxy_redirect     off;</div><div class="line">	proxy_set_header   Host             $host;</div><div class="line">	proxy_set_header   X-Real-IP        $remote_addr;</div><div class="line">	proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;</div><div class="line">	proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;</div><div class="line">	proxy_max_temp_file_size 0;</div><div class="line">	proxy_connect_timeout      90;</div><div class="line">	proxy_send_timeout         90;</div><div class="line">	proxy_read_timeout         90;</div><div class="line">	proxy_buffer_size          4k;</div><div class="line">	proxy_buffers              4 32k;</div><div class="line">	proxy_busy_buffers_size    64k;</div><div class="line">	proxy_temp_file_write_size 64k;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="8-启动、重启命令"><a href="#8-启动、重启命令" class="headerlink" title="8.启动、重启命令"></a>8.启动、重启命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ..</div><div class="line"><span class="built_in">cd</span> sbin/</div><div class="line">./nginx</div></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">gzip  on;</span><br><span class="line">	upstream  wplay &#123;</span><br><span class="line">	server 192.168.11.6:80;</span><br><span class="line">&#125;</span><br><span class="line">location / &#123;</span><br><span class="line">	proxy_pass http://wplay;</span><br><span class="line">	proxy_redirect     off;</span><br><span class="line">	proxy_set_header   Host             $host;</span><br><span class="line">	proxy_set_header   X-Real-IP        $remote_addr;</span><br><span class="line">	proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">	proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;</span><br><span class="line">	proxy_max_temp_file_size 0;</span><br><span class="line">	proxy_connect_timeout      90;</span><br><span class="line">	proxy_send_timeout         90;</span><br><span class="line">	proxy_read_timeout         90;</span><br><span class="line">	proxy_buffer_size          4k;</span><br><span class="line">	proxy_buffers              4 32k;</span><br><span class="line">	proxy_busy_buffers_size    64k;</span><br><span class="line">	proxy_temp_file_write_size 64k;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-启动、重启命令"><a href="#8-启动、重启命令" class="headerlink" title="8.启动、重启命令"></a>8.启动、重启命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cd</span> sbin/</span><br><span class="line">./nginx</span><br></pre></td></tr></table></figure>
 <p>重启</p>
 <pre><code>nginx -s reload
 </code></pre><h3 id="9-参考资料"><a href="#9-参考资料" class="headerlink" title="9. 参考资料"></a>9. 参考资料</h3><ul>
-<li><a href="http://blog.csdn.net/superbirds/article/details/7290504" target="_blank" rel="external">http://blog.csdn.net/superbirds/article/details/7290504</a></li>
-<li><a href="http://www.bananawolf.com/html/2012/09/831.html" target="_blank" rel="external">http://www.bananawolf.com/html/2012/09/831.html</a></li>
+<li><a href="http://blog.csdn.net/superbirds/article/details/7290504" target="_blank" rel="noopener">http://blog.csdn.net/superbirds/article/details/7290504</a></li>
+<li><a href="http://www.bananawolf.com/html/2012/09/831.html" target="_blank" rel="noopener">http://www.bananawolf.com/html/2012/09/831.html</a></li>
 </ul>
 
       
@@ -486,319 +879,6 @@ make &amp;&amp; make install
 
 
   
-    <article id="post-Linux-NFS-mount" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Linux-NFS-mount/">Linux(SUSE) NFS mount挂载</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>被mount的机器（服务机）10.10.10.209</p>
-<h4 id="1-创建共享文件夹-data-attachment"><a href="#1-创建共享文件夹-data-attachment" class="headerlink" title="1 创建共享文件夹/data/attachment"></a>1 创建共享文件夹/data/attachment</h4><h4 id="2-修改-etc-exports，加入"><a href="#2-修改-etc-exports，加入" class="headerlink" title="2 修改/etc/exports，加入"></a>2 修改/etc/exports，加入</h4><p>/data/attachments 10.10.10.207(rw,no_root_squash,sync,insecure)</p>
-<p>多个服务器如下：</p>
-<p>/data/attachments 10.10.10.207(rw,no_root_squash,sync,insecure) 10.10.10.208(rw,no_root_squash,sync,insecure)</p>
-<h4 id="3-重启相关服务（顺序按下面的进行）"><a href="#3-重启相关服务（顺序按下面的进行）" class="headerlink" title="3 重启相关服务（顺序按下面的进行）"></a>3 重启相关服务（顺序按下面的进行）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">service rpcbind stop</div><div class="line">service nfsserver stop</div><div class="line">service rpcbind start</div><div class="line">service nfsserver start</div></pre></td></tr></table></figure>
-<p>mount的机器（客户机）10.10.10.207</p>
-<ul>
-<li><p>1 创建文件夹/data/attachment</p>
-</li>
-<li><p>2 修改/etc/fstab，加入<br>10.10.103.209:/data/attachments /data/attachments    nfs    defaults       0 0</p>
-</li>
-<li><p>3 输入mount -a 使其生效</p>
-</li>
-<li><p>4 测试–&gt;输入：showmount -e 10.10.103.209，查看本机的共享目录<br>如果输出：<br>Export list for 10.10.103.209:<br>/data/attachments *<br>则测试成功</p>
-</li>
-</ul>
-<h4 id="整体测试"><a href="#整体测试" class="headerlink" title="整体测试"></a>整体测试</h4><p>在服务机/data/attachment下创建文件，如果在客户机下同样目录下出现次文件，说明成功</p>
-<p>参考资料</p>
-<ul>
-<li><a href="http://www.linuxidc.com/Linux/2014-01/95507.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-01/95507.htm</a></li>
-<li><a href="http://blog.csdn.net/liangziyisheng/article/details/10705449" target="_blank" rel="external">http://blog.csdn.net/liangziyisheng/article/details/10705449</a></li>
-<li><a href="http://blog.csdn.net/demo_deng/article/details/9568927" target="_blank" rel="external">http://blog.csdn.net/demo_deng/article/details/9568927</a></li>
-<li><a href="http://www.2cto.com/os/201201/116103.html" target="_blank" rel="external">http://www.2cto.com/os/201201/116103.html</a></li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/Linux-NFS-mount/" class="archive-article-date">
-  	<time datetime="2015-01-01T00:55:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-01-01</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NFS/">NFS</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Sencha-multi-langs" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Sencha-multi-langs/">Sencha实现国际化，JS动态加载js、css文件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>新建文件messages_en.js和messages_zh_CN.js文件；</li>
-<li>文件中定义js全局变量 var Messages = {};<br>例：messages_zh_CN.js文件  Messages = {“title”:“标题”};<br>message_en.js文件  Messages = {“title”:“title”};</li>
-<li><p>在Sencha应用入口launch : function(){}中，先获取用户的语言，然后通过不同的语言去加载不同的JS文件；</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**  </span></div><div class="line">     * 动态加载文件 </div><div class="line">     * @param fileName 文件名(包含后缀名) </div><div class="line">     *      .js:放在js文件夹下;.css:放在css文件夹下 </div><div class="line">     * @param 回调 </div><div class="line">     */  </div><div class="line">    loadJSCSSFile : <span class="function"><span class="keyword">function</span>(<span class="params">fileName, callback</span>)</span>&#123;  </div><div class="line">        <span class="keyword">var</span> fileref = <span class="literal">null</span>;  </div><div class="line">        <span class="keyword">var</span> arr = fileName.split(<span class="string">'.'</span>);  </div><div class="line">        <span class="keyword">switch</span>(arr[arr.length - <span class="number">1</span>]) &#123;  </div><div class="line">        <span class="keyword">case</span> <span class="string">'js'</span>:  </div><div class="line">            fileref = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);  </div><div class="line">            fileref.setAttribute(<span class="string">'type'</span>, <span class="string">'text/javascript'</span>);  </div><div class="line">            fileref.setAttribute(<span class="string">'src'</span>, <span class="string">'js/'</span> + fileName);  </div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">        <span class="keyword">case</span> <span class="string">'css'</span>:  </div><div class="line">            fileref = <span class="built_in">document</span>.createElement(<span class="string">'link'</span>);  </div><div class="line">            fileref.setAttribute(<span class="string">'rel'</span>, <span class="string">'stylesheet'</span>);  </div><div class="line">            fileref.setAttribute(<span class="string">'type'</span>, <span class="string">'text/css'</span>);  </div><div class="line">            fileref.setAttribute(<span class="string">'herf'</span>, <span class="string">'css/'</span> + fileName);  </div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">if</span>(fileref != <span class="literal">null</span>) &#123;  </div><div class="line">            <span class="keyword">if</span> (fileref.readyState) &#123; <span class="comment">// IE  </span></div><div class="line">                fileref.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">                    <span class="keyword">if</span> (fileref.readyState == <span class="string">'loaded'</span> || fileref.readyState == <span class="string">'complete'</span>) &#123;  </div><div class="line">                        fileref.onreadystatechange = <span class="literal">null</span>;  </div><div class="line">                        callback();  </div><div class="line">                    &#125;  </div><div class="line">                &#125;;  </div><div class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">// Others: Firefox, Safari, Chrome, and Opera  </span></div><div class="line">                fileref.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">                    callback();  </div><div class="line">                &#125;;  </div><div class="line">            &#125;  </div><div class="line">            <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(fileref);  </div><div class="line">        &#125;  </div><div class="line">    &#125;,</div></pre></td></tr></table></figure>
-</li>
-<li><p>需要国际化的文字都在文件中以(key, value)的形式保存，用的时候，直接Messages.title</p>
-</li>
-</ol>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/Sencha-multi-langs/" class="archive-article-date">
-  	<time datetime="2015-01-01T00:22:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-01-01</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sencha/">Sencha</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-SOP-in-Java-JS" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/SOP-in-Java-JS/">JAVA调用https, JS跨域请求，客户端解决JS跨域问题, SOP</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>同源协议 (SOP,Same-Origin-Policy)</code> 可防止从一个来源加载的脚本获取或操纵来自另一来源的文档的属性或方法。术语来源 是域名、应用程序协议和运行脚本文档的端口的结合。可能存在关于 SOP 概念的一些误解；SOP 指只能从站点 A、不能从站点 B 获取信息。您需要知道在 SOP 限制下可以做什么，不可以做什么。</p>
-<h3 id="1-JAVA-https请求"><a href="#1-JAVA-https请求" class="headerlink" title="1.JAVA https请求"></a>1.JAVA https请求</h3><p>在做微信服务号的时候出现的问题，解决方法：自定义证书管理器。证书管理器的作用就是让它信任我们指定的证书，意味着信任所有证书，不管是否权威机构颁发，证书有了，通用的https请求方法就不难实现了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.qq.weixin.util;  </div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;  </div><div class="line"><span class="keyword">import</span> java.io.InputStream;  </div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;  </div><div class="line"><span class="keyword">import</span> java.io.OutputStream;  </div><div class="line"><span class="keyword">import</span> java.net.URL;  </div><div class="line"><span class="keyword">import</span> java.security.cert.CertificateException;  </div><div class="line"><span class="keyword">import</span> java.security.cert.X509Certificate;  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> javax.net.ssl.HttpsURLConnection;  </div><div class="line"><span class="keyword">import</span> javax.net.ssl.SSLContext;  </div><div class="line"><span class="keyword">import</span> javax.net.ssl.SSLSocketFactory;  </div><div class="line"><span class="keyword">import</span> javax.net.ssl.TrustManager;  </div><div class="line"><span class="keyword">import</span> javax.net.ssl.X509TrustManager;  </div><div class="line">    </div><div class="line"><span class="comment">/**  </span></div><div class="line"> * 公众平台通用接口工具类  </div><div class="line"> *  from==&gt; </div><div class="line"> *      shttp://blog.csdn.net/lyq8479/article/details/9841371 </div><div class="line"> * <span class="doctag">@author</span> liuyq  </div><div class="line"> * <span class="doctag">@date</span> 2013-08-09  </div><div class="line"> */    </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WXHttpUtil</span> </span>&#123;    </div><div class="line">      </div><div class="line">    <span class="comment">/**  </span></div><div class="line">     * 发起https请求并获取结果  </div><div class="line">     *   </div><div class="line">     * <span class="doctag">@param</span> requestUrl 请求地址  </div><div class="line">     * <span class="doctag">@param</span> requestMethod 请求方式（GET、POST）  </div><div class="line">     * <span class="doctag">@param</span> outputStr 提交的数据  </div><div class="line">     * <span class="doctag">@return</span> String  </div><div class="line">     */    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">httpsRequest</span><span class="params">(String requestUrl, String requestMethod, String outputStr)</span> <span class="keyword">throws</span> Exception </span>&#123;    </div><div class="line">        StringBuffer buffer = <span class="keyword">new</span> StringBuffer();    </div><div class="line">        <span class="comment">// 创建SSLContext对象，并使用我们指定的信任管理器初始化    </span></div><div class="line">        TrustManager[] tm = &#123; <span class="keyword">new</span> MyX509TrustManager() &#125;;    </div><div class="line">        SSLContext sslContext = SSLContext.getInstance(<span class="string">"SSL"</span>, <span class="string">"SunJSSE"</span>);    </div><div class="line">        sslContext.init(<span class="keyword">null</span>, tm, <span class="keyword">new</span> java.security.SecureRandom());    </div><div class="line">        <span class="comment">// 从上述SSLContext对象中得到SSLSocketFactory对象    </span></div><div class="line">        SSLSocketFactory ssf = sslContext.getSocketFactory();    </div><div class="line">          </div><div class="line">        URL url = <span class="keyword">new</span> URL(requestUrl);    </div><div class="line">        HttpsURLConnection httpUrlConn = (HttpsURLConnection) url.openConnection();    </div><div class="line">        httpUrlConn.setSSLSocketFactory(ssf);    </div><div class="line">          </div><div class="line">        httpUrlConn.setDoOutput(<span class="keyword">true</span>);    </div><div class="line">        httpUrlConn.setDoInput(<span class="keyword">true</span>);    </div><div class="line">        httpUrlConn.setUseCaches(<span class="keyword">false</span>);    </div><div class="line">        <span class="comment">// 设置请求方式（GET/POST）    </span></div><div class="line">        httpUrlConn.setRequestMethod(requestMethod);    </div><div class="line">          </div><div class="line">        <span class="keyword">if</span> (<span class="string">"GET"</span>.equalsIgnoreCase(requestMethod))    </div><div class="line">            httpUrlConn.connect();    </div><div class="line">          </div><div class="line">        <span class="comment">// 当有数据需要提交时    </span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != outputStr) &#123;  </div><div class="line">            OutputStream outputStream = httpUrlConn.getOutputStream();    </div><div class="line">            <span class="comment">// 注意编码格式，防止中文乱码    </span></div><div class="line">            outputStream.write(outputStr.getBytes(<span class="string">"UTF-8"</span>));    </div><div class="line">            outputStream.close();    </div><div class="line">        &#125;    </div><div class="line">          </div><div class="line">        <span class="comment">// 将返回的输入流转换成字符串    </span></div><div class="line">        InputStream inputStream = httpUrlConn.getInputStream();    </div><div class="line">        InputStreamReader inputStreamReader = <span class="keyword">new</span> InputStreamReader(inputStream, <span class="string">"utf-8"</span>);    </div><div class="line">        BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(inputStreamReader);    </div><div class="line">          </div><div class="line">        String str = <span class="keyword">null</span>;    </div><div class="line">        <span class="keyword">while</span> ((str = bufferedReader.readLine()) != <span class="keyword">null</span>) &#123;    </div><div class="line">            buffer.append(str);    </div><div class="line">        &#125;    </div><div class="line">        bufferedReader.close();    </div><div class="line">        inputStreamReader.close();    </div><div class="line">        <span class="comment">// 释放资源    </span></div><div class="line">        inputStream.close();    </div><div class="line">        inputStream = <span class="keyword">null</span>;    </div><div class="line">        httpUrlConn.disconnect();   </div><div class="line">        String result = buffer.toString();  </div><div class="line">        System.out.println(<span class="string">"请求结果==&gt;"</span> + result);  </div><div class="line">        <span class="keyword">return</span> result;    </div><div class="line">    &#125;    </div><div class="line">      </div><div class="line">    <span class="comment">/**  </span></div><div class="line">     * 证书信任管理器（用于https请求）  </div><div class="line">     *   </div><div class="line">     * <span class="doctag">@author</span> liufeng  </div><div class="line">     * <span class="doctag">@date</span> 2013-08-08  </div><div class="line">     */    </div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyX509TrustManager</span> <span class="keyword">implements</span> <span class="title">X509TrustManager</span> </span>&#123;    </div><div class="line">        </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkClientTrusted</span><span class="params">(X509Certificate[] chain, String authType)</span> <span class="keyword">throws</span> CertificateException </span>&#123;    </div><div class="line">        &#125;    </div><div class="line">        </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkServerTrusted</span><span class="params">(X509Certificate[] chain, String authType)</span> <span class="keyword">throws</span> CertificateException </span>&#123;    </div><div class="line">        &#125;    </div><div class="line">        </div><div class="line">        <span class="keyword">public</span> X509Certificate[] getAcceptedIssuers() &#123;    </div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;    </div><div class="line">        &#125;    </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-JS跨域请求"><a href="#2-JS跨域请求" class="headerlink" title="2. JS跨域请求"></a>2. JS跨域请求</h3><p>在网上看了好多方法:</p>
-<ul>
-<li>1）iframe</li>
-<li>2）document.domain</li>
-<li>3）window.name</li>
-<li>4）script</li>
-<li>5）XDomainRequest (IE8+)</li>
-<li>6）XMLHTTPRequest (Firefox3.5+)</li>
-<li>7）postMessage (HTML5)</li>
-<li>8）后台代理</li>
-</ul>
-<p><strong>本文此处讲解一下JsonP的处理注意事项</strong></p>
-<p>JSONP的实现思路很简单</p>
-<ul>
-<li>1）前端创建script标记，设置src，添加到head中（你可以往body中添加）；</li>
-<li>2）后台返回一个js变量jsonp，这个jsonp就是请求后的JSON数据；</li>
-<li>3）回调完成后删除script标记（还有一些清理工作如避免部分浏览器内存泄露等）。</li>
-</ul>
-<p>客户端直接使用JsonP请求：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;    </div><div class="line">        <span class="attr">url</span>:<span class="string">"http://crossdomain.com/services.php"</span>,    </div><div class="line">        <span class="attr">dataType</span>:<span class="string">'jsonp'</span>,    </div><div class="line">        <span class="attr">data</span>:<span class="string">''</span>,    </div><div class="line">        <span class="attr">jsonp</span>:<span class="string">'callback'</span>,    </div><div class="line">        <span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;    </div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> result) &#123;    </div><div class="line">                alert(i+<span class="string">":"</span>+result[i]);<span class="comment">//循环输出a:1,b:2,etc.    </span></div><div class="line">            &#125;    </div><div class="line">        &#125;,    </div><div class="line">        <span class="attr">timeout</span>:<span class="number">3000</span>    </div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-<p>服务器端处理：(Play Framework写的服务器)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String callback = request.params.get(<span class="string">"callback"</span>);  </div><div class="line">String result = callback + <span class="string">"("</span> + JSON.toJSONString(dataMap) + <span class="string">")"</span>;  </div><div class="line">renderText(result);</div></pre></td></tr></table></figure>
-<p>返回时数据用callback+()包上。</p>
-<h3 id="3-利用客户端解决方案改进跨域通信"><a href="#3-利用客户端解决方案改进跨域通信" class="headerlink" title="3. 利用客户端解决方案改进跨域通信"></a>3. 利用客户端解决方案改进跨域通信</h3><p><a href="http://www.ibm.com/developerworks/cn/web/wa-crossdomaincomm/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/web/wa-crossdomaincomm/</a></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/SOP-in-Java-JS/" class="archive-article-date">
-  	<time datetime="2014-11-12T01:25:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2014-11-12</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Play/">Play</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-ViewPage-in-ScrollView" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Android-ViewPage-in-ScrollView/">ScrollView内嵌ViewPager导致ViewPager滑动困难问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>解决方式：重写ScrollView，然后在xml中定义布局的时候，使用自定义的PagerScrollView而不是系统的ScrollView即可。</p>
-<p>重点在于重写父类的<code>onInterceptTouchEvent</code>方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.content.Context;  </div><div class="line"><span class="keyword">import</span> android.util.AttributeSet;  </div><div class="line"><span class="keyword">import</span> android.view.GestureDetector;  </div><div class="line"><span class="keyword">import</span> android.view.GestureDetector.SimpleOnGestureListener;  </div><div class="line"><span class="keyword">import</span> android.view.MotionEvent;  </div><div class="line"><span class="keyword">import</span> android.widget.ScrollView;  </div><div class="line">  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PagerScrollView</span> <span class="keyword">extends</span> <span class="title">ScrollView</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="keyword">private</span> GestureDetector mGestureDetector;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PagerScrollView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyle)</span> </span>&#123;  </div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyle);  </div><div class="line">        init();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PagerScrollView</span><span class="params">(Context context)</span> </span>&#123;  </div><div class="line">        <span class="keyword">super</span>(context);  </div><div class="line">        init();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PagerScrollView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;  </div><div class="line">        <span class="keyword">super</span>(context, attrs);  </div><div class="line">        init();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;  </div><div class="line">        mGestureDetector = <span class="keyword">new</span> GestureDetector(getContext(),  </div><div class="line">                <span class="keyword">new</span> YScrollDetector());  </div><div class="line">        setFadingEdgeLength(<span class="number">0</span>);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onInterceptTouchEvent(ev)  </div><div class="line">                &amp;&amp; mGestureDetector.onTouchEvent(ev);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">YScrollDetector</span> <span class="keyword">extends</span> <span class="title">SimpleOnGestureListener</span> </span>&#123;  </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onScroll</span><span class="params">(MotionEvent e1, MotionEvent e2,  </span></span></div><div class="line">                <span class="keyword">float</span> distanceX, <span class="keyword">float</span> distanceY) &#123;  </div><div class="line">              </div><div class="line">            <span class="keyword">if</span> (Math.abs(distanceY) &gt;= Math.abs(distanceX)) &#123;  </div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;  </div><div class="line">            &#125;  </div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/Android-ViewPage-in-ScrollView/" class="archive-article-date">
-  	<time datetime="2014-08-08T12:08:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2014-08-08</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-Manage-Activity-Service" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Android-Manage-Activity-Service/">Android自己管理Activity和Service</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>在一些特殊情况下，我们需要对Activity Task进行管理。</p>
-</blockquote>
-<p>当然，我们最好还是不要自己去控制，以免发生一些不必要的麻烦。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.anjoyo.musicplayer.util;  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> java.util.List;  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> android.app.ActivityManager;  </div><div class="line"><span class="keyword">import</span> android.content.ComponentName;  </div><div class="line"><span class="keyword">import</span> android.content.Context;  </div><div class="line">  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContextManagerUtil</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="comment">/**  </span></div><div class="line">     * <span class="doctag">@param</span> context 上下文 </div><div class="line">     * <span class="doctag">@param</span> className 服务类的名称 </div><div class="line">     * <span class="doctag">@return</span> 返回服务是否还在后台运行 </div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isServiceRunning</span><span class="params">(Context context,Class&lt;?&gt; obj)</span> </span>&#123;  </div><div class="line">  </div><div class="line">        <span class="keyword">boolean</span> isRunning = <span class="keyword">false</span>;  </div><div class="line">        ActivityManager activityManager = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);   </div><div class="line">        List&lt;ActivityManager.RunningServiceInfo&gt; serviceList = activityManager.getRunningServices(<span class="number">30</span>);  </div><div class="line">  </div><div class="line">        <span class="keyword">if</span> (!(serviceList.size()&gt;<span class="number">0</span>)) &#123;  </div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;  </div><div class="line">        &#125;  </div><div class="line">  </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;serviceList.size(); i++) &#123;  </div><div class="line">            <span class="keyword">if</span> (serviceList.get(i).service.getClassName().equals(obj.getName()) == <span class="keyword">true</span>) &#123;  </div><div class="line">                isRunning = <span class="keyword">true</span>;  </div><div class="line">                <span class="keyword">break</span>;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">return</span> isRunning;  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">    <span class="comment">/**  </span></div><div class="line">     * 返回本程序中Task中顶端的Activity </div><div class="line">     * <span class="doctag">@param</span> context </div><div class="line">     * <span class="doctag">@return</span>  </div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ComponentName <span class="title">getTopActivity</span><span class="params">(Context context)</span> </span>&#123;  </div><div class="line">        <span class="comment">//需要android.permission.GET_TASKS权限  </span></div><div class="line">        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);  </div><div class="line">        <span class="keyword">int</span> maxNum = <span class="number">10</span>;<span class="comment">//获取的正在运行的activity的最大数量  </span></div><div class="line">        List&lt;ActivityManager.RunningTaskInfo&gt; runningTasks = activityManager.getRunningTasks(maxNum);  </div><div class="line">        <span class="keyword">for</span> (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) &#123;  </div><div class="line">            ComponentName componentName = runningTaskInfo.topActivity;  </div><div class="line">            <span class="keyword">if</span> (componentName != <span class="keyword">null</span> &amp;&amp; componentName.getClassName().startsWith(<span class="string">"com.anjoyo.musicplayer"</span>)) &#123;  </div><div class="line">                <span class="keyword">return</span> componentName;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">      </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/Android-Manage-Activity-Service/" class="archive-article-date">
-  	<time datetime="2014-07-25T00:56:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2014-07-25</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -811,7 +891,7 @@ make &amp;&amp; make install
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Skyler Hu
+    		&copy; 2019 Skyler Hu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -894,7 +974,7 @@ var _hmt = _hmt || [];
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 12.5px;">MQTT</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 15px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 12.5px;">Shadowsocks</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPN-Liunx/" style="font-size: 10px;">VPN, Liunx</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 12.5px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a>
     			</div>
     	</section>
     
